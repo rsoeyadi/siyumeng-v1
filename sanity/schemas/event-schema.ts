@@ -27,6 +27,11 @@ const event = {
             type: 'date',
         },
         {
+            name: 'time',
+            title: 'Time (ex. 3:00 PM - 4:00 PM EST)',
+            type: 'string',
+        },
+        {
             name: 'location',
             title: 'Location/address',
             type: 'string',

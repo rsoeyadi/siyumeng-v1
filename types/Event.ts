@@ -5,6 +5,7 @@ export type Event = {
     link?: string;
     imageUrl: string;
     date: Date;
+    time: string;
     location: string;
     description: PortableTextBlock[];
 }

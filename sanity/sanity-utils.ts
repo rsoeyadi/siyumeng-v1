@@ -62,6 +62,7 @@ export async function getEvents(): Promise<Event[]> {
             "image": image.asset->url,
             location,
             dates,
+            time,
             description,
         }`
     )
