@@ -1,6 +1,6 @@
 import { PortableTextBlock } from "sanity";
 
-export type job = {
+export type Job = {
     company: string;
     imageUrl: string;
     description: PortableTextBlock[];

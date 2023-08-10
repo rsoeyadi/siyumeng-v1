@@ -1,6 +1,6 @@
 import { PortableTextBlock } from "sanity";
 
-export type event = {
+export type Event = {
     name: string;
     link?: string;
     imageUrl: string;
