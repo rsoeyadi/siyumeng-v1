@@ -12,14 +12,14 @@ import { SocialMediaLink } from "@/types/SocialMediaLink";
 
 export async function getBiography(): Promise<Biography> {
     return createClient(clientConfig).fetch(
-        groq`*[_type == "biography"][0]{
+        groq`*[_type == "biography"][0] {
             _id,
             _createAt,
+            "image": image.asset->url,
             content
         }`
     )
 }
-
 export async function getChamberPieces(): Promise<ChamberPiece[]> {
     return createClient(clientConfig).fetch(
         groq`*[_type == "chamberPiece"]{
@@ -59,7 +59,7 @@ export async function getEvents(): Promise<Event[]> {
             _createAt,
             name,
             link,
-            image": image.asset->url,
+            "image": image.asset->url,
             location,
             dates,
             description,
@@ -82,7 +82,7 @@ export async function getGalleryImages(): Promise<GalleryImage[]> {
         groq`*[_type == "link"]{
             _id,
             _createAt,
-            image": image.asset->url,
+            "image": image.asset->url,
         }`
     )
 }
