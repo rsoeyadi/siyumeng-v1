@@ -88,7 +88,7 @@ export async function getGalleryImages(): Promise<GalleryImage[]> {
     )
 }
 
-export async function getIndexPageImage(): Promise<IndexPageImage> {
+export function getIndexPageImage() {
     return createClient(clientConfig).fetch(
         groq`*[_type == "indexPageImage"][0]{
             _id,

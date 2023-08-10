@@ -3,7 +3,7 @@ import { PortableTextBlock } from "sanity";
 export type Event = {
     name: string;
     link?: string;
-    imageUrl: string;
+    image: string;
     date: Date;
     time: string;
     location: string;
