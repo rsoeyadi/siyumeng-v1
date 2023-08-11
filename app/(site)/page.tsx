@@ -1,8 +1,5 @@
 "use client";
 import { getIndexPageImage } from "@/sanity/sanity-utils";
-import Image from "next/image";
-import { PortableText } from "@portabletext/react";
-import { use } from "react";
 import useSWR from "swr";
 
 export default function Home() {
@@ -10,6 +7,7 @@ export default function Home() {
     "indexPageImage",
     getIndexPageImage
   );
+  
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
@@ -25,3 +23,5 @@ export default function Home() {
 
   return <div style={backgroundImageStyle}></div>;
 }
+
+
