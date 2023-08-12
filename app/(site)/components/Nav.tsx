@@ -1,5 +1,6 @@
 "use client";
 import { Spiral as Hamburger } from "hamburger-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Nav() {
@@ -41,7 +42,9 @@ export default function Nav() {
         <ul className="text-right">
           {pages.map((page) => (
             <li key={page.route} className="pb-5">
-              <p className="text-2xl">{page.title}</p>
+              <p className="text-2xl">
+                <Link href={page.route}>{page.title}</Link>
+              </p>
             </li>
           ))}
         </ul>

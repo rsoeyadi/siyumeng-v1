@@ -32,7 +32,7 @@ export default function Home() {
 
       {/* Background Image Section */}
       <div
-        className="h-[90vh] lg:h-[100vh] background-image"
+        className="h-[90vh] landscape-xs:h-[100vh] lg:h-[100vh] background-image"
         style={{
           ...backgroundImageStyle,
         }}
