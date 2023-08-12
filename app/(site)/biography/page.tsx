@@ -28,7 +28,7 @@ export default function Home() {
           }}
         >
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="text-white text-4xl font-bold uppercase text-center">
+            <div className="text-white text-4xl font-bold uppercase">
               Biography
             </div>
           </div>

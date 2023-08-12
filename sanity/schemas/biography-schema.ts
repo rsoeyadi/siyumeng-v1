@@ -12,6 +12,12 @@ const biography = {
             }
         },
         {
+            name: "blockImages",
+            title: "Square Photos",
+            type: "array",
+            of: [{ type: "image" }]
+        },
+        {
             name: "content",
             title: "Content",
             type: "array",
