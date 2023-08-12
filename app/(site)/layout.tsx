@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["cyrillic"],
-  weight: "300",
+  weight: ["300", "700"],
 });
 
 export default function RootLayout({

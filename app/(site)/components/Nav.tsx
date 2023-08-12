@@ -28,7 +28,7 @@ export default function Nav() {
   return (
     <div className="lg:hidden landscape-xs:hidden">
       <div className="block bg-slate-100 w-screen top-0 left-0 h-20">
-        <p className="text-2xl pt-5 pl-5">SIYUMENG WANG</p>
+        <p className="text-2xl pt-5 pl-5 text-rose-600 font-bold">SIYUMENG WANG</p>
         <div className="absolute top-3 right-3 z-50">
           <Hamburger toggled={isOpen} toggle={setOpen} />
         </div>
