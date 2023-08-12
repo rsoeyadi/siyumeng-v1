@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "Born in Beijing, China, 25-year-old pianist Siyumeng Wang is a rising young artist in constant demand known for her charm and charismatic performances.",
 };
 
-export const cormorantGaramond = Cormorant_Garamond({
+const cormorantGaramond = Cormorant_Garamond({
   subsets: ["cyrillic"],
   weight: "300",
 });
