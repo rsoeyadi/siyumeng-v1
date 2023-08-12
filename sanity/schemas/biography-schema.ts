@@ -12,10 +12,20 @@ const biography = {
             }
         },
         {
-            name: "blockImages",
-            title: "Square Photos",
-            type: "array",
-            of: [{ type: "image" }]
+            name: 'blockImage1',
+            title: 'Square Image 1',
+            type: 'image',
+            options: {
+                hotspot: true,
+            }
+        },
+         {
+            name: 'blockImage2',
+            title: 'Square Image 2',
+            type: 'image',
+            options: {
+                hotspot: true,
+            }
         },
         {
             name: "content",
