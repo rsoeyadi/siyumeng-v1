@@ -32,14 +32,14 @@ export default function Home() {
 
       {/* Background Image Section */}
       <div
-        className="h-[100vh] background-image"
+        className="h-[90vh] lg:h-[100vh] background-image"
         style={{
           ...backgroundImageStyle,
         }}
       >
         {/* Text Content */}
         <div
-          className="text-white text-center mb-[15vh] text-content"
+          className="text-white text-center mb-[15vh] md:mb-[9vh] text-content"
           style={{ position: "relative", zIndex: 1 }}
         >
           <p className="text-2xl px-2 text-white font-bold uppercase name">
