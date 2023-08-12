@@ -4,7 +4,10 @@
 
 * {
     color: black;
-    
+}
+
+p {
+    margin-bottom: 1em;
 }
 
 body {

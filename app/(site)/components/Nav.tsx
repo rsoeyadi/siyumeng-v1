@@ -31,7 +31,7 @@ export default function Nav() {
 
   return (
     <div className="lg:hidden landscape-xs:hidden">
-      <div className="block bg-slate-100 w-screen top-0 left-0 h-20">
+      <div className="block w-screen top-0 left-0 h-20">
         <p className="text-2xl pt-5 pl-5 text-rose-600 font-bold">
           SIYUMENG WANG
         </p>
@@ -41,7 +41,7 @@ export default function Nav() {
       </div>
       <div
         className={`
-    overflow-y-scroll overflow-x-hidden top-20 bottom-0 w-[100vw] bg-slate-100 p-10 pl-20 text-white fixed z-40 ease-in-out duration-300
+    overflow-y-scroll overflow-x-hidden top-20 bottom-0 w-[100vw] bg-white p-10 pl-20 text-white fixed z-40 ease-in-out duration-300
     ${isOpen ? "translate-x-0" : "translate-x-full"}
   `}
       >
@@ -49,7 +49,7 @@ export default function Nav() {
           {pages.map((page) => (
             <li key={page.route} className="pb-5 relative group">
               <div className="text-2xl">
-                <div className="absolute top-0 right-0 w-20 h-2 pb-8 transform skew-y-[-28deg] bg-slate-200 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0"></div>
+                <div className="absolute top-0 right-0 w-20 h-2 pb-8 transform skew-y-[-28deg] opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0"></div>
                 {pathname === page.route && (
                   <div className="absolute top-0 right-0 w-20 h-2 pb-8 transform skew-y-[-28deg] bg-rose-600 opacity-100  duration-150 z-0"></div>
                 )}
