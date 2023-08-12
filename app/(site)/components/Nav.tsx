@@ -15,7 +15,8 @@ export default function Nav() {
     }
   }, [isOpen]);
   const pages = [
-    { title: "Biography", route: "/" },
+    { title: "Home", route: "/" },
+    { title: "Biography", route: "/biography" },
     { title: "Events", route: "/events" },
     { title: "Videos", route: "/videos" },
     { title: "Gallery", route: "/gallery" },
