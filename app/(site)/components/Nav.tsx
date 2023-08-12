@@ -23,7 +23,7 @@ export default function Nav() {
   ];
 
   return (
-    <div className="lg:hidden">
+    <div className="lg:hidden landscape-xs:hidden">
       <div className="block bg-slate-100 w-screen top-0 left-0 h-20">
         <p className="text-2xl pt-5 pl-5">SIYUMENG WANG</p>
         <div className="absolute top-3 right-3 z-50">
@@ -31,9 +31,10 @@ export default function Nav() {
         </div>
       </div>
       <div
-        className={`top-20 right-0 w-[100vw] bg-slate-100 p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`
+    overflow-y-scroll overflow-x-hidden top-20 bottom-0 w-[100vw] bg-slate-100 p-10 pl-20 text-white fixed z-40 ease-in-out duration-300
+    ${isOpen ? "translate-x-0" : "translate-x-full"}
+  `}
       >
         <ul className="text-right">
           {pages.map((page) => (

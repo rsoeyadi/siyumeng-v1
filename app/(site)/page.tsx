@@ -7,7 +7,6 @@ export default function Home() {
     "indexPageImage",
     getIndexPageImage
   );
-  
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
@@ -18,10 +17,15 @@ export default function Home() {
     backgroundPosition: "center top", // Adjust this line
     backgroundRepeat: "no-repeat",
     width: "100vw",
-    height: "100vh",
+    height: "95vh",
   };
 
-  return <div style={backgroundImageStyle}></div>;
+  return (
+    <div>
+      <div style={backgroundImageStyle}></div>
+      <div className="landscape-sm:before:-top-10 before:-top-24 before:absolute before:left-0 before:right-0 before:h-56 landscape-sm:before:h-36 before:bg-white landscape-sm:before:bg-slate-300 -skew-y-6"></div>
+
+      <h1>BIOGRAPHY</h1>
+    </div>
+  );
 }
-
-
