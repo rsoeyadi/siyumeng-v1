@@ -6,15 +6,13 @@ import { useEffect, useState } from "react";
 export default function Nav() {
   const [isOpen, setOpen] = useState(false);
   useEffect(() => {
-    setOpen(isOpen);
     if (isOpen) {
-      document.body.classList.add("overflow-y-hidden");
-      document.body.classList.add("fixed");
+      document.body.classList.add("overflow-y-hidden", "fixed");
     } else {
-      document.body.classList.remove("overflow-y-hidden");
-      document.body.classList.remove("fixed");
+      document.body.classList.remove("overflow-y-hidden", "fixed");
     }
   }, [isOpen]);
+  
   const pages = [
     { title: "Home", route: "/" },
     { title: "Biography", route: "/biography" },
@@ -42,14 +40,17 @@ export default function Nav() {
         <ul className="text-right">
           {pages.map((page) => (
             <li key={page.route} className="pb-5 relative group">
-              <p className="text-2xl">
+              <div className="text-2xl">
                 {/* Absolutely positioned element */}
-                <div className="absolute top-0 right-0 w-20 h-2 pb-8 transform skew-y-[-28deg] bg-slate-200 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0" />
+                <div
+                  
+                  className="absolute top-0 right-0 w-20 h-2 pb-8 transform skew-y-[-28deg] bg-slate-200 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0"
+                ></div>
 
                 <Link className="relative z-10" href={page.route}>
                   {page.title}
                 </Link>
-              </p>
+              </div>
             </li>
           ))}
         </ul>

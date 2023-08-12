@@ -24,29 +24,12 @@ export default function Home() {
 
   return (
     <div className="relative">
-      {/* Background Overlay */}
       <div
-        className="absolute inset-0 bg-black opacity-30 z-0 overlay"
-        style={{ mixBlendMode: "multiply" }}
-      ></div>
-
-      {/* Background Image Section */}
-      <div
-        className="h-[90vh] landscape-xs:h-[100vh] lg:h-[100vh] background-image"
+        className="h-[100vh] background-image"
         style={{
           ...backgroundImageStyle,
         }}
-      >
-        {/* Text Content */}
-        <div
-          className="text-white text-center mb-[15vh] md:mb-[9vh] text-content"
-          style={{ position: "relative", zIndex: 1 }}
-        >
-          <p className="text-2xl md:text-4xl lg:text-5xl px-2 text-white font-bold uppercase name">
-            Siyumeng Wang, pianist
-          </p>
-        </div>
-      </div>
+      ></div>
     </div>
   );
 }

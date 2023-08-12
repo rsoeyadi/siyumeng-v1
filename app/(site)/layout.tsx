@@ -22,8 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cormorantGaramond.className}`}>
-        <Nav></Nav>
-        {children}
+        <div className="flex flex-col h-screen overflow-hidden">
+          <Nav></Nav>
+          {children}
+        </div>
       </body>
     </html>
   );
