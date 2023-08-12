@@ -5,3 +5,7 @@
 * {
     color: black;
 }
+
+body {
+    padding-bottom: env(safe-area-inset-bottom);
+}

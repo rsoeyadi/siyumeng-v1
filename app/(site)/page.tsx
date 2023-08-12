@@ -17,7 +17,6 @@ export default function Home() {
     backgroundPosition: "center top",
     backgroundRepeat: "no-repeat",
     width: "100vw",
-    height: "115vh",
     display: "flex",
     alignItems: "flex-end",
     justifyContent: "center",
@@ -25,7 +24,7 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <div style={backgroundImageStyle}>
+      <div className="h-[80vh] md:h-[105vh]" style={backgroundImageStyle}>
         <div
           className="text-white text-center"
           style={{ marginBottom: "33vh", position: "relative", zIndex: 1 }}
