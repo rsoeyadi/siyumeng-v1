@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div>
       <div style={backgroundImageStyle}></div>
-      <div className="landscape-sm:before:-top-10 before:-top-24 before:absolute before:left-0 before:right-0 before:h-56 landscape-sm:before:h-36 before:bg-white landscape-sm:before:bg-slate-300 -skew-y-6"></div>
+      <div className="before:-top-24 landscape-sm:before:-top-9 before:absolute before:left-0 before:right-0 before:h-56 landscape-sm:before:h-36 before:bg-white -skew-y-6 sm:-top-12"></div>
 
       <h1>BIOGRAPHY</h1>
     </div>
