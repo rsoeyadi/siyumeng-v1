@@ -23,7 +23,7 @@ export default function Nav() {
   ];
 
   return (
-    <>
+    <div className="lg:hidden">
       <div className="block bg-slate-100 w-screen top-0 left-0 h-20">
         <p className="text-2xl pt-5 pl-5">SIYUMENG WANG</p>
         <div className="absolute top-3 right-3 z-50">
@@ -38,11 +38,11 @@ export default function Nav() {
         <ul className="text-right">
           {pages.map((page) => (
             <li key={page.route} className="pb-5">
-              <p className="text-xl">{page.title}</p>
+              <p className="text-2xl">{page.title}</p>
             </li>
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 }
