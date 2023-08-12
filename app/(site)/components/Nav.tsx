@@ -1,9 +1,11 @@
 "use client";
 import { Spiral as Hamburger } from "hamburger-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Nav() {
+  const pathname = usePathname();
   const [isOpen, setOpen] = useState(false);
   useEffect(() => {
     if (isOpen) {
@@ -12,7 +14,7 @@ export default function Nav() {
       document.body.classList.remove("overflow-y-hidden", "fixed");
     }
   }, [isOpen]);
-  
+
   const pages = [
     { title: "Home", route: "/" },
     { title: "Biography", route: "/biography" },
@@ -41,12 +43,10 @@ export default function Nav() {
           {pages.map((page) => (
             <li key={page.route} className="pb-5 relative group">
               <div className="text-2xl">
-                {/* Absolutely positioned element */}
-                <div
-                  
-                  className="absolute top-0 right-0 w-20 h-2 pb-8 transform skew-y-[-28deg] bg-slate-200 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0"
-                ></div>
-
+                <div className="absolute top-0 right-0 w-20 h-2 pb-8 transform skew-y-[-28deg] bg-slate-200 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0"></div>
+                {pathname === page.route && (
+                  <div className="absolute top-0 right-0 w-20 h-2 pb-8 transform skew-y-[-28deg] bg-rose-600 opacity-100  duration-150 z-0"></div>
+                )}
                 <Link className="relative z-10" href={page.route}>
                   {page.title}
                 </Link>
