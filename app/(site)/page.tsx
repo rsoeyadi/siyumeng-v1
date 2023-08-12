@@ -42,7 +42,7 @@ export default function Home() {
           className="text-white text-center mb-[15vh] md:mb-[9vh] text-content"
           style={{ position: "relative", zIndex: 1 }}
         >
-          <p className="text-2xl px-2 text-white font-bold uppercase name">
+          <p className="text-2xl md:text-4xl lg:text-5xl px-2 text-white font-bold uppercase name">
             Siyumeng Wang, pianist
           </p>
         </div>
