@@ -19,13 +19,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
     <html lang="en">
       <body className={`${cormorantGaramond.className}`}>
-        <div className="flex flex-col h-screen overflow-hidden">
+        {/* <div className="flex flex-col h-screen overflow-hidden"> */}
           <Nav></Nav>
           {children}
-        </div>
+        {/* </div> */}
       </body>
     </html>
   );
