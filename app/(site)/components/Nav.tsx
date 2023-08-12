@@ -15,6 +15,10 @@ export default function Nav() {
     }
   }, [isOpen]);
 
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
   const pages = [
     { title: "Home", route: "/" },
     { title: "Biography", route: "/biography" },
@@ -28,7 +32,9 @@ export default function Nav() {
   return (
     <div className="lg:hidden landscape-xs:hidden">
       <div className="block bg-slate-100 w-screen top-0 left-0 h-20">
-        <p className="text-2xl pt-5 pl-5 text-rose-600 font-bold">SIYUMENG WANG</p>
+        <p className="text-2xl pt-5 pl-5 text-rose-600 font-bold">
+          SIYUMENG WANG
+        </p>
         <div className="absolute top-3 right-3 z-50">
           <Hamburger toggled={isOpen} toggle={setOpen} />
         </div>
@@ -48,7 +54,7 @@ export default function Nav() {
                   <div className="absolute top-0 right-0 w-20 h-2 pb-8 transform skew-y-[-28deg] bg-rose-600 opacity-100  duration-150 z-0"></div>
                 )}
                 <Link className="relative z-10" href={page.route}>
-                  {page.title}
+                  <button onClick={closeMenu}>{page.title}</button>
                 </Link>
               </div>
             </li>
