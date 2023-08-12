@@ -41,9 +41,14 @@ export default function Nav() {
       >
         <ul className="text-right">
           {pages.map((page) => (
-            <li key={page.route} className="pb-5">
+            <li key={page.route} className="pb-5 relative group">
               <p className="text-2xl">
-                <Link href={page.route}>{page.title}</Link>
+                {/* Absolutely positioned element */}
+                <div className="absolute top-0 right-0 w-20 h-2 pb-8 transform skew-y-[-28deg] bg-slate-200 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0" />
+
+                <Link className="relative z-10" href={page.route}>
+                  {page.title}
+                </Link>
               </p>
             </li>
           ))}
