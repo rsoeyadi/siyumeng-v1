@@ -7,9 +7,9 @@ export default function Nav() {
   useEffect(() => {
     setOpen(isOpen);
     if (isOpen) {
-      document.body.classList.add("overflow-y-hidden");
+      document.body.classList.add("overflow-y-hidden fixed");
     } else {
-      document.body.classList.remove("overflow-y-hidden");
+      document.body.classList.remove("overflow-y-hidden fixed");
     }
   }, [isOpen]);
   const pages = [
