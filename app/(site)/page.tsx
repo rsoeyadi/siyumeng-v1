@@ -14,27 +14,27 @@ export default function Home() {
   const backgroundImageStyle = {
     backgroundImage: `url('${data.image}')`,
     backgroundSize: "cover",
-    backgroundPosition: "center top", // Adjust this line
+    backgroundPosition: "center top",
     backgroundRepeat: "no-repeat",
     width: "100vw",
     height: "115vh",
-    display: "flex", // Add this line
-    alignItems: "flex-end", // Add this line
-    justifyContent: "center", // Add this line
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "center",
   };
 
   return (
     <div className="relative">
-      <div className="uppercase" style={backgroundImageStyle}>
+      <div style={backgroundImageStyle}>
         <div
           className="text-white text-center"
-          style={{ marginBottom: "30vh", position: "relative", zIndex: 1 }}
+          style={{ marginBottom: "33vh", position: "relative", zIndex: 1 }}
         >
-          <p className="text-4xl text-white font-bold">
+          <p className="text-4xl text-white font-bold uppercase">
             Siyumeng Wang, pianist
           </p>
           <p className="text-3xl text-white font-bold pt-10">Biography</p>
-          <div className="border-b-2 border-white mx-auto w-10 mt-2"></div>
+          <div className="border-b-2 border-white mx-auto w-10 mt-2 landscape-sm:mb-5"></div>
         </div>
       </div>
       <div
