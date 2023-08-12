@@ -28,8 +28,14 @@ const biography = {
             }
         },
         {
-            name: "content",
-            title: "Content",
+            name: "biographyHalf1",
+            title: "First half of biography",
+            type: "array",
+            of: [{ type: "block" }]
+        },
+         {
+            name: "biographyHalf2",
+            title: "Second half of biography",
             type: "array",
             of: [{ type: "block" }]
         },

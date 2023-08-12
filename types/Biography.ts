@@ -6,5 +6,7 @@ export type Biography = {
   image: string;
   blockImage1: string;
   blockImage2: string;
-  content: PortableTextBlock[];
+  content1: PortableTextBlock[];
+  content2: PortableTextBlock[];
+
 };
