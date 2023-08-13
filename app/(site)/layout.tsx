@@ -41,7 +41,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {children}
           </div>
         </div>
-
         {pathname !== "/" && <Footer />}
       </body>
     </html>
