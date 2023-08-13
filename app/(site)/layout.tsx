@@ -22,6 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cormorantGaramond.className} mx-auto my-0`}>
+        <p className="absolute top-0 left-0 lg:left-auto lg:right-10 z-[9999] text-2xl pt-5 pl-5 text-rose-600 font-bold lg:ml-24 lg:text-white">
+          SIYUMENG WANG
+        </p>
         <Nav></Nav>
         {children}
       </body>
