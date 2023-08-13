@@ -2,14 +2,21 @@ import SocialLinks from "./SocialLinks";
 
 export default function Footer() {
   return (
-    <div className="w-full max-h-52 bg-slate-700 grid grid-rows-4 py-3">
-      <p className="text-white uppercase text-center text-3xl">Siyumeng Wang</p>
-      <SocialLinks />
-      <div className="text-white text-center uppercase ">
-        © {new Date().getFullYear()} Siyumeng Wang.
+    <div className="grid grid-rows-3 gap-4 bg-slate-700 py-7">
+      <div className="text-center flex items-center justify-center">
+        <span className="text-white text-3xl uppercase ">
+          Siyumeng Wang
+        </span>
       </div>
-      <div className="text-white text-center uppercase ">
-        ALL RIGHTS RESERVED
+      <div className="flex items-center justify-center">
+        <SocialLinks />
+      </div>
+
+      <div className="text-white">
+        <div className="text-white text-center">
+          &copy; {new Date().getFullYear()} Siyumeng Wang.
+        </div>
+        <div className="text-white text-center">ALL RIGHTS RESERVED</div>
       </div>
     </div>
   );

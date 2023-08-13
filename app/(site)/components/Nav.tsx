@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import useHamburgerStore from "../store";
+import SocialLinks from "./SocialLinks";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -36,7 +37,7 @@ export default function Nav() {
       {/* Top bar */}
       <div className="lg:z-50  block w-screen top-0 left-0 h-20 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 bg-slate-700">
         <div className="absolute top-3 right-3 lg:right-auto lg:left-3  z-40">
-          <Hamburger toggled={isOpen} toggle={setOpen} color="#FFFFFF"/>
+          <Hamburger toggled={isOpen} toggle={setOpen} color="#FFFFFF" />
         </div>
       </div>
 
@@ -63,6 +64,9 @@ export default function Nav() {
               </div>
             </li>
           ))}
+          <div className="lg:hidden">
+            <SocialLinks />
+          </div>
         </ul>
       </div>
     </div>
