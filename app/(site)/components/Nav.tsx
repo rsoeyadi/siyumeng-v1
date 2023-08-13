@@ -9,7 +9,7 @@ import SocialLinks from "./SocialLinks";
 export default function Nav() {
   const pathname = usePathname();
   const isOpen = useHamburgerStore((state) => state.isOpen);
-  const setOpen = useHamburgerStore((state) => state.setOpen);
+  const toggleMenu = useHamburgerStore((state) => state.toggleMenu);
   useEffect(() => {
     if (isOpen) {
       document.documentElement.classList.add("overflow-hidden");
@@ -19,7 +19,7 @@ export default function Nav() {
   }, [isOpen]);
 
   const closeMenu = () => {
-    setOpen();
+    toggleMenu();
   };
 
   const pages = [
@@ -37,7 +37,7 @@ export default function Nav() {
       {/* Top bar */}
       <div className="lg:z-50  block w-screen top-0 left-0 h-20 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 bg-slate-700">
         <div className="absolute top-3 right-3 lg:right-auto lg:left-3  z-40">
-          <Hamburger toggled={isOpen} toggle={setOpen} color="#FFFFFF" />
+          <Hamburger toggled={isOpen} toggle={toggleMenu} color="#FFFFFF" />
         </div>
       </div>
 
