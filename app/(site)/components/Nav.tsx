@@ -43,7 +43,7 @@ export default function Nav() {
       {/* Sidebar */}
       <div
         className={`
-      overflow-y-scroll overflow-x-hidden top-0 bottom-0 w-[100vw]  lg:w-[75vw] bg-white p-10 pl-20 text-white fixed z-30 ease-in-out duration-300
+      overflow-y-scroll overflow-x-hidden top-0 bottom-0 w-[100vw] lg:w-[50vw] bg-white p-10 pl-20 text-white fixed z-30 ease-in-out duration-1000
       ${
         isOpen
           ? "translate-x-0  lg:left-20"
@@ -61,7 +61,6 @@ export default function Nav() {
                   <div className="absolute top-0 right-0 lg:-left-3  w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[28deg]  bg-rose-300 opacity-100  duration-150 z-0"></div>
                 )}
 
-                {/* Page Link */}
                 <Link className="relative z-10" href={page.route}>
                   <button onClick={closeMenu}>{page.title}</button>
                 </Link>

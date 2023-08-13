@@ -24,9 +24,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <p className="absolute top-0 left-0 lg:left-auto lg:right-10 z-[9999] text-2xl pt-5 pl-5 text-rose-600 font-bold lg:ml-24 lg:text-white">
           Siyumeng Wang
         </p>
-        {isOpen}
         <Nav></Nav>
-        {children}
+        <div
+          className={`transition-transform duration-1000 ${
+            isOpen ? "transform translate-x-1/2 w-[50vw]" : ""
+          }`}
+        >
+          {children}
+        </div>
       </body>
     </html>
   );
