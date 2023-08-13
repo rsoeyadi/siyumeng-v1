@@ -36,12 +36,12 @@ export default function Home() {
       </div>
       <div className="relative  mx-auto my-0">
         {data?.biographyHalf1 && (
-          <div className="mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-3xl">
+          <div className="mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-4xl">
             <PortableText value={data.biographyHalf1}></PortableText>
           </div>
         )}
 
-        <div className="grid grid-cols-12 relative mx-auto my-0 max-w-5xl">
+        <div className="grid grid-cols-12 relative mx-auto my-0 max-w-2xl">
           <div
             style={{
               gridColumn: "1 / span 8",
@@ -62,7 +62,7 @@ export default function Home() {
           </div>
         </div>
         {data?.biographyHalf2 && (
-          <div className="mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-3xl">
+          <div className="mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-4xl">
             <PortableText value={data.biographyHalf2}></PortableText>
           </div>
         )}

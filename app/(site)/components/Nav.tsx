@@ -3,10 +3,13 @@ import { Spiral as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import useHamburgerStore from "../store";
 
 export default function Nav() {
   const pathname = usePathname();
-  const [isOpen, setOpen] = useState(false);
+  const isOpen = useHamburgerStore((state) => state.isOpen);
+  const setOpen = useHamburgerStore((state) => state.setOpen);
+
   useEffect(() => {
     if (isOpen) {
       document.documentElement.classList.add("overflow-hidden");
