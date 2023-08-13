@@ -33,7 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           <div
             onClick={handleCloseMenu} // Add the click event handler
-            className={`flex-grow mx-auto pl-20 transition-transform duration-1000 ${
+            className={`flex-grow mx-auto pl-20 overflow-y-auto overflow-x-hidden transition-transform duration-1000 ${
               isOpen ? " lg:translate-x-[20vw]" : ""
             }`}
           >
