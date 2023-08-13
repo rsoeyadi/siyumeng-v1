@@ -4,12 +4,10 @@ import { PortableText } from "@portabletext/react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import useSWR from "swr";
+import useHamburgerStore from "../store";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("biography", getBiography);
-
-  console.log(data);
-
   if (error) return <div className="text-red-500">failed to load</div>;
   if (isLoading) return <div className="text-blue-500">loading...</div>;
 

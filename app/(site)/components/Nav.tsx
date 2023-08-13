@@ -9,7 +9,6 @@ export default function Nav() {
   const pathname = usePathname();
   const isOpen = useHamburgerStore((state) => state.isOpen);
   const setOpen = useHamburgerStore((state) => state.setOpen);
-
   useEffect(() => {
     if (isOpen) {
       document.documentElement.classList.add("overflow-hidden");
@@ -19,7 +18,7 @@ export default function Nav() {
   }, [isOpen]);
 
   const closeMenu = () => {
-    setOpen(false);
+    setOpen();
   };
 
   const pages = [
