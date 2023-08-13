@@ -1,7 +1,6 @@
 "use client";
 import { getBiography } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
-import Image from "next/image";
 import useSWR from "swr";
 
 export default function Home() {
@@ -11,7 +10,7 @@ export default function Home() {
 
   return (
     <>
-      <div>
+      <div className="">
         <div
           className="h-[80vh] md:h-[100vh] background-image relative"
           style={{

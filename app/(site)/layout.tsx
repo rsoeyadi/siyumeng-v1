@@ -28,14 +28,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <p className="absolute top-0 left-0 lg:left-auto lg:right-10 z-[9999] text-2xl pt-5 pl-5 font-bold lg:ml-24 text-white">
           Siyumeng Wang
         </p>
-        <Nav></Nav>
-        <div className="relative">
-          {/* Overlay */}
-          {isOpen && <></>}
+        <div className="flex">
+          <Nav></Nav>
 
           <div
             onClick={handleCloseMenu} // Add the click event handler
-            className={`transition-transform duration-1000 ${
+            className={`flex-grow mx-auto pl-20 transition-transform duration-1000 ${
               isOpen ? " lg:translate-x-[20vw]" : ""
             }`}
           >
