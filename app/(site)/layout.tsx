@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import { Cormorant_Garamond } from "@next/font/google";
 import useHamburgerStore from "./store";
 import Footer from "./components/Footer";
+import { usePathname } from "next/navigation";
 
 // export const metadata: Metadata = {
 //   title: "Siyumeng Wang | Pianist",
@@ -19,6 +20,7 @@ const cormorantGaramond = Cormorant_Garamond({
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const isOpen = useHamburgerStore((state) => state.isOpen);
+  const pathname = usePathname();
 
   return (
     <html lang="en">
@@ -39,7 +41,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {children}
           </div>
         </div>
-        <Footer />
+
+        {pathname !== "/" && <Footer />}
       </body>
     </html>
   );
