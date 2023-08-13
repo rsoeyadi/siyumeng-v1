@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Nav from "./components/Nav";
 import { Cormorant_Garamond } from "@next/font/google";
 import useHamburgerStore from "./store";
+import Footer from "./components/Footer";
 
 // export const metadata: Metadata = {
 //   title: "Siyumeng Wang | Pianist",
@@ -28,9 +29,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Nav></Nav>
         <div className="relative">
           {/* Overlay */}
-          {isOpen && (
-          <></>
-          )}
+          {isOpen && <></>}
 
           <div
             className={`transition-transform duration-1000 ${
@@ -40,6 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {children}
           </div>
         </div>
+        <Footer />
       </body>
     </html>
   );
