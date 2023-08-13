@@ -16,7 +16,10 @@ export async function getBiography(): Promise<Biography> {
             _id,
             _createAt,
             "image": image.asset->url,
-            content
+            "square1": square1.asset->url,
+            "square2": square2.asset->url,
+            biographyHalf1,
+            biographyHalf2
         }`
     )
 }

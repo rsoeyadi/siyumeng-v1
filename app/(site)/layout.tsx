@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${cormorantGaramond.className}`}>
+      <body className={`${cormorantGaramond.className} mx-auto my-0`}>
         <Nav></Nav>
         {children}
       </body>

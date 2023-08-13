@@ -14,7 +14,7 @@ export default function Home() {
   if (isLoading) return <div className="text-blue-500">loading...</div>;
 
   return (
-    <div className="relative">
+    <>
       <div className="w-full h-full relative flex items-end justify-center">
         <div
           className="h-[80vh] md:h-[100vh] background-image relative"
@@ -34,11 +34,39 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {data?.content && (
-        <div className="mt-10 px-6 text-lg bg-slate">
-          <PortableText value={data.content}></PortableText>
+      <div className="relative  mx-auto my-0">
+        {data?.biographyHalf1 && (
+          <div className="mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-3xl">
+            <PortableText value={data.biographyHalf1}></PortableText>
+          </div>
+        )}
+
+        <div className="grid grid-cols-12 relative mx-auto my-0 max-w-5xl">
+          <div
+            style={{
+              gridColumn: "1 / span 8",
+              gridRow: "1",
+              paddingTop: "20%",
+              zIndex: "1",
+            }}
+          >
+            <img src={data?.square1} alt="" />{" "}
+          </div>
+          <div
+            style={{
+              gridColumn: "4 / -1",
+              gridRow: "1",
+            }}
+          >
+            <img src={data?.square2} alt="" />
+          </div>
         </div>
-      )}
-    </div>
+        {data?.biographyHalf2 && (
+          <div className="mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-3xl">
+            <PortableText value={data.biographyHalf2}></PortableText>
+          </div>
+        )}
+      </div>
+    </>
   );
 }

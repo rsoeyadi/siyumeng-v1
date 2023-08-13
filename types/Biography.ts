@@ -4,9 +4,9 @@ export type Biography = {
   _id: string;
   createdAt: Date;
   image: string;
-  blockImage1: string;
-  blockImage2: string;
-  content1: PortableTextBlock[];
-  content2: PortableTextBlock[];
+  square1: string;
+  square2: string;
+  biographyHalf1: PortableTextBlock[];
+  biographyHalf2: PortableTextBlock[];
 
 };

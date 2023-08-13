@@ -12,7 +12,7 @@ const biography = {
             }
         },
         {
-            name: 'blockImage1',
+            name: 'square1',
             title: 'Square Image 1',
             type: 'image',
             options: {
@@ -20,7 +20,7 @@ const biography = {
             }
         },
          {
-            name: 'blockImage2',
+            name: 'square2',
             title: 'Square Image 2',
             type: 'image',
             options: {
