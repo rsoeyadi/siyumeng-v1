@@ -8,7 +8,6 @@ import { Job } from "@/types/Job";
 import { SoloPiece } from "@/types/SoloPiece";
 import { Video } from "@/types/Video";
 import { IndexPageImage } from "@/types/IndexPageImage";
-import { SocialMediaLink } from "@/types/SocialMediaLink";
 
 export async function getBiography(): Promise<Biography> {
     return createClient(clientConfig).fetch(
@@ -41,16 +40,6 @@ export async function getSoloPieces(): Promise<SoloPiece[]> {
             _createAt,
             title,
             composer,
-        }`
-    )
-}
-
-export async function getSocialMedia(): Promise<SocialMediaLink[]> {
-    return createClient(clientConfig).fetch(
-        groq`*[_type == "link"]{
-            _id,
-            _createAt,
-            link
         }`
     )
 }
