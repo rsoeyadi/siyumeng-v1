@@ -10,7 +10,3 @@ p {
     margin-bottom: 1em;
 }
 
-body {
-    padding-bottom: env(safe-area-inset-bottom);
-}
-
