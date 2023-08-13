@@ -34,7 +34,7 @@ export default function Nav() {
   return (
     <div className="relative">
       {/* Top bar */}
-      <div className="lg:z-50  block w-screen top-0 left-0 h-20 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 bg-white">
+      <div className="lg:z-50  block w-screen top-0 left-0 h-20 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 bg-slate-200">
         <div className="absolute top-3 right-3 lg:right-auto lg:left-3  z-40">
           <Hamburger toggled={isOpen} toggle={setOpen} />
         </div>
@@ -43,10 +43,10 @@ export default function Nav() {
       {/* Sidebar */}
       <div
         className={`
-      overflow-y-scroll overflow-x-hidden top-0 bottom-0 w-[100vw] lg:w-[50vw] bg-white p-10 pl-20 text-white fixed z-30 ease-in-out duration-1000
+      overflow-y-scroll overflow-x-hidden top-0 bottom-0 lg:left-20 w-[100vw] lg:w-[20vw]  bg-slate-200 p-10 pl-20 text-white fixed z-30 ease-in-out duration-700
       ${
         isOpen
-          ? "translate-x-0  lg:left-20"
+          ? "translate-x-0 "
           : "translate-x-full lg:-translate-x-full"
       }
     `}

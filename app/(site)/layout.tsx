@@ -27,7 +27,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Nav></Nav>
         <div
           className={`transition-transform duration-1000 ${
-            isOpen ? "transform translate-x-1/2 w-[50vw]" : ""
+            isOpen
+              ? " lg:translate-x-[20vw] lg:w-[75vw]"
+              : ""
           }`}
         >
           {children}

@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="w-full h-full relative flex items-end justify-center">
+      <div>
         <div
           className="h-[80vh] md:h-[100vh] background-image relative"
           style={{
@@ -32,7 +32,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="relative  mx-auto my-0">
+      <div className="relative mx-auto my-0">
         {data?.biographyHalf1 && (
           <div className="mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-4xl">
             <PortableText value={data.biographyHalf1}></PortableText>
