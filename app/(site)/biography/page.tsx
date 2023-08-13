@@ -58,7 +58,7 @@ export default function Home() {
           </div>
         </div>
         {data?.biographyHalf2 && (
-          <div className="mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-4xl">
+          <div className="mt-10 px-6 text-lg mx-auto my-0 max-w-4xl">
             <PortableText value={data.biographyHalf2}></PortableText>
           </div>
         )}
