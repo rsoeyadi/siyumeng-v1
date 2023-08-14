@@ -60,12 +60,17 @@ export default function Home() {
           >
             <hr className="lg:hidden lg:col-span-1 h-px my-4 bg-gray-400 border-0" />
             <div className="lg:col-span-3">
-              <p className="text-2xl font-extrabold">{event.formattedDate}</p>
-              <p className="text-lg font-extrabold">{event.time}</p>
+              <p className="text-2xl font-extrabold inline-block">
+                {event.formattedDate}
+              </p>
+              <span className="text-2xl font-extrabold lg:hidden">,&nbsp;</span>
+              <p className="text-2xl lg:text-lg pb-5 lg:pb-0 font-extrabold inline-block">
+                {event.time}
+              </p>
             </div>
             <div className="lg:col-start-5 lg:col-span-5">
               <p className="text-3xl font-bold ">{event.name}</p>
-              <p className="text-2xl font-bold">{event.location}</p>
+              <p className="text-2xl font-bold pb-3">{event.location}</p>
               <PortableText value={event.description}></PortableText>
             </div>
             {event.link && (
