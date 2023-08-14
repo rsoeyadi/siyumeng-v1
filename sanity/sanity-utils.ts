@@ -45,14 +45,13 @@ export async function getSoloPieces(): Promise<SoloPiece[]> {
 
 export async function getEvents(): Promise<Event[]> {
     return createClient(clientConfig).fetch(
-        groq`*[_type == "link"]{
+        groq`*[_type == "event"]{
             _id,
             _createAt,
             name,
             link,
-            "image": image.asset->url,
             location,
-            dates,
+            date,
             time,
             description,
         }`

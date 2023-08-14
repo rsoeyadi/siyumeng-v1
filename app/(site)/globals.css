@@ -6,10 +6,6 @@
     color: black;
 }
 
-p {
-    margin-bottom: 1em;
-}
-
 /* Remove tap highlight color */
 a,
 button {

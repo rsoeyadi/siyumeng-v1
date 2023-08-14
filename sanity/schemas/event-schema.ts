@@ -14,15 +14,7 @@ const event = {
             type: 'string',
         },
         {
-            name: 'image',
-            title: 'Photo',
-            type: 'image',
-            options: {
-                hotspot: true,
-            }
-        },
-        {
-            name: 'dates',
+            name: 'date',
             title: 'Date',
             type: 'date',
         },

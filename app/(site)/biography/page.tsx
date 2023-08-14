@@ -2,6 +2,7 @@
 import { getBiography, getCoverPhotos } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import useSWR from "swr";
+import styles from "./page.module.css";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("biography", getBiography);
@@ -38,7 +39,9 @@ export default function Home() {
       </div>
       <div className="relative mx-auto my-0">
         {data?.biographyHalf1 && (
-          <div className="mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-4xl">
+          <div
+            className={`${styles.biographyText} mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-4xl`}
+          >
             <PortableText value={data.biographyHalf1}></PortableText>
           </div>
         )}
@@ -64,7 +67,9 @@ export default function Home() {
           </div>
         </div>
         {data?.biographyHalf2 && (
-          <div className="mt-10 px-6 text-lg mx-auto my-0 max-w-4xl">
+          <div
+            className={`${styles.biographyText} mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-4xl`}
+          >
             <PortableText value={data.biographyHalf2}></PortableText>
           </div>
         )}
