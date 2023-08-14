@@ -15,7 +15,7 @@ export function ContactForm() {
   return (
     <div>
       <form
-        className="bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded px-5 pt-6 pb-8  my-5 mx-2 lg:mx-auto lg:max-w-6xl"
+        className="bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded px-5 pt-6 pb-8 my-5 mx-2 lg:mx-auto lg:max-w-6xl"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">

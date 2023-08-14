@@ -11,8 +11,8 @@ interface eventProps {
 export function Event({ sortedEvent }: eventProps) {
   console.log(sortedEvent);
   return (
-    <>
-      <hr className="hidden lg:block lg:max-w-6xl lg:mx-auto lg:my-9 h-px my-4 bg-gray-400 border-0" />{" "}
+    <div>
+      <hr className="hidden lg:block lg:max-w-6xl lg:mx-auto lg:my-9 h-px my-4 bg-gray-400 border-0" />
       <div
         key={sortedEvent.name}
         className={`lg:mx-auto lg:grid lg:grid-cols-12 mx-10 mb-10 lg:mb-0 max-w-4xl ${
@@ -22,8 +22,8 @@ export function Event({ sortedEvent }: eventProps) {
         }`}
       >
         <hr className="lg:hidden lg:col-span-1 h-px my-4 bg-gray-400 border-0" />
-        <div className="lg:col-span-4 lg:grid lg:grid-rows-6">
-          <p className="text-xl lg:row-start-1 font-extrabold inline-block">
+        <div className="lg:col-span-4 lg:grid lg:grid-rows-6 lg:max-h-40">
+          <p className="text-xl lg:row-start-1 font-extrabold inline-block ">
             {sortedEvent.formattedDate}
           </p>
           <span className="text-xl font-extrabold lg:hidden">,&nbsp;</span>
@@ -44,6 +44,6 @@ export function Event({ sortedEvent }: eventProps) {
           </p>
         )}
       </div>
-    </>
+    </div>
   );
 }
