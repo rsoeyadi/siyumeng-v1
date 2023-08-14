@@ -35,6 +35,8 @@ module.exports = {
         "custom-sm": "480px",
         "custom-md": "768px",
         "custom-lg": "1024px",
+
+        betterhover: { raw: "(hover: hover)" },
       },
     },
   },

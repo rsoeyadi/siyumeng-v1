@@ -37,7 +37,8 @@ export default function Home() {
         src: url,
         width: width,
         height: height,
-        class: "hover:scale-90 transition duration-300",
+        class:
+          "betterhover:hover:scale-90 betterhover:transition betterhover:duration-300",
       };
     }
     return { src: url, width: 4, height: 3 };
