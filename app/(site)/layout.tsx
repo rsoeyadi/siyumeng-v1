@@ -43,7 +43,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               {children}
             </div>
           </div>
-          <footer className="mt-auto ">
+          <footer className="mt-auto bg-slate-700">
             {pathname !== "/" && <Footer />}
           </footer>
         </div>

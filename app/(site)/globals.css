@@ -85,3 +85,8 @@ select,
 textarea {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+.react-images__view-image--isModal {
+    display: inline-block;
+    left: 50%
+}
