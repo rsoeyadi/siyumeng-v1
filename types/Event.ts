@@ -1,6 +1,7 @@
 import { PortableTextBlock } from "sanity";
 
 export type Event = {
+    formattedDate?: string;
     name: string;
     link?: string;
     date: Date;
