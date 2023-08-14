@@ -27,52 +27,56 @@ export default function Home() {
         }))
     : [];
 
-  console.log(events, sortedEvents);
   return (
-    <>
-      <div className="">
-        <div
-          className="h-[80vh] md:h-[100vh] background-image relative"
-          style={{
-            backgroundImage: `url('${coverPhotos?.eventsImage}')`,
-            backgroundSize: "cover",
-            backgroundPosition: "top",
-            backgroundRepeat: "no-repeat",
-            width: "100vw",
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0  90.5%)",
-          }}
-        >
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60">
-            <div className="text-white text-4xl font-bold uppercase">
-              Performances
-            </div>
+    <div className="">
+      <div
+        className="h-[80vh] md:h-[100vh] background-image relative"
+        style={{
+          backgroundImage: `url('${coverPhotos?.eventsImage}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "top",
+          backgroundRepeat: "no-repeat",
+          width: "100vw",
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0  90.5%)",
+        }}
+      >
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60">
+          <div className="text-white text-4xl font-bold uppercase">
+            Performances
           </div>
         </div>
-        {sortedEvents?.map((event) => (
+      </div>
+      {sortedEvents?.map((event) => (
+        <>
+          {" "}
+          <hr className="hidden lg:block lg:max-w-6xl lg:mx-auto lg:my-9 h-px my-4 bg-gray-400 border-0" />{" "}
           <div
             key={event.name}
-            className={`mx-10 mb-10 max-w-4xl ${
+            className={`lg:mx-auto lg:grid lg:grid-cols-12 mx-10 mb-10 lg:mb-0 max-w-4xl ${
               compareDesc(new Date(), parseISO(event.date)) > 0
                 ? "past-event"
                 : "upcoming-event"
-            }
-            `}
+            }`}
           >
-            <hr className="h-px my-4 bg-gray-300 border-0" />{" "}
-            <p className="text-2xl font-extrabold">{event.formattedDate}</p>
-            <p className="text-3xl font-bold">{event.name}</p>
-            <p className="text-2xl font-bold">{event.location}</p>
-            <PortableText value={event.description}></PortableText>
+            <hr className="lg:hidden lg:col-span-1 h-px my-4 bg-gray-400 border-0" />{" "}
+            <p className="lg:col-span-3 text-2xl font-extrabold">
+              {event.formattedDate}
+            </p>
+            <div className="lg:col-start-5 lg:col-span-5">
+              <p className="text-3xl font-bold ">{event.name}</p>
+              <p className="text-2xl font-bold">{event.location}</p>
+              <PortableText value={event.description}></PortableText>
+            </div>
             {event.link && (
-              <p className="uppercase pt-5 font-bold underline underline-offset-8	">
+              <p className="lg:text-sm lg:col-span-2 lg:col-start-11 uppercase pt-5 font-bold underline underline-offset-8	">
                 <Link href={event.link} target="_blank">
                   More Information
                 </Link>
               </p>
             )}
           </div>
-        ))}
-      </div>
-    </>
+        </>
+      ))}
+    </div>
   );
 }
