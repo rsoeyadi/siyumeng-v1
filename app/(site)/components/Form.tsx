@@ -1,9 +1,21 @@
+"use client";
 import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
 export function ContactForm() {
+  const [formState, submit] = useForm(process.env.NEXT_PUBLIC_FORM as string);;
+  if (formState.succeeded) {
+    return <p>Thank you for your message!</p>;
+  }
+
+  console.log(formState.errors);
+
   return (
     <div>
-      <form className="bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded px-5 pt-6 pb-8  my-5 mx-2 lg:mx-auto lg:max-w-6xl">
+      <form
+        className="bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded px-5 pt-6 pb-8  my-5 mx-2 lg:mx-auto lg:max-w-6xl"
+        onSubmit={submit}
+      >
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-1"
@@ -67,15 +79,15 @@ export function ContactForm() {
             required
           />
         </div>
-
         <div className="flex items-center justify-between">
-          <button
-            className="bg-slate-700 hover:bg-slate-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          <input
+            className="cursor-pointer bg-slate-700 hover:bg-slate-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
-          >
-            Submit
-          </button>
-        </div>
+            value="Submit"
+          ></input>
+          
+        </div>{" "}
+      
       </form>
     </div>
   );
