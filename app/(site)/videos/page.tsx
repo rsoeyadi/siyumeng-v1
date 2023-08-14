@@ -23,7 +23,7 @@ export default function Home() {
           style={{
             backgroundImage: `url('${coverPhotos?.videosImage}')`,
             backgroundSize: "cover",
-            backgroundPosition: "center top",
+            backgroundPosition: "right",
             backgroundRepeat: "no-repeat",
             width: "100vw",
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 93.5%)",
