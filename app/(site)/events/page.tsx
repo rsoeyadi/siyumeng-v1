@@ -63,12 +63,12 @@ export default function Home() {
             }`}
           >
             <hr className="lg:hidden lg:col-span-1 h-px my-4 bg-gray-400 border-0" />
-            <div className="lg:col-span-3">
-              <p className="text-2xl font-extrabold inline-block">
+            <div className="lg:col-span-4 lg:grid lg:grid-rows-6">
+              <p className="text-xl lg:row-start-1 font-extrabold inline-block">
                 {event.formattedDate}
               </p>
-              <span className="text-2xl font-extrabold lg:hidden">,&nbsp;</span>
-              <p className="text-2xl lg:text-lg pb-5 lg:pb-0 font-extrabold inline-block">
+              <span className="text-xl font-extrabold lg:hidden">,&nbsp;</span>
+              <p className="text-xl lg:row-start-2 lg:text-lg pb-5 lg:pb-0 font-extrabold inline-block">
                 {event.time}
               </p>
             </div>
