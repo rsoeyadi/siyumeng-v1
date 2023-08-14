@@ -44,7 +44,7 @@ export default function Nav() {
       {/* Sidebar */}
       <div
         className={`
-      overflow-y-scroll overflow-x-hidden top-0 bottom-0 lg:left-20 w-[100vw] lg:w-[20vw]  bg-slate-700 p-10 pl-20 text-white fixed z-30 ease-in-out duration-700
+      overflow-y-scroll overflow-x-hidden top-0 bottom-0 lg:left-20 w-[100vw] lg:w-[20vw]  bg-slate-700 p-10 pl-20 text-white fixed z-30 ease-in-out duration-500
       ${isOpen ? "translate-x-0 " : "translate-x-full lg:-translate-x-full"}
     `}
       >
