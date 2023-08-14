@@ -3,7 +3,8 @@ export type CoverPhotos = {
   createdAt: Date;
   entryImage: string;
   biographyImage: string;
-  eventsImage: string
+  eventsImage: string;
+  galleryImage: string;
   teachingImage: string;
   videosImage: string;
   contactImage1: string;

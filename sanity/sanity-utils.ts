@@ -87,6 +87,7 @@ export function getCoverPhotos(): Promise<CoverPhotos> {
             "biographyImage": biographyImage.asset->url,
             "eventsImage": eventsImage.asset->url,
             "videosImage": videosImage.asset->url,
+            "galleryImage": galleryImage.asset->url,
             "entryImage": entryImage.asset->url,
             "teachingImage": teachingImage.asset->url,
             "contactImage1": contactImage1.asset->url,

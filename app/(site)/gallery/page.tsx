@@ -3,7 +3,6 @@ import { getGalleryImages } from "@/sanity/sanity-utils";
 import useSWR from "swr";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway, ViewType } from "react-images";
-import { render } from "react-dom";
 import { useCallback, useState } from "react";
 
 export default function Home() {
@@ -38,7 +37,7 @@ export default function Home() {
   });
 
   return (
-    <div className="shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]  mx-auto flex justify-center">
+    <div className="shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset] mx-auto flex justify-center">
       <div className="w-full">
         <Gallery
           photos={

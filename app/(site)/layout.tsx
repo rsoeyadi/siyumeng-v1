@@ -12,8 +12,6 @@ const nunito = Nunito({
   weight: ["400", "500", "600", "700"], // Add "bold" to the array
 });
 
-// Existing code...
-
 export default function Layout({ children }: { children: React.ReactNode }) {
   const isOpen = useHamburgerStore((state) => state.isOpen);
   const setClose = useHamburgerStore((state) => state.setClose);

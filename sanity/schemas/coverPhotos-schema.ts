@@ -28,6 +28,14 @@ const coverPhotos = {
             }
         },
         {
+            name: 'galleryImage',
+            title: 'Gallery Page',
+            type: 'image',
+            options: {
+                hotspot: true,
+            }
+        },
+        {
             name: 'teachingImage',
             title: 'Teaching Page',
             type: 'image',
