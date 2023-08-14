@@ -7,14 +7,13 @@ import { GalleryImage } from "@/types/GalleryImage";
 import { Job } from "@/types/Job";
 import { SoloPiece } from "@/types/SoloPiece";
 import { Video } from "@/types/Video";
-import { IndexPageImage } from "@/types/IndexPageImage";
+import { CoverPhotos } from "@/types/CoverPhotos";
 
 export async function getBiography(): Promise<Biography> {
     return createClient(clientConfig).fetch(
         groq`*[_type == "biography"][0] {
             _id,
             _createAt,
-            "image": image.asset->url,
             "square1": square1.asset->url,
             "square2": square2.asset->url,
             biographyHalf1,
@@ -80,12 +79,19 @@ export async function getGalleryImages(): Promise<GalleryImage[]> {
     )
 }
 
-export function getIndexPageImage() {
+export function getCoverPhotos(): Promise<CoverPhotos> {
     return createClient(clientConfig).fetch(
-        groq`*[_type == "indexPageImage"][0]{
+        groq`*[_type == "coverPhotos"][0]{
             _id,
             _createAt,
-            "image": image.asset->url,
+            "entryImage": entryImage.asset->url,
+            "biographyImage": biographyImage.asset->url,
+            "eventsImage": eventsImage.asset->url,
+            "videosImage": videosImage.asset->url,
+            "entryImage": entryImage.asset->url,
+            "teachingImage": teachingImage.asset->url,
+            "contactImage": contactImage.asset->url,
+          
         }`
     )
 }

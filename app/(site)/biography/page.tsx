@@ -1,12 +1,19 @@
 "use client";
-import { getBiography } from "@/sanity/sanity-utils";
+import { getBiography, getCoverPhotos } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import useSWR from "swr";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("biography", getBiography);
-  if (error) return <div className="text-red-500">failed to load</div>;
-  if (isLoading) return <div className="text-blue-500">loading...</div>;
+  const {
+    data: coverPhotos,
+    error: coverPhotosError,
+    isLoading: coverPhotosIsLoading,
+  } = useSWR("coverPhotos", getCoverPhotos);
+  if (error || coverPhotosError)
+    return <div className="text-red-500">failed to load</div>;
+  if (isLoading || coverPhotosIsLoading)
+    return <div className="text-blue-500">loading...</div>;
 
   return (
     <>
@@ -14,7 +21,7 @@ export default function Home() {
         <div
           className="h-[80vh] md:h-[100vh] background-image relative"
           style={{
-            backgroundImage: `url('${data?.image}')`,
+            backgroundImage: `url('${coverPhotos?.biographyImage}')`,
             backgroundSize: "cover",
             backgroundPosition: "center top",
             backgroundRepeat: "no-repeat",

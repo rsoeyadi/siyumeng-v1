@@ -1,18 +1,15 @@
 "use client";
-import { getIndexPageImage } from "@/sanity/sanity-utils";
+import { getCoverPhotos } from "@/sanity/sanity-utils";
 import useSWR from "swr";
 
 export default function Home() {
-  const { data, error, isLoading } = useSWR(
-    "indexPageImage",
-    getIndexPageImage
-  );
-
+  const { data, error, isLoading } = useSWR("coverPhotos", getCoverPhotos);
+  console.log({ data });
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
   const backgroundImageStyle = {
-    backgroundImage: `url('${data.image}')`,
+    backgroundImage: `url('${data?.entryImage}')`,
     backgroundSize: "cover",
     backgroundPosition: "center top",
     backgroundRepeat: "no-repeat",
