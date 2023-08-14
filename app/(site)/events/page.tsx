@@ -16,14 +16,18 @@ export default function Home() {
     return <div className="text-red-500">failed to load</div>;
   if (isLoading || coverPhotosIsLoading)
     return <div className="text-blue-500">loading...</div>;
-  // Sort the events based on date in ascending order
   const sortedEvents = events
     ? events
         .slice()
-        .sort((a, b) => compareDesc(parseISO(a.date), parseISO(b.date)))
+        .sort((a, b) =>
+          compareDesc(parseISO(a.date.toString()), parseISO(b.date.toString()))
+        )
         .map((event) => ({
           ...event,
-          formattedDate: format(parseISO(event.date), "MMMM d, yyyy"),
+          formattedDate: format(
+            parseISO(event.date.toString()),
+            "MMMM d, yyyy"
+          ),
         }))
     : [];
 
@@ -53,7 +57,7 @@ export default function Home() {
           <div
             key={event.name}
             className={`lg:mx-auto lg:grid lg:grid-cols-12 mx-10 mb-10 lg:mb-0 max-w-4xl ${
-              compareDesc(new Date(), parseISO(event.date)) > 0
+              compareDesc(new Date(), parseISO(event.date.toString())) > 0
                 ? "past-event"
                 : "upcoming-event"
             }`}
