@@ -12,7 +12,7 @@ export function Event({ sortedEvent }: eventProps) {
   console.log(sortedEvent);
   return (
     <div>
-      <hr className="hidden lg:block lg:max-w-6xl lg:mx-auto lg:my-9 h-px my-4 bg-gray-400 border-0" />
+      <hr className="hidden lg:block lg:max-w-3xl lg:mx-auto lg:my-9 h-px my-4 bg-gray-400 border-0" />
       <div
         key={sortedEvent.name}
         className={`lg:mx-auto lg:grid lg:grid-cols-12 mx-10 mb-10 lg:mb-0 max-w-4xl ${
