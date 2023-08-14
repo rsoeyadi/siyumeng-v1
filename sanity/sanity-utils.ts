@@ -89,8 +89,8 @@ export function getCoverPhotos(): Promise<CoverPhotos> {
             "videosImage": videosImage.asset->url,
             "entryImage": entryImage.asset->url,
             "teachingImage": teachingImage.asset->url,
-            "contactImage": contactImage.asset->url,
-          
+            "contactImage1": contactImage1.asset->url,
+            "contactImage2": contactImage2.asset->url,
         }`
     )
 }

@@ -44,8 +44,16 @@ const coverPhotos = {
             }
         },
         {
-            name: 'contactImage',
-            title: 'Contact Page',
+            name: 'contactImage1',
+            title: 'Contact Page Top',
+            type: 'image',
+            options: {
+                hotspot: true,
+            }
+        },
+        {
+            name: 'contactImage2',
+            title: 'Contact Page Bottom',
             type: 'image',
             options: {
                 hotspot: true,

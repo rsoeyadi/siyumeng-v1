@@ -17,8 +17,8 @@ export default function Home() {
     return <div className="text-blue-500">loading...</div>;
 
   return (
-    <>
-      <div className="">
+    <div className="pb-10">
+      <div>
         <div
           className="h-[80vh] md:h-[100vh] background-image relative"
           style={{
@@ -74,6 +74,6 @@ export default function Home() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }

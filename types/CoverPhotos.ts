@@ -6,5 +6,6 @@ export type CoverPhotos = {
   eventsImage: string
   teachingImage: string;
   videosImage: string;
-  contactImage: string;
+  contactImage1: string;
+  contactImage2: string;
 };

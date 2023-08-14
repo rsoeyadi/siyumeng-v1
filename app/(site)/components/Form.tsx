@@ -17,7 +17,7 @@ export function ContactForm() {
             type="text"
             placeholder="Name"
             required
-            autoComplete="name" 
+            autoComplete="name"
           />
         </div>
         <div className="mb-4 lg:flex">
@@ -33,8 +33,8 @@ export function ContactForm() {
               id="emailAddress"
               type="email"
               placeholder="Email Address"
-              required 
-              autoComplete="email" 
+              required
+              autoComplete="email"
             />
           </div>
           <div className="lg:w-1/2 lg:ml-2 mb-4 lg:mb-0">
@@ -64,14 +64,14 @@ export function ContactForm() {
             id="message"
             rows={6}
             placeholder="Enter your message here..."
-            required 
+            required
           />
         </div>
 
         <div className="flex items-center justify-between">
           <button
-            className="bg-slate-700 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit" 
+            className="bg-slate-700 hover:bg-slate-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
           >
             Submit
           </button>

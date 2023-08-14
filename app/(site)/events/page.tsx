@@ -32,7 +32,7 @@ export default function Home() {
     : [];
 
   return (
-    <div className="">
+    <div className="pb-10">
       <div
         className="h-[80vh] md:h-[100vh] background-image relative"
         style={{
