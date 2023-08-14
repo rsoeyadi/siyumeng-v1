@@ -1,5 +1,5 @@
 "use client";
-import { getGalleryImages } from "@/sanity/sanity-utils";
+import { getCoverPhotos, getGalleryImages } from "@/sanity/sanity-utils";
 import useSWR from "swr";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway, ViewType } from "react-images";
@@ -8,6 +8,7 @@ import { useCallback, useState } from "react";
 export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
+  const { data, error, isLoading } = useSWR("gallery", getGalleryImages);
   const openLightbox = useCallback((event: any, { photo, index }: any) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
@@ -16,10 +17,15 @@ export default function Home() {
     setCurrentImage(0);
     setViewerIsOpen(false);
   };
-
-  const { data, error, isLoading } = useSWR("gallery", getGalleryImages);
-  if (error) return <div className="text-red-500">failed to load</div>;
-  if (isLoading) return <div className="text-blue-500">loading...</div>;
+  const {
+    data: coverPhotos,
+    error: coverPhotosError,
+    isLoading: coverPhotosIsLoading,
+  } = useSWR("coverPhotos", getCoverPhotos);
+  if (error || coverPhotosError)
+    return <div className="text-red-500">failed to load</div>;
+  if (isLoading || coverPhotosIsLoading)
+    return <div className="text-blue-500">loading...</div>;
 
   const photos = data?.map((item) => {
     const url = item.image;
@@ -53,39 +59,56 @@ export default function Home() {
   };
 
   return (
-    <div className="shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset] mx-auto flex justify-center">
-      <div className="w-full">
-        <Gallery
-          photos={
-            photos as {
-              src: string;
-              srcSet?: string | string[] | undefined;
-              sizes?: string | string[] | undefined;
-              width: number;
-              height: number;
-              alt?: string | undefined;
-              key?: string | undefined;
-            }[]
-          }
-          onClick={openLightbox}
-        />
+    <>
+      <div
+        className="h-[80vh] md:h-[70vh] background-image relative"
+        style={{
+          backgroundImage: `url('${coverPhotos?.galleryImage}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center 30%",
+          backgroundRepeat: "no-repeat",
+          width: "100vw",
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 93.5%)",
+        }}
+      >
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80">
+          <div className="text-white text-4xl font-bold uppercase">Gallery</div>
+        </div>
       </div>
-      {/* @ts-ignore */}
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              styles={customStyles}
-              views={
-                photos?.map((photo) => ({
-                  ...photo,
-                })) as unknown as ViewType[]
-              }
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </div>
+      <div className="my-20 mx-auto flex justify-center">
+        <div className="w-full">
+          <Gallery
+            photos={
+              photos as {
+                src: string;
+                srcSet?: string | string[] | undefined;
+                sizes?: string | string[] | undefined;
+                width: number;
+                height: number;
+                alt?: string | undefined;
+                key?: string | undefined;
+              }[]
+            }
+            onClick={openLightbox}
+          />
+        </div>
+        {/* @ts-ignore */}
+        <ModalGateway>
+          {viewerIsOpen ? (
+            <Modal onClose={closeLightbox}>
+              <Carousel
+                currentIndex={currentImage}
+                styles={customStyles}
+                views={
+                  photos?.map((photo) => ({
+                    ...photo,
+                  })) as unknown as ViewType[]
+                }
+              />
+            </Modal>
+          ) : null}
+        </ModalGateway>
+      </div>
+    </>
   );
 }
