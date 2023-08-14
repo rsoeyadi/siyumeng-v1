@@ -37,6 +37,7 @@ export default function Home() {
         src: url,
         width: width,
         height: height,
+        class: "hover:scale-90 transition duration-300",
       };
     }
     return { src: url, width: 4, height: 3 };
@@ -68,7 +69,7 @@ export default function Home() {
           backgroundPosition: "center 30%",
           backgroundRepeat: "no-repeat",
           width: "100vw",
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 93.5%)",
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 91.5%)",
         }}
       >
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80">
