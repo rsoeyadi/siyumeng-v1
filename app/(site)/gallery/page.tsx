@@ -54,6 +54,7 @@ export default function Home() {
           onClick={openLightbox}
         />
       </div>
+      {/* @ts-ignore */}
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
