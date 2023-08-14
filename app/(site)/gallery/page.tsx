@@ -36,6 +36,22 @@ export default function Home() {
     return { src: url, width: 4, height: 3 };
   });
 
+  const customStyles = {
+    header: (base: any, state: { isFullscreen: any }) => ({
+      ...base,
+      "& svg": {
+        fill: "white", // Change the fill color of SVGs to white
+      },
+    }),
+
+    footer: (base: any, state: { interactionIsIdle: any }) => {
+      const opacity = state.interactionIsIdle ? 0 : 1;
+      const transition = "opacity 300ms";
+
+      return { ...base, opacity, transition };
+    },
+  };
+
   return (
     <div className="shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset] mx-auto flex justify-center">
       <div className="w-full">
@@ -60,6 +76,7 @@ export default function Home() {
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
+              styles={customStyles}
               views={
                 photos?.map((photo) => ({
                   ...photo,
