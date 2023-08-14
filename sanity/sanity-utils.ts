@@ -70,7 +70,7 @@ export async function getVideos(): Promise<Video[]> {
 
 export async function getGalleryImages(): Promise<GalleryImage[]> {
     return createClient(clientConfig).fetch(
-        groq`*[_type == "link"]{
+        groq`*[_type == "galleryImage"]{
             _id,
             _createAt,
             "image": image.asset->url,

@@ -4,7 +4,7 @@ import useSWR from "swr";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const { data, error, isLoading } = useSWR("videos", getVideos);
+  const { data, error, isLoading } = useSWR("biography", getVideos);
   const {
     data: coverPhotos,
     error: coverPhotosError,
