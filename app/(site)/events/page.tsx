@@ -59,12 +59,12 @@ export default function Home() {
             `}
           >
             <hr className="h-px my-4 bg-gray-300 border-0" />{" "}
-            <p className="text-2xl font-bold">{event.formattedDate}</p>
+            <p className="text-2xl font-extrabold">{event.formattedDate}</p>
             <p className="text-3xl font-bold">{event.name}</p>
             <p className="text-2xl font-bold">{event.location}</p>
             <PortableText value={event.description}></PortableText>
             {event.link && (
-              <p className="uppercase pt-5 font-bold">
+              <p className="uppercase pt-5 font-bold underline underline-offset-8	">
                 <Link href={event.link} target="_blank">
                   More Information
                 </Link>

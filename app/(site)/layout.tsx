@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["cyrillic"],
-  weight: ["300", "700"],
+  weight: ["300", "500", "600", "700"], // Add "bold" to the array
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
