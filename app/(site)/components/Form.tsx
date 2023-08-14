@@ -3,7 +3,7 @@ import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 
 export function ContactForm() {
-  const [formState, submit] = useForm(process.env.NEXT_PUBLIC_FORM as string);;
+  const [formState, submit] = useForm(process.env.NEXT_PUBLIC_FORM as string);
   if (formState.succeeded) {
     return <p>Thank you for your message!</p>;
   }
@@ -61,6 +61,8 @@ export function ContactForm() {
               id="subject"
               type="text"
               placeholder="Subject"
+              required
+              autoComplete="email"
             />
           </div>
         </div>
@@ -77,6 +79,7 @@ export function ContactForm() {
             rows={6}
             placeholder="Enter your message here..."
             required
+            autoComplete="email"
           />
         </div>
         <div className="flex items-center justify-between">
@@ -85,9 +88,7 @@ export function ContactForm() {
             type="submit"
             value="Submit"
           ></input>
-          
         </div>{" "}
-      
       </form>
     </div>
   );
