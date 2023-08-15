@@ -51,7 +51,7 @@ export default function Home() {
         }}
       >
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="text-white text-5xl font-bold uppercase">
+          <div className="text-white text-4xl font-bold uppercase">
             Performances
           </div>
         </div>
