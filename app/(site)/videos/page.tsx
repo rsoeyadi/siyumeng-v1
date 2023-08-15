@@ -40,7 +40,7 @@ export default function Home() {
         {videos?.map((video, index) => (
           <div
             key={index}
-            className="max-w-3xl mb-20 mx-auto bg-white border border-gray-200 rounded-lg shadow "
+            className="max-w-3xl mb-20 mx-auto bg-white border border-gray-200 rounded-lg shadow"
           >
             <iframe
               className="w-full aspect-video rounded-t-lg"
@@ -50,7 +50,7 @@ export default function Home() {
               title="video"
             />
             <div className="p-5">
-              <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 className="mb-2 text-xl font-bold tracking-tight text-slate-700">
                 {video.title}
               </h5>
               <PortableText value={video.description} />
