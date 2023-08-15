@@ -45,25 +45,9 @@ export default function Home() {
             <PortableText value={data.biographyHalf1}></PortableText>
           </div>
         )}
-
-        <div className="grid grid-cols-12 relative mx-auto my-0 max-w-2xl">
-          <div
-            style={{
-              gridColumn: "1 / span 8",
-              gridRow: "1",
-              paddingTop: "20%",
-              zIndex: "1",
-            }}
-          >
+        <div className="relative mx-auto my-0 max-w-2xl">
+          <div>
             <img src={data?.square1} alt="" />{" "}
-          </div>
-          <div
-            style={{
-              gridColumn: "4 / -1",
-              gridRow: "1",
-            }}
-          >
-            <img src={data?.square2} alt="" />
           </div>
         </div>
         {data?.biographyHalf2 && (
