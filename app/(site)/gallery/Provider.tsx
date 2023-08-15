@@ -75,7 +75,7 @@ export default function Home() {
         <div className="w-9/12 pb-10">
           <Gallery
             photos={galleryPhotos as any}
-            onClick={(e, obj) => openLightbox(obj.index)} // Open Lightbox on photo click
+            onClick={(e, obj) => openLightbox(obj.index)} 
           />
         </div>
       </div>

@@ -26,7 +26,7 @@ export function ContactForm() {
             Full Name
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight transition duration-300 ease-in-out focus:ring focus:outline-none "
             id="fullName"
             type="text"
             name="Full Name"
@@ -49,7 +49,7 @@ export function ContactForm() {
               Email Address
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline duration-300 ease-in-out focus:ring "
               id="emailAddress"
               type="email"
               name="Email"
@@ -71,7 +71,7 @@ export function ContactForm() {
               Subject
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline duration-300 ease-in-out focus:ring "
               id="subject"
               type="text"
               name="Subject"
@@ -93,7 +93,7 @@ export function ContactForm() {
             Message
           </label>
           <textarea
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight  duration-300 ease-in-out focus:ring focus:outline-none  "
             id="message"
             name="Message"
             rows={6}
