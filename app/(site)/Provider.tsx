@@ -1,7 +1,7 @@
 "use client";
 import "./globals.css";
 import Nav from "./components/Nav";
-import { Nunito } from "@next/font/google";
+import { Nunito } from "next/font/google";
 import useHamburgerStore from "./store";
 import Footer from "./components/Footer";
 import { usePathname } from "next/navigation";

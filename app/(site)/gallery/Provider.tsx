@@ -1,11 +1,27 @@
 "use client";
+import React, { useState } from "react";
+import Gallery from "react-photo-gallery";
+import Lightbox from "yet-another-react-lightbox"; // Import the Lightbox component
+import "yet-another-react-lightbox/styles.css"; // Import the styles
+
 import { getCoverPhotos, getGalleryImages } from "@/sanity/sanity-utils";
 import useSWR from "swr";
-import Gallery from "react-photo-gallery";
 import Loading from "../loading";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("gallery", getGalleryImages);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setCurrentSlide(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setCurrentSlide(0);
+  };
 
   const {
     data: coverPhotos,
@@ -16,7 +32,7 @@ export default function Home() {
     return <div className="text-red-500">failed to load</div>;
   if (isLoading || coverPhotosIsLoading) return <Loading />;
 
-  const photos = data?.map((item) => {
+  const galleryPhotos = data?.map((item) => {
     const url = item.image;
     const dimensionsMatch = url.match(/-(\d+)x(\d+)\./);
     if (dimensionsMatch) {
@@ -26,12 +42,17 @@ export default function Home() {
         src: url,
         width: width,
         height: height,
-        class:
-          "betterhover:hover:scale-90 betterhover:transition betterhover:duration-300",
       };
     }
     return { src: url, width: 4, height: 3 };
   });
+
+  // Transform photos into the format required by Lightbox
+  const lightboxPhotos = galleryPhotos?.map((photo) => ({
+    src: photo.src,
+    width: photo.width,
+    height: photo.height,
+  }));
 
   return (
     <div className="relative">
@@ -53,20 +74,17 @@ export default function Home() {
       <div className="mt-20 mx-auto flex justify-center">
         <div className="w-9/12 pb-10">
           <Gallery
-            photos={
-              photos as {
-                src: string;
-                srcSet?: string | string[] | undefined;
-                sizes?: string | string[] | undefined;
-                width: number;
-                height: number;
-                alt?: string | undefined;
-                key?: string | undefined;
-              }[]
-            }
+            photos={galleryPhotos as any}
+            onClick={(e, obj) => openLightbox(obj.index)} // Open Lightbox on photo click
           />
         </div>
       </div>
+      <Lightbox
+        open={lightboxOpen}
+        close={closeLightbox}
+        slides={lightboxPhotos}
+      />
+
       <div
         className="-z-10 h-[60vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-slate-700"
         style={{
