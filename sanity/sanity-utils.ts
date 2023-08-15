@@ -62,6 +62,7 @@ export async function getGalleryImages(): Promise<GalleryImage[]> {
         groq`*[_type == "galleryImage"]{
             _id,
             _createAt,
+            description,
             "image": image.asset->url,
         }`
     )

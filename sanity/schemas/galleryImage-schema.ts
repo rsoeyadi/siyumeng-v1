@@ -4,8 +4,8 @@ const galleryImage = {
     type: 'document',
     fields: [
         {
-            name: 'title',
-            title: 'Title of image',
+            name: 'description',
+            title: 'Description of image',
             type: 'string',
         },
         {

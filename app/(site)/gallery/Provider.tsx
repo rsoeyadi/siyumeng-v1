@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Gallery from "react-photo-gallery";
 import Lightbox from "yet-another-react-lightbox"; // Import the Lightbox component
 import "yet-another-react-lightbox/styles.css"; // Import the styles
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import "yet-another-react-lightbox/plugins/captions.css";
 
 import { getCoverPhotos, getGalleryImages } from "@/sanity/sanity-utils";
 import useSWR from "swr";
@@ -42,6 +44,7 @@ export default function Home() {
         src: url,
         width: width,
         height: height,
+        description: item.description,
       };
     }
     return { src: url, width: 4, height: 3 };
@@ -52,6 +55,7 @@ export default function Home() {
     src: photo.src,
     width: photo.width,
     height: photo.height,
+    description: photo.description,
   }));
 
   return (
@@ -75,14 +79,21 @@ export default function Home() {
         <div className="w-9/12 pb-10">
           <Gallery
             photos={galleryPhotos as any}
-            onClick={(e, obj) => openLightbox(obj.index)} 
+            onClick={(e, obj) => openLightbox(obj.index)}
           />
         </div>
       </div>
       <Lightbox
         open={lightboxOpen}
         close={closeLightbox}
+        index={currentSlide} // Use the currentSlide state as the initial slide
         slides={lightboxPhotos}
+        plugins={[Captions]}
+        controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
+        captions={{
+          descriptionTextAlign: "center",
+          descriptionMaxLines: 3,
+        }}
       />
 
       <div
