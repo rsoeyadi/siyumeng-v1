@@ -4,8 +4,11 @@ import useSWR from "swr";
 import { compareDesc, parseISO, format } from "date-fns";
 import { Event as Performance } from "@/app/(site)/components/Event";
 import Loading from "../loading";
+import { useState } from "react";
 
 export default function Home() {
+  const itemsToShowIncrement = 5;
+  const [itemsToShow, setItemsToShow] = useState(itemsToShowIncrement);
   const { data: events, error, isLoading } = useSWR("events", getEvents);
   const {
     data: coverPhotos,
@@ -30,6 +33,10 @@ export default function Home() {
         }))
     : [];
 
+  const showMore = () => {
+    setItemsToShow((prevItems) => prevItems + itemsToShowIncrement);
+  };
+
   return (
     <div className="pb-10">
       <div
@@ -44,17 +51,28 @@ export default function Home() {
         }}
       >
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="text-white text-4xl font-bold uppercase">
+          <div className="text-white text-5xl font-bold uppercase">
             Performances
           </div>
         </div>
       </div>
-      {sortedEvents?.map((sortedEvent) => (
+      {sortedEvents?.slice(0, itemsToShow).map((sortedEvent) => (
         <Performance
           sortedEvent={sortedEvent}
           key={sortedEvent.name + sortedEvent.date}
         />
       ))}
+
+      {itemsToShow < sortedEvents.length && (
+        <div className="text-center mt-5">
+          <button
+            className="cursor-pointer bg-slate-700 hover:bg-slate-500 transition duration-150 ease-in-out text-white font-bold py-2 px-5 rounded focus:outline-none focus:shadow-outline"
+            onClick={showMore}
+          >
+            Show more
+          </button>
+        </div>
+      )}
     </div>
   );
 }
