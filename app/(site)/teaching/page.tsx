@@ -33,7 +33,7 @@ export default function Home() {
         style={{
           backgroundImage: `url('${coverPhotos?.teachingImage}')`,
           backgroundSize: "cover",
-          backgroundPosition: "center right -90px",
+          backgroundPosition: "center left -90px",
           backgroundRepeat: "no-repeat",
           width: "100vw",
           clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 97.5%)",
