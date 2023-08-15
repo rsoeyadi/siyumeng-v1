@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Siyumeng Wang | Classical Pianist",
     images: [
       {
-        url: "https://siyumengwang.com/images/social.jpg",
+        url: "https://siyumeng.com/images/preview.jpg",
       },
     ],
   },
