@@ -16,25 +16,28 @@
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "eslint": "8.46.0",
-    "eslint-config-next": "13.4.13",
+    "eslint-config-next": "^13.4.16",
     "hamburger-react": "^2.5.0",
-    "next": "^13.4.15",
+    "next": "^13.4.16",
     "next-sanity": "^5.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-images": "^1.2.0-beta.7",
+    "node-fetch": "^3.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-photo-gallery": "^8.0.0",
-    "sanity": "^3.15.0",
+    "sanity": "^3.8.3",
     "sanity-plugin-vercel-deploy": "^3.3.4",
     "styled-components": "^6.0.7",
     "swr": "^2.2.0",
     "typescript": "5.1.6",
+    "yet-another-react-lightbox": "^3.12.0",
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@types/react-images": "^1.1.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3"
+  },
+  "overrides": {
+    "semver": "^7.5.3"
   }
 }

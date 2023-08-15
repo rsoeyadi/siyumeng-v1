@@ -2,23 +2,11 @@
 import { getCoverPhotos, getGalleryImages } from "@/sanity/sanity-utils";
 import useSWR from "swr";
 import Gallery from "react-photo-gallery";
-/* @ts-ignore */
-import Carousel, { Modal, ModalGateway, ViewType } from "react-images";
-import { useCallback, useState } from "react";
 import Loading from "../loading";
 
 export default function Home() {
-  const [currentImage, setCurrentImage] = useState(0);
-  const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const { data, error, isLoading } = useSWR("gallery", getGalleryImages);
-  const openLightbox = useCallback((event: any, { photo, index }: any) => {
-    setCurrentImage(index);
-    setViewerIsOpen(true);
-  }, []);
-  const closeLightbox = () => {
-    setCurrentImage(0);
-    setViewerIsOpen(false);
-  };
+
   const {
     data: coverPhotos,
     error: coverPhotosError,
@@ -44,22 +32,6 @@ export default function Home() {
     }
     return { src: url, width: 4, height: 3 };
   });
-
-  const customStyles = {
-    header: (base: any, state: { isFullscreen: any }) => ({
-      ...base,
-      "& svg": {
-        fill: "white",
-      },
-    }),
-
-    footer: (base: any, state: { interactionIsIdle: any }) => {
-      const opacity = state.interactionIsIdle ? 0 : 1;
-      const transition = "opacity 300ms";
-
-      return { ...base, opacity, transition };
-    },
-  };
 
   return (
     <div className="relative">
@@ -92,26 +64,9 @@ export default function Home() {
                 key?: string | undefined;
               }[]
             }
-            onClick={openLightbox}
           />
         </div>
-        {/* @ts-ignore */}
-        <ModalGateway>
-          {viewerIsOpen ? (
-            <Modal onClose={closeLightbox}>
-              <Carousel
-                currentIndex={currentImage}
-                styles={customStyles}
-                views={
-                  photos?.map((photo) => ({
-                    ...photo,
-                  })) as unknown as ViewType[]
-                }
-              />
-            </Modal>
-          ) : null}
-        </ModalGateway>
-      </div>{" "}
+      </div>
       <div
         className="-z-10 h-[60vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-slate-700"
         style={{
