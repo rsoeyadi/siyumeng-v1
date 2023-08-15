@@ -11,14 +11,6 @@ const biography = {
                 hotspot: true,
             }
         },
-         {
-            name: 'square2',
-            title: 'Square Image 2',
-            type: 'image',
-            options: {
-                hotspot: true,
-            }
-        },
         {
             name: "biographyHalf1",
             title: "First half of biography",
