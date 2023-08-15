@@ -6,7 +6,8 @@ export const metadata: Metadata = {
   description: "Siyumeng Wang's Website",
   generator: "Next.js",
   applicationName: "Siyumeng Wang | Pianist",
-  referrer: "origin-when-cross-origin",
+  referrer: "origin-when-cross-origin", 
+  category: "music",
   keywords: [
     "Siyumeng Wang",
     "Classical Pianist",
@@ -38,8 +39,34 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://siyumeng.com/images/preview.jpg",
+        alt: "Siyumeng Wang | Pianist",
       },
     ],
+  },
+  twitter: {
+    title: "Siyumeng Wang |  Pianist",
+    description:
+      "Hailing from Beijing, China, Siyumeng Wang is a 25-year-old pianist who enchants audiences with her heartfelt performances. Her genuine charm and captivating stage presence have made her a sought-after artist, known for her sincere and expressive interpretations.",
+    images: [
+      {
+        url: "https://siyumeng.com/images/preview.jpg",
+        alt: "Siyumeng Wang | Pianist",
+      },
+    ],
+  },
+  robots: {
+    index: true, // Allow general indexing of your pages
+    follow: true, // Allow general crawling of links
+    nocache: false, // Allow caching of your pages
+
+    googleBot: {
+      index: true, // Instruct Google to index your pages
+      follow: true, // Allow Google to follow links
+      noimageindex: false, // Allow Google to index images
+      "max-video-preview": "large", // Set a large video preview size
+      "max-image-preview": "large", // Set a large image preview size
+      "max-snippet": 200, // Limit text snippet length to a reasonable value
+    },
   },
 };
 
