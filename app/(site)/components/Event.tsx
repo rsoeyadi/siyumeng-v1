@@ -31,8 +31,8 @@ export function Event({ sortedEvent }: eventProps) {
           </p>
         </div>
         <div className="lg:col-start-5 lg:col-span-5">
-          <p className="text-3xl font-bold ">{sortedEvent.name}</p>
-          <p className="text-2xl font-bold pb-3">{sortedEvent.location}</p>
+          <p className="text-2xl font-bold ">{sortedEvent.name}</p>
+          <p className="text-xl pb-3">{sortedEvent.location}</p>
           <PortableText value={sortedEvent.description}></PortableText>
         </div>
         {sortedEvent.link && (
