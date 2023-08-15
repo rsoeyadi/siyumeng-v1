@@ -26,7 +26,6 @@ export default function Home() {
     return <div className="text-red-500">failed to load</div>;
   if (isLoading || teachingPhilosophyIsLoading || coverPhotosIsLoading)
     return <div className="text-blue-500">loading...</div>;
-  console.log(teachingPhilosophy);
   return (
     <div className="relative">
       <div
@@ -57,13 +56,13 @@ export default function Home() {
         {jobs?.map((job, index) => (
           <div
             key={job.company + job.image}
-            className="mt-20 relative flex max-w-2xl mx-auto flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
+            className="mt-20 max-w-3xl relative flex mx-auto flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
           >
             <div className="relative mx-4 -mt-6 mb-5 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white ">
               <img src={job.image} alt="img-blur-shadow" />
             </div>
             <div className="p-6 pt-0">
-              <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+              <h5 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                 {job.company}
               </h5>
               <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">

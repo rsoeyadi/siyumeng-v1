@@ -4,7 +4,6 @@ import useSWR from "swr";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("coverPhotos", getCoverPhotos);
-  console.log({ data });
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
