@@ -58,8 +58,14 @@ export default function Nav() {
                   <div className="absolute top-0 right-0 lg:-left-3  w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[28deg]  bg-red-700 opacity-100  duration-150 z-0"></div>
                 )}
 
-                <Link className="relative z-10 text-white" href={page.route}>
-                  <button onClick={closeMenu}>{page.title}</button>
+                <Link
+                  className="relative z-10 text-white"
+                  href={page.route}
+                  tabIndex={-1}
+                >
+                  <button onClick={closeMenu} tabIndex={isOpen ? 0 : -1}>
+                    {page.title}
+                  </button>
                 </Link>
               </div>
             </li>
