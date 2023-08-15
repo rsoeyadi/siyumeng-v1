@@ -37,8 +37,8 @@ export function Event({ sortedEvent }: eventProps) {
           <PortableText value={sortedEvent.description}></PortableText>
         </div>
         {sortedEvent.link && (
-          <p className="lg:text-sm lg:col-span-2 lg:col-start-11 uppercase pt-5 lg:pt-0 font-bold underline underline-offset-8	">
-            <Link href={sortedEvent.link} target="_blank">
+          <p className="lg:text-sm lg:col-span-2 lg:col-start-11  uppercase pt-5 lg:pt-0 font-bold underline underline-offset-8	">
+            <Link className="hover:text-slate-500 duration-300 ease-in-out" href={sortedEvent.link} target="_blank">
               More Information
             </Link>
           </p>
