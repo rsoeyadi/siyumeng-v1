@@ -55,7 +55,10 @@ export default function Home() {
       </div>
       <div className={`md:grid grid-cols-2 gap-2`}>
         {jobs?.map((job, index) => (
-          <div className="mt-20 relative flex max-w-2xl mx-auto flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+          <div
+            key={job.company + job.image}
+            className="mt-20 relative flex max-w-2xl mx-auto flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
+          >
             <div className="relative mx-4 -mt-6 mb-5 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white ">
               <img src={job.image} alt="img-blur-shadow" />
             </div>
