@@ -21,16 +21,6 @@ export async function getBiography(): Promise<Biography> {
         }`
     )
 }
-export async function getChamberPieces(): Promise<ChamberPiece[]> {
-    return createClient(clientConfig).fetch(
-        groq`*[_type == "chamberPiece"]{
-            _id,
-            _createAt,
-            title,
-            composer,
-        }`
-    )
-}
 
 export async function getTeachingPhilosophy(): Promise<TeachingPhilosophy> {
     return createClient(clientConfig).fetch(
