@@ -4,13 +4,17 @@ import { useForm, ValidationError } from "@formspree/react";
 
 export function ContactForm() {
   const [state, handleSubmit] = useForm("mgejapgq");
+  
   if (state.succeeded) {
     return (
-      <p className="px-5 text-xl  my-5 mx-2 lg:mx-auto lg:max-w-6xl">
+      <p className="px-5 text-xl my-5 mx-2 lg:mx-auto lg:max-w-6xl">
         Thank you for submitting your message.
       </p>
     );
   }
+  
+
+  
 
   return (
     <div>
@@ -20,7 +24,7 @@ export function ContactForm() {
       >
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-1"
+            className="block text-gray-700 text-md font-bold mb-1"
             htmlFor="fullName"
           >
             Full Name
@@ -40,10 +44,37 @@ export function ContactForm() {
             errors={state.errors}
           />
         </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-md font-bold mb-1"
+            htmlFor="subject"
+          >
+            Subject
+          </label>
+          <select
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline duration-300 ease-in-out focus:ring"
+            id="subject"
+            name="Subject"
+            required
+          >
+            <option value="">Select a subject</option>
+            <option value="Lessons">Lessons</option>
+            <option value="Performance Opportunity">
+              Performance Opportunity
+            </option>
+            <option value="Collaboration">Collaboration</option>
+            <option value="Inquiry">Inquiry</option>
+          </select>
+          <ValidationError
+            prefix="Subject"
+            field="subject"
+            errors={state.errors}
+          />
+        </div>
         <div className="mb-4 lg:flex">
           <div className="lg:w-1/2 lg:mr-2 mb-3">
             <label
-              className="block text-gray-700 text-sm font-bold mb-1"
+              className="block text-gray-700 text-md font-bold mb-1"
               htmlFor="emailAddress"
             >
               Email Address
@@ -65,29 +96,30 @@ export function ContactForm() {
           </div>
           <div className="lg:w-1/2 lg:ml-2 mb-4 lg:mb-0">
             <label
-              className="block text-gray-700 text-sm font-bold mb-1"
-              htmlFor="subject"
+              className="block text-gray-700 text-md font-bold mb-1"
+              htmlFor="phoneNumber"
             >
-              Subject
+              Phone Number
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline duration-300 ease-in-out focus:ring "
-              id="subject"
-              type="text"
-              name="Subject"
-              placeholder="Subject"
+              id="phoneNumber"
+              type="tel"
+              name="Phone Number"
+              placeholder="Phone Number"
               required
+              autoComplete="tel"
             />
             <ValidationError
-              prefix="Subject"
-              field="subject"
+              prefix="Email"
+              field="email"
               errors={state.errors}
             />
           </div>
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-1"
+            className="block text-gray-700 text-md font-bold mb-1"
             htmlFor="message"
           >
             Message
