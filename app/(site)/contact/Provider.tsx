@@ -3,7 +3,7 @@
 import useSWR from "swr";
 import { ContactForm } from "../components/Form";
 import { getCoverPhotos } from "@/sanity/sanity-utils";
-import Loading from "./loading";
+import Loading from "../loading";
 
 export default function Home() {
   const {

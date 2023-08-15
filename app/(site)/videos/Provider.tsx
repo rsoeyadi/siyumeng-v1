@@ -2,6 +2,7 @@
 import { getCoverPhotos, getVideos } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import useSWR from "swr";
+import Loading from "../loading";
 
 export default function Home() {
   const { data: videos, error, isLoading } = useSWR("videos", getVideos);
@@ -13,8 +14,7 @@ export default function Home() {
 
   if (error || coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
-  if (isLoading || coverPhotosIsLoading)
-    return <div className="text-blue-500">loading...</div>;
+  if (isLoading || coverPhotosIsLoading) return <Loading />;
 
   return (
     <div className="relative">
