@@ -22,11 +22,10 @@ export function Event({ sortedEvent }: eventProps) {
       >
         <hr className="lg:hidden lg:col-span-1 h-px my-4 bg-gray-400 border-0" />
         <div className="lg:col-span-4 lg:grid lg:grid-rows-6 lg:max-h-40">
-          <p className="text-xl lg:row-start-1 font-extrabold inline-block ">
+          <p className="text-xl lg:row-start-1 font-extrabold block ">
             {sortedEvent.formattedDate}
           </p>
-          <span className="text-xl font-extrabold lg:hidden">,&nbsp;</span>
-          <p className="text-xl lg:row-start-2 lg:text-lg pb-5 lg:pb-0 font-extrabold inline-block">
+          <p className="text-xl lg:row-start-2 lg:text-lg pb-5 lg:pb-0 font-extrabold block">
             {sortedEvent.time}
           </p>
         </div>
