@@ -47,14 +47,18 @@ export default function Home() {
         </div>
       </div>
       {/* Teaching Philosophy Section */}
-      <div className="max-w-5xl mx-auto my-10 text-center justify-center">
-        <h2 className="text-2xl font-bold mb-3">My teaching philosophy</h2>
-        <PortableText
-          value={teachingPhilosophy?.description as unknown as any}
-        />
+      <div className="px-3 max-w-5xl mx-auto my-10 text-center justify-center">
+        <h2 className="text-left lg:text-center text-2xl font-bold mb-3">
+          My teaching philosophy
+        </h2>
+        <div className="text-left lg:text-center text-base font-light leading-relaxed text-inherit antialiased">
+          <PortableText
+            value={teachingPhilosophy?.description as unknown as any}
+          />
+        </div>
       </div>
       <div className={`md:grid grid-cols-2 gap-2`}>
-        {jobs?.map((job, index) => (
+        {jobs?.map((job) => (
           <div
             key={job.company + job.image}
             className="mt-20 max-w-3xl relative flex mx-auto flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
@@ -63,10 +67,10 @@ export default function Home() {
               <img src={job.image} alt="img-blur-shadow" />
             </div>
             <div className="p-6 pt-0">
-              <h5 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+              <h5 className="mb-2 block text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                 {job.company}
               </h5>
-              <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+              <p className="block text-base font-light leading-relaxed text-inherit antialiased">
                 <PortableText value={job.description} />
               </p>
             </div>
