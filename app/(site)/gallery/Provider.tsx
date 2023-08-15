@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Gallery from "react-photo-gallery";
-import Lightbox from "yet-another-react-lightbox"; // Import the Lightbox component
-import "yet-another-react-lightbox/styles.css"; // Import the styles
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css"; 
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/captions.css";
 
@@ -50,7 +50,6 @@ export default function Home() {
     return { src: url, width: 4, height: 3 };
   });
 
-  // Transform photos into the format required by Lightbox
   const lightboxPhotos = galleryPhotos?.map((photo) => ({
     src: photo.src,
     width: photo.width,
@@ -86,7 +85,7 @@ export default function Home() {
       <Lightbox
         open={lightboxOpen}
         close={closeLightbox}
-        index={currentSlide} // Use the currentSlide state as the initial slide
+        index={currentSlide}
         slides={lightboxPhotos}
         plugins={[Captions]}
         controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
