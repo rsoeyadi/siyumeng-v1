@@ -24,7 +24,7 @@ export default function Provider({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${nunito.className} mx-auto my-0`}>
-        <p className="absolute top-0 left-0 lg:left-auto lg:right-10 z-[9999] text-2xl pt-5 pl-5 font-bold lg:ml-24 text-white">
+        <p className="absolute top-0 left-0 lg:left-auto lg:right-10 z-50 text-2xl pt-5 pl-5 font-bold lg:ml-24 text-white">
           Siyumeng Wang
         </p>
         <div className="flex flex-col min-h-screen">
