@@ -53,7 +53,7 @@ export default function Nav() {
             <li key={page.route} className="pb-5 relative group">
               <div className="text-2xl">
                 {/* Skew Backgrounds */}
-                <div className="absolute top-0 right-0 lg:-left-3  w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[28deg]  opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0 bg-slate-500"></div>
+                <div className="absolute top-0 right-0 lg:-left-3  w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[28deg]  opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0 bg-gray-500	"></div>
                 {pathname === page.route && (
                   <div className="absolute top-0 right-0 lg:-left-3  w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[28deg]  bg-red-700 opacity-100  duration-150 z-0"></div>
                 )}

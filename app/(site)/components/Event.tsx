@@ -11,7 +11,7 @@ interface eventProps {
 export function Event({ sortedEvent }: eventProps) {
   return (
     <div>
-      <hr className="hidden lg:block lg:max-w-3xl lg:mx-auto lg:my-9 h-px my-4 bg-gray-400 border-0" />
+      <hr className="hidden lg:block lg:max-w-3xl lg:mx-auto lg:my-9 h-px my-4 bg-gray-500 border-0" />
       <div
         key={sortedEvent.name}
         className={`lg:mx-auto lg:grid lg:grid-cols-12 mx-10 mb-10 lg:mb-0 max-w-4xl ${
@@ -20,7 +20,7 @@ export function Event({ sortedEvent }: eventProps) {
             : "upcoming-event"
         }`}
       >
-        <hr className="lg:hidden lg:col-span-1 h-px my-4 bg-gray-400 border-0" />
+        <hr className="lg:hidden lg:col-span-1 h-px my-4 bg-gray-500 border-0" />
         <div className="lg:col-span-4 lg:grid lg:grid-rows-6 lg:max-h-40">
           <p className="text-base lg:row-start-1  block font-light leading-relaxed text-inherit antialiased">
             {sortedEvent.formattedDate}
