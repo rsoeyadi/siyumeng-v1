@@ -75,16 +75,16 @@ export default function Home() {
               </p>
             </div>
             <div className="p-6 pt-0">
-              <div
-                className="cursor-pointer max-w-fit bg-black hover:bg-gray-500	 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                data-ripple-light="true"
-              >
-                {job.description && (
-                  <Link href={job.link} target="_blank">
+              {job.description && (
+                <Link href={job.link} target="_blank">
+                  <div
+                    className="cursor-pointer max-w-fit bg-black hover:bg-gray-500	 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    data-ripple-light="true"
+                  >
                     More information
-                  </Link>
-                )}
-              </div>
+                  </div>
+                </Link>
+              )}
             </div>
           </div>
         ))}

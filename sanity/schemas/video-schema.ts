@@ -10,7 +10,7 @@ const video = {
         },
         {
             name: 'link',
-            title: 'YouTube Link',
+            title: 'YouTube Link (MUST BE EMBEDDED LINK; look up how to get it if needed)',
             type: 'string',
         },
         {
