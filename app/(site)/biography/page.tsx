@@ -46,8 +46,12 @@ export default function Home() {
           </div>
         )}
         <div className="relative mx-auto my-0 max-w-2xl">
-          <div>
-            <img src={data?.square1} alt="" />{" "}
+          <div className="mb-4">
+            <img
+              src={data?.square1}
+              className="h-auto max-w-full rounded-full"
+              alt=""
+            />
           </div>
         </div>
         {data?.biographyHalf2 && (
