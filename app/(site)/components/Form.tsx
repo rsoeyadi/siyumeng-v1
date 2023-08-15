@@ -12,9 +12,6 @@ export function ContactForm() {
       </p>
     );
   }
-  
-
-  
 
   return (
     <div>

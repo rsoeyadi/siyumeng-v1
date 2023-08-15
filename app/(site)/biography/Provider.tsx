@@ -20,11 +20,10 @@ export default function Home() {
     <div className="pb-10">
       <div>
         <div
-          className="h-[80vh] md:h-[100vh] background-image relative"
+          className="bg-[position:90%_0%]  h-[80vh] md:h-[95vh] background-image relative"
           style={{
             backgroundImage: `url('${coverPhotos?.biographyImage}')`,
             backgroundSize: "cover",
-            backgroundPosition: "center top",
             backgroundRepeat: "no-repeat",
             width: "100vw",
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 93.5%)",
