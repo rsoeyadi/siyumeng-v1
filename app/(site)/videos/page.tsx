@@ -40,7 +40,7 @@ export default function Home() {
         {videos?.map((video, index) => (
           <div
             key={index}
-            className="max-w-3xl mb-20 mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            className="max-w-3xl mb-20 mx-auto bg-white border border-gray-200 rounded-lg shadow "
           >
             <iframe
               className="w-full aspect-video rounded-t-lg"
