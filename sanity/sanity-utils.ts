@@ -1,7 +1,6 @@
 import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config";
 import { Biography } from "@/types/Biography";
-import { ChamberPiece } from "@/types/ChamberPiece";
 import { Event } from "@/types/Event";
 import { GalleryImage } from "@/types/GalleryImage";
 import { Job } from "@/types/Job";
