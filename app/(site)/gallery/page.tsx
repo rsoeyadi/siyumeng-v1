@@ -62,7 +62,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="relative">
       <div
         className="h-[80vh] md:h-[70vh] background-image relative"
         style={{
@@ -71,15 +71,15 @@ export default function Home() {
           backgroundPosition: "center 30%",
           backgroundRepeat: "no-repeat",
           width: "100vw",
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 91.5%)",
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 95.5%)",
         }}
       >
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80">
           <div className="text-white text-4xl font-bold uppercase">Gallery</div>
         </div>
       </div>
-      <div className="my-20 mx-auto flex justify-center">
-        <div className="w-full">
+      <div className="mt-20 mx-auto flex justify-center">
+        <div className="w-7/12">
           <Gallery
             photos={
               photos as {
@@ -111,7 +111,16 @@ export default function Home() {
             </Modal>
           ) : null}
         </ModalGateway>
-      </div>
-    </>
+      </div>{" "}
+      <div
+        className="-z-10 h-[40vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-slate-700"
+        style={{
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          width: "100vw",
+          clipPath: "polygon(0 70%, 100% 0, 100% 100%, 0 100%)",
+        }}
+      ></div>
+    </div>
   );
 }
