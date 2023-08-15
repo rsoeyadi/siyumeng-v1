@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Gallery from "react-photo-gallery";
 import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css"; 
+import "yet-another-react-lightbox/styles.css";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/captions.css";
 
@@ -45,6 +45,7 @@ export default function Home() {
         width: width,
         height: height,
         description: item.description,
+        class: "hover:brightness-110 transition ease-in-out duration-300",
       };
     }
     return { src: url, width: 4, height: 3 };
@@ -102,7 +103,7 @@ export default function Home() {
           backgroundRepeat: "no-repeat",
           width: "100vw",
           clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0 100%)",
-          transform: "skewY(0.00001deg)",
+          transform: "skewY(0.001deg)",
         }}
       ></div>
     </div>
