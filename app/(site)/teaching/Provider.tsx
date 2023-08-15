@@ -7,6 +7,7 @@ import {
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import useSWR from "swr";
+import Loading from "../loading";
 
 export default function Home() {
   const { data: jobs, error, isLoading } = useSWR("jobs", getJobs);
@@ -25,7 +26,7 @@ export default function Home() {
   if (error || teachingPhilosophyError || coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
   if (isLoading || teachingPhilosophyIsLoading || coverPhotosIsLoading)
-    return <div className="text-blue-500">loading...</div>;
+    return <Loading />;
   return (
     <div className="relative">
       <div

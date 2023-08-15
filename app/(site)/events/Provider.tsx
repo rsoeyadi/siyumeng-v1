@@ -3,6 +3,7 @@ import { getCoverPhotos, getEvents } from "@/sanity/sanity-utils";
 import useSWR from "swr";
 import { compareDesc, parseISO, format } from "date-fns";
 import { Event as Performance } from "@/app/(site)/components/Event";
+import Loading from "../loading";
 
 export default function Home() {
   const { data: events, error, isLoading } = useSWR("events", getEvents);
@@ -13,8 +14,7 @@ export default function Home() {
   } = useSWR("coverPhotos", getCoverPhotos);
   if (error || coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
-  if (isLoading || coverPhotosIsLoading)
-    return <div className="text-blue-500">loading...</div>;
+  if (isLoading || coverPhotosIsLoading) return <Loading />;
   const sortedEvents = events
     ? events
         .slice()

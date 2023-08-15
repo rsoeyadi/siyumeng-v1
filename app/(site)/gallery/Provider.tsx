@@ -5,6 +5,7 @@ import Gallery from "react-photo-gallery";
 /* @ts-ignore */
 import Carousel, { Modal, ModalGateway, ViewType } from "react-images";
 import { useCallback, useState } from "react";
+import Loading from "../loading";
 
 export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -25,8 +26,7 @@ export default function Home() {
   } = useSWR("coverPhotos", getCoverPhotos);
   if (error || coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
-  if (isLoading || coverPhotosIsLoading)
-    return <div className="text-blue-500">loading...</div>;
+  if (isLoading || coverPhotosIsLoading) return <Loading />;
 
   const photos = data?.map((item) => {
     const url = item.image;

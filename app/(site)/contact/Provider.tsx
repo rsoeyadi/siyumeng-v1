@@ -3,6 +3,7 @@
 import useSWR from "swr";
 import { ContactForm } from "../components/Form";
 import { getCoverPhotos } from "@/sanity/sanity-utils";
+import Loading from "./loading";
 
 export default function Home() {
   const {
@@ -12,8 +13,7 @@ export default function Home() {
   } = useSWR("coverPhotos", getCoverPhotos);
   if (coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
-  if (coverPhotosIsLoading)
-    return <div className="text-blue-500">loading...</div>;
+  if (coverPhotosIsLoading) return <Loading />;
   return (
     <>
       <div className="">

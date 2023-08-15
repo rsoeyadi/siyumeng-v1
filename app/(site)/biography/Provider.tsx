@@ -3,6 +3,7 @@ import { getBiography, getCoverPhotos } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import useSWR from "swr";
 import styles from "./page.module.css";
+import Loading from "../loading";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("biography", getBiography);
@@ -13,8 +14,7 @@ export default function Home() {
   } = useSWR("coverPhotos", getCoverPhotos);
   if (error || coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
-  if (isLoading || coverPhotosIsLoading)
-    return <div className="text-blue-500">loading...</div>;
+  if (isLoading || coverPhotosIsLoading) return <Loading />;
 
   return (
     <div className="pb-10">
