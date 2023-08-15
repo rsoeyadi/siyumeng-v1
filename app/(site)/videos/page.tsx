@@ -18,7 +18,6 @@ export default function Home() {
 
   return (
     <div className="pb-10">
-      {/* Cover Photos */}
       <div
         className="h-[80vh] md:h-[100vh] background-image relative flex items-center justify-center text-white text-4xl font-bold uppercase"
         style={{
@@ -36,7 +35,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="">
+      <div className="my-10">
         {videos?.map((video, index) => (
           <div
             key={index}
