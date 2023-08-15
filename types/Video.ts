@@ -1,3 +1,7 @@
+import { PortableTextBlock } from "sanity";
+
 export type Video = {
-    videoUrl: string;
+    title: string;
+    link: string;
+    description: PortableTextBlock[];
 }

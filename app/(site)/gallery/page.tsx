@@ -2,6 +2,7 @@
 import { getCoverPhotos, getGalleryImages } from "@/sanity/sanity-utils";
 import useSWR from "swr";
 import Gallery from "react-photo-gallery";
+/* @ts-ignore */
 import Carousel, { Modal, ModalGateway, ViewType } from "react-images";
 import { useCallback, useState } from "react";
 
@@ -48,7 +49,7 @@ export default function Home() {
     header: (base: any, state: { isFullscreen: any }) => ({
       ...base,
       "& svg": {
-        fill: "white", // Change the fill color of SVGs to white
+        fill: "white",
       },
     }),
 

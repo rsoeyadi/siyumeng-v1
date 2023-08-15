@@ -60,10 +60,12 @@ export async function getEvents(): Promise<Event[]> {
 
 export async function getVideos(): Promise<Video[]> {
     return createClient(clientConfig).fetch(
-        groq`*[_type == "link"]{
+        groq`*[_type == "video"]{
             _id,
-            _createAt,
-            link
+            _createAt, 
+            title,      
+            link,
+            description,
         }`
     )
 }

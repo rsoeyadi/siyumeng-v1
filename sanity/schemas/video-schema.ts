@@ -5,13 +5,19 @@ const video = {
     fields: [
         {
             name: 'title',
-            title: 'Title of video',
+            title: 'Title',
             type: 'string',
         },
         {
             name: 'link',
             title: 'YouTube Link',
             type: 'string',
+        },
+        {
+            name: 'description',
+            title: 'Short description of this event',
+            type: 'array',
+            of: [{ type: "block" }]
         },
     ]
 }
