@@ -50,7 +50,7 @@ export default function Home() {
             <img
               src={data?.square1}
               className="h-auto max-w-full rounded-full"
-              alt=""
+              alt="Siyumeng Wang Headshot"
             />
           </div>
         </div>
