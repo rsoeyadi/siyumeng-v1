@@ -76,7 +76,7 @@ export default function Home() {
             </div>
             <div className="p-6 pt-0">
               <div
-                className="cursor-pointer max-w-fit bg-slate-700 hover:bg-slate-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="cursor-pointer max-w-fit bg-black hover:bg-slate-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 data-ripple-light="true"
               >
                 {job.description && (
@@ -90,7 +90,7 @@ export default function Home() {
         ))}
       </div>
       <div
-        className="-z-10 h-[40vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-slate-700"
+        className="-z-10 h-[40vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-black"
         style={{
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",

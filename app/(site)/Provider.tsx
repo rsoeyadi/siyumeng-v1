@@ -39,7 +39,7 @@ export default function Provider({ children }: { children: React.ReactNode }) {
               {children}
             </div>
           </div>
-          <footer className="mt-auto bg-slate-700">
+          <footer className="mt-auto bg-black">
             {pathname !== "/" && <Footer />}
           </footer>
         </div>

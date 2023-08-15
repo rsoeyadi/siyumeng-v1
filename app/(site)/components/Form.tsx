@@ -4,7 +4,7 @@ import { useForm, ValidationError } from "@formspree/react";
 
 export function ContactForm() {
   const [state, handleSubmit] = useForm("mgejapgq");
-  
+
   if (state.succeeded) {
     return (
       <p className="px-5 text-xl my-5 mx-2 lg:mx-auto lg:max-w-6xl">
@@ -137,7 +137,7 @@ export function ContactForm() {
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="cursor-pointer bg-slate-700 hover:bg-slate-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="cursor-pointer bg-black hover:bg-slate-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
             disabled={state.submitting}
           >

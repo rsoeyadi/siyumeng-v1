@@ -66,7 +66,7 @@ export default function Home() {
       {itemsToShow < sortedEvents.length && (
         <div className="text-center mt-5">
           <button
-            className="cursor-pointer bg-slate-700 hover:bg-slate-500 transition duration-150 ease-in-out text-white font-bold py-2 px-5 rounded focus:outline-none focus:shadow-outline"
+            className="cursor-pointer bg-black hover:bg-slate-500 transition duration-150 ease-in-out text-white font-bold py-2 px-5 rounded focus:outline-none focus:shadow-outline"
             onClick={showMore}
           >
             Show more
