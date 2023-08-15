@@ -7,7 +7,6 @@ export default function Home() {
   const { data, error, isLoading } = useSWR("coverPhotos", getCoverPhotos);
   if (error) return <div>failed to load</div>;
   if (isLoading) return <Loading />;
-
   const backgroundImageStyle = {
     backgroundImage: `url('${data?.entryImage}')`,
     backgroundSize: "cover",
@@ -18,7 +17,6 @@ export default function Home() {
     alignItems: "flex-end",
     justifyContent: "center",
   };
-
   return (
     <div className="relative">
       <div
