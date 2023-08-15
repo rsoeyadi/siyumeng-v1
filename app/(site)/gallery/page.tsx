@@ -79,7 +79,7 @@ export default function Home() {
         </div>
       </div>
       <div className="mt-20 mx-auto flex justify-center">
-        <div className="w-7/12">
+        <div className="w-9/12 pb-10">
           <Gallery
             photos={
               photos as {
@@ -112,13 +112,14 @@ export default function Home() {
           ) : null}
         </ModalGateway>
       </div>{" "}
+     
       <div
-        className="-z-10 h-[40vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-slate-700"
+        className="-z-10 h-[60vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-slate-700"
         style={{
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           width: "100vw",
-          clipPath: "polygon(0 70%, 100% 0, 100% 100%, 0 100%)",
+          clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0 100%)",
         }}
       ></div>
     </div>
