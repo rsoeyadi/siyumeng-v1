@@ -121,7 +121,6 @@ export default function Home() {
           width: "100vw",
           clipPath: "polygon(0 50%, 100% 0, 100% 100%, 0 100%)",
           transform: "skewY(0.00001deg)",
-
         }}
       ></div>
     </div>

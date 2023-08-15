@@ -8,6 +8,11 @@ const job = {
             title: 'Company',
             type: 'string',
         },
+         {
+            name: 'link',
+            title: 'Link to company website',
+            type: 'string',
+        },
         {
             name: 'image',
             title: 'Image (can be a logo or photo of you)',

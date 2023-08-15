@@ -5,9 +5,9 @@ import { ChamberPiece } from "@/types/ChamberPiece";
 import { Event } from "@/types/Event";
 import { GalleryImage } from "@/types/GalleryImage";
 import { Job } from "@/types/Job";
-import { SoloPiece } from "@/types/SoloPiece";
 import { Video } from "@/types/Video";
 import { CoverPhotos } from "@/types/CoverPhotos";
+import { TeachingPhilosophy } from "@/types/TeachingPhilosophy";
 
 export async function getBiography(): Promise<Biography> {
     return createClient(clientConfig).fetch(
@@ -32,13 +32,12 @@ export async function getChamberPieces(): Promise<ChamberPiece[]> {
     )
 }
 
-export async function getSoloPieces(): Promise<SoloPiece[]> {
+export async function getTeachingPhilosophy(): Promise<TeachingPhilosophy> {
     return createClient(clientConfig).fetch(
-        groq`*[_type == "soloPiece"]{
+        groq`*[_type == "teachingPhilosophy"][0] {
             _id,
             _createAt,
-            title,
-            composer,
+            description
         }`
     )
 }
@@ -104,6 +103,7 @@ export async function getJobs(): Promise<Job[]> {
             _id,
             _createAt,
             company,
+            link,
             "image": image.asset->url,
             description,
         }`
