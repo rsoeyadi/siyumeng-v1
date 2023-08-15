@@ -30,12 +30,9 @@ module.exports = {
         "landscape-lg": {
           raw: "(max-height: 1024px)",
         },
-
-        // Custom media queries (you can adjust the values)
         "custom-sm": "480px",
         "custom-md": "768px",
         "custom-lg": "1024px",
-
         betterhover: { raw: "(hover: hover)" },
       },
     },
