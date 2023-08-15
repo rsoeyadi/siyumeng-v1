@@ -1,50 +1,17 @@
-"use client";
 import "./globals.css";
 import type { Metadata } from "next";
-import Nav from "./components/Nav";
 import { Nunito } from "@next/font/google";
-import useHamburgerStore from "./store";
-import Footer from "./components/Footer";
-import { usePathname } from "next/navigation";
+import Provider from "./Provider";
 
-const nunito = Nunito({
-  subsets: ["cyrillic"],
-  weight: ["400", "500", "600", "700"], // Add "bold" to the array
-});
-
-export default function Layout({ children }: { children: React.ReactNode }) {
-  const isOpen = useHamburgerStore((state) => state.isOpen);
-  const setClose = useHamburgerStore((state) => state.setClose);
-
-  const handleCloseMenu = () => {
-    setClose();
-  };
-
-  const pathname = usePathname();
-
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={`${nunito.className} mx-auto my-0`}>
-        <p className="absolute top-0 left-0 lg:left-auto lg:right-10 z-[9999] text-2xl pt-5 pl-5 font-bold lg:ml-24 text-white">
-          Siyumeng Wang
-        </p>
-        <div className="flex flex-col min-h-screen">
-          <div className="lg:flex">
-            <Nav></Nav>
-
-            <div
-              onClick={handleCloseMenu}
-              className={`lg:flex-grow mx-auto lg:pl-20 overflow-y-auto overflow-x-hidden transition-transform duration-500 ${
-                isOpen ? " lg:translate-x-[20vw]" : ""
-              }`}
-            >
-              {children}
-            </div>
-          </div>
-          <footer className="mt-auto bg-slate-700">
-            {pathname !== "/" && <Footer />}
-          </footer>
-        </div>
+      <body>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
