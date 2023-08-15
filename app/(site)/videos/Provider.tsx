@@ -35,7 +35,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="">
+      <div>
         {videos?.map((video, index) => (
           <div
             key={index}
@@ -52,7 +52,9 @@ export default function Home() {
               <h5 className="mb-2 text-xl font-bold tracking-tight text-slate-700">
                 {video.title}
               </h5>
-              <PortableText value={video.description} />
+              <div className="block text-base font-light leading-relaxed text-inherit antialiased">
+                <PortableText value={video.description} />
+              </div>
             </div>
           </div>
         ))}
