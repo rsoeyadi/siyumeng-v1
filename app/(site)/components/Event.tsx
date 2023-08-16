@@ -43,7 +43,7 @@ export function Event({ sortedEvent }: eventProps) {
               href={sortedEvent.link}
               target="_blank"
             >
-              More Information
+              Event Information
             </Link>
           </p>
         )}
