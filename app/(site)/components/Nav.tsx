@@ -43,9 +43,15 @@ export default function Nav() {
             color="#FFFFFF"
             rounded
             label="Toggle Menu"
-            size={33}
+            size={37}
             hideOutline={false}
           />
+          <p
+            className="  ease-in-out duration-300 text-white absolute top-[40px] left-1 lg:left-1 lg:top-10 z-40 cursor-pointer text-sm"
+            onClick={toggleMenu}
+          >
+            {isOpen ? "CLOSE" : "MENU"}
+          </p>
         </div>
       </div>
 
