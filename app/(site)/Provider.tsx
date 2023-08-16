@@ -1,14 +1,14 @@
 "use client";
 import "./globals.css";
 import Nav from "./components/Nav";
-import { Nunito } from "next/font/google";
+import { Nunito, Crimson_Text} from "next/font/google";
 import useHamburgerStore from "./store";
 import Footer from "./components/Footer";
 import { usePathname } from "next/navigation";
 
-const nunito = Nunito({
-  subsets: ["cyrillic"],
-  weight: ["400", "500", "600", "700"], // Add "bold" to the array
+const nunito = Crimson_Text({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"], // Add "bold" to the array
 });
 
 export default function Provider({ children }: { children: React.ReactNode }) {
