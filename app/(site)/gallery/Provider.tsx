@@ -61,11 +61,10 @@ export default function Home() {
   return (
     <div className="relative">
       <div
-        className="h-[80vh] md:h-[70vh] background-image relative"
+        className="h-[80vh] md:h-[70vh] background-image relative bg-[position:60%_0%] lg:bg-[position:90%_20%]"
         style={{
           backgroundImage: `url('${coverPhotos?.galleryImage}')`,
           backgroundSize: "cover",
-          backgroundPosition: "center 30%",
           backgroundRepeat: "no-repeat",
           width: "100vw",
           clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 95.5%)",
