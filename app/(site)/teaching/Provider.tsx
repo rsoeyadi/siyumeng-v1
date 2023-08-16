@@ -50,7 +50,7 @@ export default function Home() {
       {/* Teaching Philosophy Section */}
       <div className="px-3 max-w-5xl mx-auto my-10 text-center justify-center">
         <h2 className="text-left lg:text-center text-2xl font-bold mb-3">
-          My teaching philosophy
+          Teaching Philosophy
         </h2>
         <div className="text-left lg:text-center text-base font-light leading-relaxed text-inherit antialiased">
           <PortableText
