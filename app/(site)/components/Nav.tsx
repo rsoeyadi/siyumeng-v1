@@ -38,7 +38,7 @@ export default function Nav() {
       <div
         className="lg:z-50 block w-screen top-0 left-0 h-20 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 bg-black"
       >
-        <div className="absolute top-4 right-4 lg:right-auto lg:left-3  z-40">
+        <div className="absolute top-4 right-4 lg:right-auto lg:left-3  z-40 cursor-pointer">
           <Hamburger
             toggled={isOpen}
             toggle={toggleMenu}
