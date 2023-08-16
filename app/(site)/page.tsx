@@ -10,7 +10,7 @@ export default function Home() {
   const backgroundImageStyle = {
     backgroundImage: `url('${data?.entryImage}')`,
     backgroundSize: "cover",
-    backgroundPosition: "center top",
+    backgroundPosition: "left 38% top",
     backgroundRepeat: "no-repeat",
     width: "100vw",
     display: "flex",
