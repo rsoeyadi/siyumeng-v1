@@ -31,7 +31,7 @@ export function Event({ sortedEvent }: eventProps) {
         </div>
         <div className="lg:col-start-5 lg:col-span-5">
           <p className="text-2xl font-bold ">{sortedEvent.name}</p>
-          <p className="pb-3 text-base font-light leading-relaxed text-inherit antialiased">
+          <p className="pb-5 text-base font-light leading-relaxed text-inherit antialiased">
             {sortedEvent.location}
           </p>
           <PortableText value={sortedEvent.description}></PortableText>
