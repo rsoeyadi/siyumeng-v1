@@ -62,6 +62,7 @@ export default function Home() {
           <div
             key={job.company + job.image}
             className="mt-20 max-w-3xl w-full relative flex mx-auto flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
+            tabIndex={0}
           >
             <div className="relative mx-4 -mt-6 mb-5 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white ">
               <img src={job.image} alt="img-blur-shadow" />

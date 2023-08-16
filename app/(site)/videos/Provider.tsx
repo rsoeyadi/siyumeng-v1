@@ -37,6 +37,7 @@ export default function Home() {
       <div>
         {videos?.map((video, index) => (
           <div
+            tabIndex={0}
             key={index}
             className="max-w-3xl mt-10 mx-auto bg-white border border-gray-200 rounded-lg shadow"
           >
