@@ -32,18 +32,11 @@ export default function Nav() {
     { title: "Contact", route: "/contact" },
   ];
 
-  const handleKeyDown = (event: any) => {
-    if (event.key === "Enter") {
-      toggleMenu();
-    }
-  };
-
   return (
     <div className="relative">
       {/* Top bar */}
       <div
         className="lg:z-50 block w-screen top-0 left-0 h-20 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 bg-black"
-        onKeyDown={handleKeyDown}
       >
         <div className="absolute top-4 right-4 lg:right-auto lg:left-3  z-40">
           <Hamburger
@@ -53,6 +46,7 @@ export default function Nav() {
             rounded
             label="Toggle Menu"
             size={48}
+            hideOutline={false}
           />
         </div>
       </div>

@@ -97,7 +97,7 @@ export default function Home() {
       />
 
       <div
-        className="-z-10 h-[60vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-black"
+        className="-z-10 h-[60vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-slate-700"
         style={{
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",

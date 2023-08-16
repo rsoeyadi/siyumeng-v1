@@ -53,6 +53,26 @@ export function ContactForm() {
             id="subject"
             name="Subject"
             required
+            onKeyDown={(e) => {
+              if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                // Prevent default behavior of arrow keys
+                e.preventDefault();
+                // Cast the target to HTMLSelectElement
+                const select = e.target as HTMLSelectElement;
+                const selectedIndex = select.selectedIndex;
+
+                if (
+                  e.key === "ArrowDown" &&
+                  selectedIndex < select.options.length - 1
+                ) {
+                  select.selectedIndex = selectedIndex + 1;
+                }
+
+                if (e.key === "ArrowUp" && selectedIndex > 0) {
+                  select.selectedIndex = selectedIndex - 1;
+                }
+              }
+            }}
           >
             <option value="">Select a subject</option>
             <option value="Lessons">Lessons</option>
@@ -137,7 +157,7 @@ export function ContactForm() {
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="cursor-pointer bg-black hover:bg-gray-500	 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="cursor-pointer bg-black hover:bg-gray-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300"
             type="submit"
             disabled={state.submitting}
           >

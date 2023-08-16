@@ -62,11 +62,10 @@ export default function Home() {
           key={sortedEvent.name + sortedEvent.date}
         />
       ))}
-
       {itemsToShow < sortedEvents.length && (
         <div className="text-center mt-5">
           <button
-            className="cursor-pointer bg-black hover:bg-gray-500	 transition duration-150 ease-in-out text-white font-bold py-2 px-5 rounded focus:outline-none focus:shadow-outline"
+            className="cursor-pointer bg-black hover:bg-gray-500 transition duration-150 ease-in-out text-white font-bold py-2 px-5 rounded focus:outline-none focus:ring focus:ring-blue-300"
             onClick={showMore}
           >
             Show more
