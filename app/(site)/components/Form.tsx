@@ -76,9 +76,7 @@ export function ContactForm() {
           >
             <option value="">Click to select a subject</option>
             <option value="Lessons">Lessons</option>
-            <option value="Performance Opportunity">
-              Performance Opportunity
-            </option>
+            <option value="Performance Booking">Performance Booking</option>
             <option value="Collaboration">Collaboration</option>
             <option value="Inquiry">Inquiry</option>
           </select>
