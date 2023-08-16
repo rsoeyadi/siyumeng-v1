@@ -45,7 +45,7 @@ export default function Home() {
         width: width,
         height: height,
         description: item.description,
-        class: "hover:brightness-110 transition ease-in-out duration-300",
+        class: "hover:brightness-125 transition ease-in-out duration-150",
       };
     }
     return { src: url, width: 4, height: 3 };
