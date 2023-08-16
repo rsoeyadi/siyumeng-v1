@@ -76,7 +76,7 @@ export default function Home() {
         </div>
       </div>
       <div className="mt-20 mx-auto flex justify-center">
-        <div className="w-9/12 pb-10">
+        <div className="w-full lg:w-10/12 pb-10">
           <Gallery
             photos={galleryPhotos as any}
             onClick={(e, obj) => openLightbox(obj.index)}
@@ -97,7 +97,7 @@ export default function Home() {
       />
 
       <div
-        className="-z-10 h-[60vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-slate-700"
+        className="-z-10 h-[60vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-black"
         style={{
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
