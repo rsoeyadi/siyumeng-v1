@@ -71,7 +71,7 @@ export default function Home() {
           clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 95.5%)",
         }}
       >
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80">
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
           <div className="text-white text-4xl font-bold uppercase">Gallery</div>
         </div>
       </div>
