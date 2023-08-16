@@ -8,6 +8,7 @@ import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import useSWR from "swr";
 import Loading from "../loading";
+import Image from "next/image";
 
 export default function Home() {
   const { data: jobs, error, isLoading } = useSWR("jobs", getJobs);
@@ -65,7 +66,14 @@ export default function Home() {
             tabIndex={0}
           >
             <div className="relative mx-4 -mt-6 mb-5 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white ">
-              <img src={job.image} alt="img-blur-shadow" />
+              <Image
+                src={job.image}
+                width="0"
+                height="0"
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
+                alt="Siyumeng Wang Teaching Experience, company logo"
+              />
             </div>
             <div className="p-6 pt-0">
               <h5 className="mb-2 block text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">

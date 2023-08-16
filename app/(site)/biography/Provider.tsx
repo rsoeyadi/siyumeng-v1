@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react";
 import useSWR from "swr";
 import styles from "./page.module.css";
 import Loading from "../loading";
+import Image from "next/image";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("biography", getBiography);
@@ -46,10 +47,14 @@ export default function Home() {
         )}
         <div className="relative mx-auto my-0 max-w-2xl">
           <div className="mb-4">
-            <img
-              src={data?.square1}
+            <Image
               className="h-auto max-w-full rounded-full"
-              alt="Siyumeng Wang Headshot"
+              src={data?.square1 as any}
+              width="0"
+              height="0"
+              sizes="100vw"
+              style={{ width: "100%", height: "auto" }}
+              alt="Pianist Siyumeng Wang Performance Photo"
             />
           </div>
         </div>
