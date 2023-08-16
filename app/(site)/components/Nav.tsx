@@ -43,7 +43,7 @@ export default function Nav() {
             color="#FFFFFF"
             rounded
             label="Toggle Menu"
-            size={48}
+            size={33}
             hideOutline={false}
           />
         </div>
