@@ -13,6 +13,7 @@ export default function Home() {
     error: coverPhotosError,
     isLoading: coverPhotosIsLoading,
   } = useSWR("coverPhotos", getCoverPhotos);
+
   if (error || coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
   if (isLoading || coverPhotosIsLoading) return <Loading />;
@@ -21,16 +22,20 @@ export default function Home() {
     <div className="pb-10">
       <div>
         <div
-          className="bg-[position:90%_0%]  h-[80vh] md:h-[95vh] background-image relative"
+          className={`h-[90vh] md:h-[95vh] relative ${styles.backgroundImage}`}
           style={{
-            backgroundImage: `url('${coverPhotos?.biographyImage}')`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            width: "100vw",
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 93.5%)",
           }}
         >
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10">
+          <Image
+            src={coverPhotos?.biographyImage as any}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="90% 0%"
+            priority
+            alt="Biography Background"
+          />
+          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
             <div className="text-white text-4xl font-bold uppercase">
               Biography
             </div>
@@ -45,15 +50,16 @@ export default function Home() {
             <PortableText value={data.biographyHalf1}></PortableText>
           </div>
         )}
-        <div className="relative mx-auto my-0 max-w-2xl">
+        <div
+          className="relative mx-auto my-0 max-w-2xl"
+          style={{ width: "100%", height: "100%", position: "relative" }}
+        >
           <div className="mb-4">
             <Image
               className="h-auto max-w-full rounded-full"
               src={data?.square1 as any}
-              width="0"
-              height="0"
-              sizes="100vw"
-              style={{ width: "100%", height: "auto" }}
+              width={1000}
+              height={500}
               alt="Pianist Siyumeng Wang Performance Photo"
             />
           </div>
