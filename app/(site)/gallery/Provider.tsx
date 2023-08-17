@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <div className="relative">
       <div
-        className="h-[80vh] md:h-[70vh] background-image relative bg-[position:60%_0%] lg:bg-[position:90%_20%]"
+        className="h-[80vh] md:h-[70vh] relative bg-[position:60%_0%] lg:bg-[position:90%_20%]"
         style={{
           width: "100vw",
           clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 95.5%)",
@@ -74,7 +74,7 @@ export default function Home() {
             src={coverPhotos?.galleryImage as any}
             layout="fill"
             objectFit="cover"
-            alt="Gallery Background"
+            alt="Photo of Siyumeng Wang at the piano in China"
             objectPosition="60% center"
           />
         )}
@@ -108,7 +108,7 @@ export default function Home() {
       />
 
       <div
-        className="-z-10 h-[60vh] md:h-[50vh] background-image absolute bottom-0 left-0 bg-black"
+        className="-z-10 h-[60vh] md:h-[50vh] absolute bottom-0 left-0 bg-black"
         style={{
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",

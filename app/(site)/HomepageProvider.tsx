@@ -12,7 +12,7 @@ export default function HomepageProvider() {
 
   return (
     <div className="relative">
-      <div className="h-[100vh] background-image">
+      <div className="h-[100vh]">
         {isLoading ? (
           <Loading />
         ) : (

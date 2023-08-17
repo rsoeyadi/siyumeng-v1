@@ -20,7 +20,7 @@ export default function Home() {
     <>
       <div className="">
         <div
-          className="h-[80vh] md:h-[100vh] background-image relative"
+          className="h-[80vh] md:h-[100vh] relative"
           style={{
             width: "100vw",
             clipPath: "polygon(0 0, 100% 0, 100% 90.5%, 0 100%)",
@@ -52,7 +52,7 @@ export default function Home() {
       </div>
       <div>
         <div
-          className="h-[40vh] md:h-[60vh] background-image relative"
+          className="h-[40vh] md:h-[60vh] relative"
           style={{
             width: "100vw",
             clipPath: "polygon(0 5%, 100% 0, 100% 100%, 0 100%)",
