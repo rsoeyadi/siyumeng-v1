@@ -5,7 +5,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/captions.css";
-
+import Image from "next/image"; //
 import { getCoverPhotos, getGalleryImages } from "@/sanity/sanity-utils";
 import useSWR from "swr";
 import Loading from "../loading";
@@ -63,13 +63,21 @@ export default function Home() {
       <div
         className="h-[80vh] md:h-[70vh] background-image relative bg-[position:60%_0%] lg:bg-[position:90%_20%]"
         style={{
-          backgroundImage: `url('${coverPhotos?.galleryImage}')`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
           width: "100vw",
           clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 95.5%)",
         }}
       >
+        {isLoading || coverPhotosIsLoading ? (
+          <Loading />
+        ) : (
+          <Image
+            src={coverPhotos?.galleryImage as any}
+            layout="fill"
+            objectFit="cover"
+            alt="Gallery Background"
+            objectPosition="60% center"
+          />
+        )}
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
           <div className="text-white text-4xl font-bold uppercase">Gallery</div>
         </div>
