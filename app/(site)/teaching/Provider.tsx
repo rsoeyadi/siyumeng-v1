@@ -37,7 +37,7 @@ export default function Home() {
           clipPath: "polygon(0 0, 100% 0, 100% 97%, 0 100%)",
         }}
       >
-        {isLoading || coverPhotosIsLoading ? (
+        {isLoading || teachingPhilosophyIsLoading || coverPhotosIsLoading ? (
           <Loading />
         ) : (
           <Image
