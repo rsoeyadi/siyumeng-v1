@@ -22,6 +22,8 @@ export default function HomepageProvider() {
             objectFit="cover"
             objectPosition="left 38% top 24%"
             alt="Background Image"
+            className="transition-opacity opacity-0 duration-100"
+            onLoadingComplete={(image) => image.classList.remove("opacity-0")}
           />
         )}
       </div>
