@@ -16,31 +16,35 @@ export default function Home() {
 
   if (error || coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
-  if (isLoading || coverPhotosIsLoading) return <Loading />;
+  if (coverPhotosIsLoading) return <Loading />; // Use your custom loading component here
 
   return (
     <div className="pb-10">
       <div>
-        <div
-          className={`h-[90vh] md:h-[95vh] relative ${styles.backgroundImage}`}
-          style={{
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 93.5%)",
-          }}
-        >
-          <Image
-            src={coverPhotos?.biographyImage as any}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="90% 0%"
-            priority
-            alt="Biography Background"
-          />
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-            <div className="text-white text-4xl font-bold uppercase">
-              Biography
+        {isLoading || coverPhotosIsLoading ? (
+          <Loading /> // Render your custom loading component
+        ) : (
+          <div
+            className={`h-[90vh] md:h-[95vh] relative ${styles.backgroundImage}`}
+            style={{
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 93.5%)",
+            }}
+          >
+            <Image
+              src={coverPhotos?.biographyImage as any}
+              layout="fill"
+              objectFit="cover"
+              objectPosition="90% 0%"
+              priority
+              alt="Biography Background"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
+              <div className="text-white text-4xl font-bold uppercase">
+                Biography
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
       <div className="relative mx-auto my-0">
         {data?.biographyHalf1 && (
