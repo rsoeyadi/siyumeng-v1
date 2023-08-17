@@ -9,8 +9,10 @@ import Link from "next/link";
 import useSWR from "swr";
 import Loading from "../loading";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [stillLoading, setStillLoading] = useState(true);
   const { data: jobs, error, isLoading } = useSWR("jobs", getJobs);
   const {
     data: teachingPhilosophy,
@@ -37,16 +39,19 @@ export default function Home() {
           clipPath: "polygon(0 0, 100% 0, 100% 97%, 0 100%)",
         }}
       >
-        {isLoading || teachingPhilosophyIsLoading || coverPhotosIsLoading ? (
-          <Loading />
-        ) : (
-          <Image
-            src={coverPhotos?.teachingImage as any}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="18%"
-            alt="Musart Group Photo at Carnegie Hall"
-          />
+        <Image
+          src={coverPhotos?.teachingImage as any}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="18%"
+          alt="Musart Group Photo at Carnegie Hall"
+          onLoadingComplete={() => setStillLoading(false)}
+        />
+
+        {stillLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
+            <Loading />
+          </div>
         )}
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
           <div className="text-white text-4xl font-bold uppercase">
