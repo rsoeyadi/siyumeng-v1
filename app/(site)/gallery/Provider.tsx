@@ -84,10 +84,14 @@ export default function Home() {
       </div>
       <div className="mt-20 mx-auto flex justify-center">
         <div className="w-full lg:w-10/12 pb-10">
-          <Gallery
-            photos={galleryPhotos as any}
-            onClick={(e, obj) => openLightbox(obj.index)}
-          />
+          {isLoading || coverPhotosIsLoading ? (
+            <Loading />
+          ) : (
+            <Gallery
+              photos={galleryPhotos as any}
+              onClick={(e, obj) => openLightbox(obj.index)}
+            />
+          )}
         </div>
       </div>
       <Lightbox
