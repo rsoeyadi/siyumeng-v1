@@ -37,6 +37,8 @@ export default function Home() {
               objectPosition="90% 0%"
               priority
               alt="Biography Background"
+              className="transition-opacity opacity-0 duration-100"
+              onLoadingComplete={(image) => image.classList.remove("opacity-0")}
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
               <div className="text-white text-4xl font-bold uppercase">

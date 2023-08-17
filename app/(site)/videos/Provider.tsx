@@ -34,6 +34,8 @@ export default function Home() {
             objectFit="cover"
             objectPosition="center right"
             alt="Videos Background"
+            className="transition-opacity opacity-0 duration-100"
+            onLoadingComplete={(image) => image.classList.remove("opacity-0")}
           />
         )}
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 lg:bg-opacity-5">

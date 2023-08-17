@@ -12,7 +12,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
-  const [stillLoading, setStillLoading] = useState(true);
   const { data: jobs, error, isLoading } = useSWR("jobs", getJobs);
   const {
     data: teachingPhilosophy,
@@ -45,14 +44,10 @@ export default function Home() {
           objectFit="cover"
           objectPosition="18%"
           alt="Musart Group Photo at Carnegie Hall"
-          onLoadingComplete={() => setStillLoading(false)}
+          className="transition-opacity opacity-0 duration-100"
+          onLoadingComplete={(image) => image.classList.remove("opacity-0")}
         />
 
-        {stillLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-            <Loading />
-          </div>
-        )}
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
           <div className="text-white text-4xl font-bold uppercase">
             Teaching

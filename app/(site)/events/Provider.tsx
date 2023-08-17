@@ -1,10 +1,12 @@
 "use client";
+"use client";
 import { getCoverPhotos, getEvents } from "@/sanity/sanity-utils";
 import useSWR from "swr";
 import { compareDesc, parseISO, format } from "date-fns";
 import { Event as Performance } from "@/app/(site)/components/Event";
 import Loading from "../loading";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const itemsToShowIncrement = 5;
@@ -42,17 +44,22 @@ export default function Home() {
       <div
         className="h-[80vh] md:h-[100vh] background-image relative"
         style={{
-          backgroundImage: `url('${coverPhotos?.eventsImage}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "top",
-          backgroundRepeat: "no-repeat",
           width: "100vw",
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0  90.5%)",
+          clipPath: "polygon(0 0, 100% 0, 100% 97%, 0  90.5%)",
         }}
       >
+        <Image
+          src={coverPhotos?.eventsImage as any}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="top"
+          alt="Siyumeng Wang's Headshot"
+          className="transition-opacity opacity-0 duration-100"
+          onLoadingComplete={(image) => image.classList.remove("opacity-0")}
+        />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
           <div className="text-white text-4xl font-bold uppercase">
-            Performances 
+            Performances
           </div>
         </div>
       </div>
