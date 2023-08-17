@@ -36,7 +36,7 @@ export default function Nav() {
     <div className="relative">
       {/* Top bar */}
       <div className="lg:z-50 block w-screen top-0 left-0 h-20 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 lg:skew-x-[0.0001deg] lg:skew-y-[0.0001deg] bg-black">
-        <div className="absolute top-4 right-4 lg:right-auto lg:left-3  z-40 cursor-pointer">
+        <div className="absolute top-3 right-4 lg:right-auto lg:left-3  z-40 cursor-pointer">
           <Hamburger
             toggled={isOpen}
             toggle={toggleMenu}
