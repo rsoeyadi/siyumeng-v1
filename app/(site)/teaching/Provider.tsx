@@ -31,16 +31,23 @@ export default function Home() {
   return (
     <div className="relative">
       <div
-        className="h-[80vh] md:h-[100vh] background-image relative flex items-center justify-center text-white text-4xl font-bold uppercase"
+        className="h-[80vh] md:h-[100vh] background-image flex items-center justify-center text-white text-4xl font-bold uppercase relative"
         style={{
-          backgroundImage: `url('${coverPhotos?.teachingImage}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center left -40px",
-          backgroundRepeat: "no-repeat",
           width: "100vw",
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 97.5%)",
+          clipPath: "polygon(0 0, 100% 0, 100% 97%, 0 100%)",
         }}
       >
+        {isLoading || coverPhotosIsLoading ? (
+          <Loading />
+        ) : (
+          <Image
+            src={coverPhotos?.teachingImage as any}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="18%"
+            alt="Musart Group Photo at Carnegie Hall"
+          />
+        )}
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
           <div className="text-white text-4xl font-bold uppercase">
             Teaching

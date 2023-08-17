@@ -3,7 +3,7 @@ import { getCoverPhotos, getVideos } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import useSWR from "swr";
 import Loading from "../loading";
-
+import Image from "next/image";
 export default function Home() {
   const { data: videos, error, isLoading } = useSWR("videos", getVideos);
   const {
@@ -21,14 +21,21 @@ export default function Home() {
       <div
         className="h-[80vh] md:h-[100vh] background-image relative flex items-center justify-center text-white text-4xl font-bold uppercase"
         style={{
-          backgroundImage: `url('${coverPhotos?.videosImage}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center right ",
-          backgroundRepeat: "no-repeat",
           width: "100vw",
           clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 93.5%)",
         }}
       >
+        {isLoading || coverPhotosIsLoading ? (
+          <Loading />
+        ) : (
+          <Image
+            src={coverPhotos?.videosImage as any}
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center right"
+            alt="Videos Background"
+          />
+        )}
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 lg:bg-opacity-5">
           <div className="text-white text-4xl font-bold uppercase">Videos</div>
         </div>
