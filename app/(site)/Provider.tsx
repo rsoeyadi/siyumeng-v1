@@ -5,6 +5,7 @@ import { Crimson_Text } from "next/font/google";
 import useHamburgerStore from "./store";
 import Footer from "./components/Footer";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const crimsonText = Crimson_Text({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export default function Provider({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body className={`${crimsonText.className} mx-auto my-0 overscroll-none`}>
         <p className="absolute top-0 left-0 lg:left-auto lg:right-10 z-50 text-2xl pt-5 pl-5 font-bold lg:ml-24 text-white">
-          Siyumeng Wang
+          <Link href="/">Siyumeng Wang</Link>
         </p>
         <div className="flex flex-col min-h-screen">
           <div className="lg:flex">
