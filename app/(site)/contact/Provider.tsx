@@ -30,6 +30,7 @@ export default function Home() {
             <Loading />
           ) : (
             <Image
+              priority
               src={coverPhotos?.contactImage1 as any}
               layout="fill"
               objectFit="cover"

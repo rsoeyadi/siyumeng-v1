@@ -21,7 +21,7 @@ export default function Home() {
     return <div className="text-red-500">failed to load</div>;
   if (isLoading || coverPhotosIsLoading) return <Loading />;
   const sortedEvents = events
-    ? events  
+    ? events
         .slice()
         .sort((a, b) =>
           compareDesc(parseISO(a.date.toString()), parseISO(b.date.toString()))
@@ -52,6 +52,7 @@ export default function Home() {
           src={coverPhotos?.eventsImage as any}
           layout="fill"
           objectFit="cover"
+          priority
           objectPosition="top"
           alt="Siyumeng Wang's Headshot"
           className="transition-opacity opacity-0 duration-100"

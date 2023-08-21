@@ -33,6 +33,7 @@ export default function Home() {
             layout="fill"
             objectFit="cover"
             objectPosition="center right"
+            priority
             alt="Videos Background"
             className="transition-opacity opacity-0 duration-100"
             onLoadingComplete={(image) => image.classList.remove("opacity-0")}
