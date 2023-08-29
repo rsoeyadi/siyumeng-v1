@@ -12,9 +12,11 @@ export default function Nav() {
   const toggleMenu = useHamburgerStore((state) => state.toggleMenu);
   useEffect(() => {
     if (isOpen) {
-      document.documentElement.classList.add("overflow-hidden");
+      document.documentElement.classList.add("overflow-hidden", "lg:overflow-y-auto");
     } else {
-      document.documentElement.classList.remove("overflow-hidden");
+      document.documentElement.classList.remove(
+        "overflow-hidden", "lg:overflow-y-auto"
+      );
     }
   }, [isOpen]);
 
@@ -33,9 +35,9 @@ export default function Nav() {
   ];
 
   return (
-    <div className="relative">
+    <div className="relative lg:absolute">
       {/* Top bar */}
-      <div className="lg:z-50 block w-screen top-0 left-0 h-20 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 lg:skew-x-[0.0001deg] lg:skew-y-[0.0001deg] bg-black">
+      <div className="lg:z-50 block w-screen top-0 left-0 h-20 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 lg:skew-x-[0.0001deg] lg:skew-y-[0.0001deg] bg-black lg:hidden">
         <div className="absolute top-3 right-4 lg:right-auto lg:left-3  z-40 cursor-pointer">
           <Hamburger
             toggled={isOpen}
@@ -58,18 +60,18 @@ export default function Nav() {
       {/* Sidebar */}
       <div
         className={`
-      overflow-y-scroll overflow-x-hidden top-0 bottom-0 lg:left-20 w-[100vw] lg:w-[20vw]  bg-black p-10 pl-20 text-white fixed z-30 ease-in-out duration-500
-      ${isOpen ? "translate-x-0 " : "translate-x-full lg:-translate-x-full"}
+      overflow-y-scroll overflow-x-hidden top-0 bottom-0 w-[100vw] bg-black p-10 pl-20 text-white fixed lg:relative z-30 ease-in-out duration-500
+      ${isOpen ? "translate-x-0" : "translate-x-full"}
+      lg:translate-x-0 lg:bg-transparent 
     `}
       >
-        <ul className="text-right lg:text-left mt-14">
+        <ul className="text-right mt-14 lg:mt-0 lg:flex lg:justify-end lg:space-x-7">
           {pages.map((page) => (
             <li key={page.route} className="pb-5 relative group">
               <div className="text-2xl">
-                {/* Skew Backgrounds */}
-                <div className="absolute top-0 right-0 lg:-left-3  w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[28deg]  opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0 bg-gray-500	"></div>
+                <div className="absolute top-0 right-0 lg:-left-4  w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[32deg]  opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0 bg-gray-500	"></div>
                 {pathname === page.route && (
-                  <div className="absolute top-0 right-0 lg:-left-3  w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[28deg]  bg-red-700 opacity-100  duration-150 z-0"></div>
+                  <div className="absolute top-0 right-0 lg:-left-4 w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[32deg]  bg-red-700 opacity-100  duration-150 z-0"></div>
                 )}
 
                 <Link

@@ -13,7 +13,6 @@ const crimsonText = Crimson_Text({
 });
 
 export default function Provider({ children }: { children: React.ReactNode }) {
-  const isOpen = useHamburgerStore((state) => state.isOpen);
   const setClose = useHamburgerStore((state) => state.setClose);
 
   const handleCloseMenu = () => {
@@ -25,17 +24,15 @@ export default function Provider({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${crimsonText.className} mx-auto my-0 overscroll-none`}>
-        <p className="absolute top-0 left-0 lg:left-auto lg:right-10 z-50 text-2xl pt-5 pl-5 font-bold lg:ml-24 text-white">
+        <p className="absolute top-0 left-0 z-50 text-2xl lg:text-4xl pt-5 pl-5 font-bold lg:ml-10 lg:mt-4 text-white">
           <Link href="/">Siyumeng Wang</Link>
         </p>
         <div className="flex flex-col min-h-screen">
-          <div className="lg:flex">
+          <div className="">
             <Nav></Nav>
             <div
               onClick={handleCloseMenu}
-              className={`lg:flex-grow mx-auto lg:pl-20 overflow-y-auto overflow-x-hidden transition-transform duration-500 ${
-                isOpen ? " lg:translate-x-[20vw]" : ""
-              }`}
+              className={`lg:flex-grow mx-auto overflow-y-auto overflow-x-hidden transition-transform duration-500 `}
             >
               {children}
             </div>

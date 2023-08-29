@@ -39,7 +39,7 @@ export default function Home() {
             onLoadingComplete={(image) => image.classList.remove("opacity-0")}
           />
         )}
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 lg:bg-opacity-5">
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 lg:bg-opacity-50">
           <div className="text-white text-4xl font-bold uppercase">Videos</div>
         </div>
       </div>
