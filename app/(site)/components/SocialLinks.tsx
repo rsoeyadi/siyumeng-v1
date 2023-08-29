@@ -6,11 +6,15 @@ import Link from "next/link";
 import useHamburgerStore from "../store";
 
 export default function SocialLinks() {
-  let isMediumScreenUp = false;
-  if (typeof window !== "undefined") {
-    isMediumScreenUp = window.innerWidth >= 1024;
-  }
   const isOpen = useHamburgerStore((state) => state.isOpen);
+  let isMediumScreenUp = true;
+  if (typeof window !== "undefined") {
+    const handleResize = () => {
+      isMediumScreenUp = window.innerWidth >= 1024;
+      console.log(isMediumScreenUp);
+    };
+    window.onresize = handleResize;
+  }
 
   return (
     <div className="flex gap-3 justify-end">
@@ -40,6 +44,8 @@ export default function SocialLinks() {
           alt="Xiaohongshu Link"
         />
       </Link>
+      
+      
     </div>
   );
 }

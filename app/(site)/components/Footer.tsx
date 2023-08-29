@@ -1,4 +1,3 @@
-import SocialLinks from "./SocialLinks";
 import Instagram from "@/public/svgs/instagram.svg";
 import Xiaohongshu from "@/public/svgs/xiaohongshu.svg";
 import Image from "next/image";
@@ -6,9 +5,13 @@ import YouTube from "@/public/svgs/youtube.svg";
 import Link from "next/link";
 import useHamburgerStore from "../store";
 export default function Footer() {
-  let isMediumScreenUp = false;
+  let isMediumScreenUp =
+    typeof window !== "undefined" && window.innerWidth >= 1024;
   if (typeof window !== "undefined") {
-    isMediumScreenUp = window.innerWidth >= 1024;
+    const handleResize = () => {
+      isMediumScreenUp = window.innerWidth >= 1024;
+    };
+    window.onresize = handleResize;
   }
   const isOpen = useHamburgerStore((state) => state.isOpen);
   return (

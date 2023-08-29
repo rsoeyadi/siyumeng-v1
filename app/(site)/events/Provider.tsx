@@ -7,16 +7,26 @@ import { Event as Performance } from "@/app/(site)/components/Event";
 import Loading from "../loading";
 import { useState } from "react";
 import Image from "next/image";
+import useHamburgerStore from "../store";
 
 export default function Home() {
   const itemsToShowIncrement = 5;
   const [itemsToShow, setItemsToShow] = useState(itemsToShowIncrement);
   const { data: events, error, isLoading } = useSWR("events", getEvents);
+  const isOpen = useHamburgerStore((state) => state.isOpen);
   const {
     data: coverPhotos,
     error: coverPhotosError,
     isLoading: coverPhotosIsLoading,
   } = useSWR("coverPhotos", getCoverPhotos);
+  let isMediumScreenUp =
+    typeof window !== "undefined" && window.innerWidth >= 1024;
+  if (typeof window !== "undefined") {
+    const handleResize = () => {
+      isMediumScreenUp = window.innerWidth >= 1024;
+    };
+    window.onresize = handleResize;
+  }
   if (error || coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
   if (isLoading || coverPhotosIsLoading) return <Loading />;
@@ -75,6 +85,7 @@ export default function Home() {
           <button
             className="cursor-pointer bg-black hover:bg-gray-500 transition duration-150 ease-in-out text-white font-bold py-2 px-5 rounded focus:outline-none focus:ring focus:ring-blue-300"
             onClick={showMore}
+            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
           >
             Show more
           </button>

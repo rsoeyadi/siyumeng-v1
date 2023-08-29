@@ -14,9 +14,13 @@ import useHamburgerStore from "../store";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
-  let isMediumScreenUp = false;
+  let isMediumScreenUp =
+    typeof window !== "undefined" && window.innerWidth >= 1024;
   if (typeof window !== "undefined") {
-    isMediumScreenUp = window.innerWidth >= 1024;
+    const handleResize = () => {
+      isMediumScreenUp = window.innerWidth >= 1024;
+    };
+    window.onresize = handleResize;
   }
   const { data: jobs, error, isLoading } = useSWR("jobs", getJobs);
   const {

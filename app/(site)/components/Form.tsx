@@ -5,9 +5,13 @@ import useHamburgerStore from "../store";
 
 export function ContactForm() {
   const [state, handleSubmit] = useForm("mgejapgq");
-  let isMediumScreenUp = false;
+  let isMediumScreenUp =
+    typeof window !== "undefined" && window.innerWidth >= 1024;
   if (typeof window !== "undefined") {
-    isMediumScreenUp = window.innerWidth >= 1024;
+    const handleResize = () => {
+      isMediumScreenUp = window.innerWidth >= 1024;
+    };
+    window.onresize = handleResize;
   }
   const isOpen = useHamburgerStore((state) => state.isOpen);
 
