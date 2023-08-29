@@ -10,7 +10,7 @@ export default function Nav() {
   const pathname = usePathname();
   const isOpen = useHamburgerStore((state) => state.isOpen);
   const toggleMenu = useHamburgerStore((state) => state.toggleMenu);
-  let isMediumScreenUp = false;
+  let isMediumScreenUp = true;
   if (typeof window !== "undefined") {
     isMediumScreenUp = window.innerWidth >= 1024;
   }
@@ -42,6 +42,7 @@ export default function Nav() {
     { title: "Contact", route: "/contact" },
   ];
 
+  console.log(isMediumScreenUp)
   return (
     <div className="relative lg:absolute">
       {/* Top bar */}
