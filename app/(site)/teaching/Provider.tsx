@@ -10,8 +10,11 @@ import useSWR from "swr";
 import Loading from "../loading";
 import Image from "next/image";
 import { useState } from "react";
+import useHamburgerStore from "../store";
 
 export default function Home() {
+  const isOpen = useHamburgerStore((state) => state.isOpen);
+  const isMediumScreenUp = window.innerWidth >= 1024;
   const { data: jobs, error, isLoading } = useSWR("jobs", getJobs);
   const {
     data: teachingPhilosophy,
@@ -29,6 +32,7 @@ export default function Home() {
     return <div className="text-red-500">failed to load</div>;
   if (isLoading || teachingPhilosophyIsLoading || coverPhotosIsLoading)
     return <Loading />;
+
   return (
     <div className="relative">
       <div
@@ -71,7 +75,7 @@ export default function Home() {
           <div
             key={job.company + job.image}
             className="mt-20 max-w-3xl w-full relative flex mx-auto flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
-            tabIndex={0}
+            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
           >
             <div className="relative mx-4 -mt-6 mb-5 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white ">
               <Image
@@ -94,7 +98,11 @@ export default function Home() {
             </div>
             <div className="p-6 pt-0">
               {job.link && (
-                <Link href={job.link} target="_blank">
+                <Link
+                  href={job.link}
+                  target="_blank"
+                  tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+                >
                   <div
                     className="cursor-pointer max-w-fit bg-black hover:bg-gray-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     data-ripple-light="true"

@@ -1,9 +1,12 @@
 "use client";
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
+import useHamburgerStore from "../store";
 
 export function ContactForm() {
   const [state, handleSubmit] = useForm("mgejapgq");
+  const isMediumScreenUp = window.innerWidth >= 1024;
+  const isOpen = useHamburgerStore((state) => state.isOpen);
 
   if (state.succeeded) {
     return (
@@ -34,6 +37,7 @@ export function ContactForm() {
             placeholder="Name"
             required
             autoComplete="name"
+            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
           />
           <ValidationError
             prefix="Name"
@@ -73,12 +77,35 @@ export function ContactForm() {
                 }
               }
             }}
+            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
           >
-            <option value="">Click to select a subject</option>
-            <option value="Lessons">Lessons</option>
-            <option value="Performance Booking">Performance Booking</option>
-            <option value="Collaboration">Collaboration</option>
-            <option value="Inquiry">Inquiry</option>
+            <option value="" tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}>
+              Click to select a subject
+            </option>
+            <option
+              value="Lessons"
+              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            >
+              Lessons
+            </option>
+            <option
+              value="Performance Booking"
+              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            >
+              Performance Booking
+            </option>
+            <option
+              value="Collaboration"
+              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            >
+              Collaboration
+            </option>
+            <option
+              value="Inquiry"
+              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            >
+              Inquiry
+            </option>
           </select>
           <ValidationError
             prefix="Subject"
@@ -102,6 +129,7 @@ export function ContactForm() {
               placeholder="Email Address"
               required
               autoComplete="email"
+              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
             />
             <ValidationError
               prefix="Email"
@@ -124,6 +152,7 @@ export function ContactForm() {
               placeholder="Phone Number"
               required
               autoComplete="tel"
+              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
             />
             <ValidationError
               prefix="Email"
@@ -146,6 +175,7 @@ export function ContactForm() {
             rows={6}
             placeholder="Enter your message here..."
             required
+            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
           />
           <ValidationError
             prefix="Message"
@@ -158,6 +188,7 @@ export function ContactForm() {
             className="cursor-pointer bg-black hover:bg-gray-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300"
             type="submit"
             disabled={state.submitting}
+            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
           >
             Submit
           </button>

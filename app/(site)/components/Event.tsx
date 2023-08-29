@@ -3,14 +3,17 @@ import { Event } from "@/types/Event";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import { compareDesc, parseISO, format } from "date-fns";
+import useHamburgerStore from "../store";
 
 interface eventProps {
   sortedEvent: Event;
 }
 
 export function Event({ sortedEvent }: eventProps) {
+  const isMediumScreenUp = window.innerWidth >= 1024;
+  const isOpen = useHamburgerStore((state) => state.isOpen);
   return (
-    <div tabIndex={0}>
+    <div tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}>
       <hr className="hidden lg:block lg:max-w-3xl lg:mx-auto lg:my-9 h-px my-4 bg-gray-400 border-0" />
       <div
         key={sortedEvent.name}

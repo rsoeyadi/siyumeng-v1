@@ -4,7 +4,11 @@ import { PortableText } from "@portabletext/react";
 import useSWR from "swr";
 import Loading from "../loading";
 import Image from "next/image";
+import useHamburgerStore from "../store";
 export default function Home() {
+  const isMediumScreenUp = window.innerWidth >= 1024;
+  const isOpen = useHamburgerStore((state) => state.isOpen);
+
   const { data: videos, error, isLoading } = useSWR("videos", getVideos);
   const {
     data: coverPhotos,
@@ -47,7 +51,7 @@ export default function Home() {
       <div>
         {videos?.map((video, index) => (
           <div
-            tabIndex={0}
+            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
             key={index}
             className="max-w-3xl mt-10 mx-auto bg-white border border-gray-200 rounded-lg shadow"
           >
@@ -57,6 +61,7 @@ export default function Home() {
               allow="autoplay; encrypted-media"
               allowFullScreen
               title="video"
+              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}   
             />
             <div className="p-5">
               <h5 className="mb-2 text-xl font-bold tracking-tight text-slate-700">

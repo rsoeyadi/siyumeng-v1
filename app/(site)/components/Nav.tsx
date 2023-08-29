@@ -10,6 +10,8 @@ export default function Nav() {
   const pathname = usePathname();
   const isOpen = useHamburgerStore((state) => state.isOpen);
   const toggleMenu = useHamburgerStore((state) => state.toggleMenu);
+  const isMediumScreenUp = window.innerWidth >= 1024;
+
   useEffect(() => {
     if (isOpen) {
       document.documentElement.classList.add(
@@ -80,9 +82,14 @@ export default function Nav() {
                       : "text-slate-100"
                   }  ease-in-out duration-300 hover:text-slate-400`}
                   href={page.route}
-                  tabIndex={-1}
+                  tabIndex={isOpen || isMediumScreenUp ? 0 : -1}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      closeMenu()
+                    }
+                  }}
                 >
-                  <button onClick={closeMenu} tabIndex={isOpen ? 0 : -1}>
+                  <button onClick={closeMenu} tabIndex={-1}>
                     {page.title}
                   </button>
                 </Link>
