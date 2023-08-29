@@ -22,7 +22,7 @@ export default function Home() {
     <div className="pb-10">
       <div>
         {isLoading || coverPhotosIsLoading ? (
-          <Loading /> // Render your custom loading component
+          <Loading /> 
         ) : (
           <div
             className={`h-[90vh] md:h-[95vh] relative ${styles.backgroundImage}`}

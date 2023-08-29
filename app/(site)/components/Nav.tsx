@@ -12,10 +12,14 @@ export default function Nav() {
   const toggleMenu = useHamburgerStore((state) => state.toggleMenu);
   useEffect(() => {
     if (isOpen) {
-      document.documentElement.classList.add("overflow-hidden", "lg:overflow-y-auto");
+      document.documentElement.classList.add(
+        "overflow-hidden",
+        "lg:overflow-y-auto"
+      );
     } else {
       document.documentElement.classList.remove(
-        "overflow-hidden", "lg:overflow-y-auto"
+        "overflow-hidden",
+        "lg:overflow-y-auto"
       );
     }
   }, [isOpen]);
@@ -49,7 +53,7 @@ export default function Nav() {
             hideOutline={false}
           />
           <p
-            className="  ease-in-out duration-300 text-white absolute top-[40px] left-1 lg:left-1 lg:top-10 z-40 cursor-pointer text-sm"
+            className="ease-in-out duration-300 text-white absolute top-[40px] left-1 lg:left-1 lg:top-10 z-40 cursor-pointer text-sm"
             onClick={toggleMenu}
           >
             {isOpen ? "CLOSE" : "MENU"}
@@ -65,17 +69,16 @@ export default function Nav() {
       lg:translate-x-0 lg:bg-transparent 
     `}
       >
-        <ul className="text-right mt-14 lg:mt-0 lg:flex lg:justify-end lg:space-x-7">
+        <ul className="text-right mt-14 lg:mt-0 lg:flex lg:justify-end md:space-x-3 lg:space-x-8">
           {pages.map((page) => (
             <li key={page.route} className="pb-5 relative group">
-              <div className="text-2xl">
-                <div className="absolute top-0 right-0 lg:-left-4  w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[32deg]  opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-0 bg-gray-500	"></div>
-                {pathname === page.route && (
-                  <div className="absolute top-0 right-0 lg:-left-4 w-20 h-2 pb-8 transform skew-y-[-28deg] lg:skew-y-[32deg]  bg-red-700 opacity-100  duration-150 z-0"></div>
-                )}
-
+              <div className={`text-2xl`}>
                 <Link
-                  className="relative z-10 text-white"
+                  className={`relative z-10  ${
+                    pathname === page.route
+                      ? "text-slate-400"
+                      : "text-slate-100"
+                  }  ease-in-out duration-300 hover:text-slate-400`}
                   href={page.route}
                   tabIndex={-1}
                 >
