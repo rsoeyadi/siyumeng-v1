@@ -10,7 +10,10 @@ interface eventProps {
 }
 
 export function Event({ sortedEvent }: eventProps) {
-  const isMediumScreenUp = window.innerWidth >= 1024;
+  let isMediumScreenUp = false;
+  if (typeof window !== "undefined") {
+    isMediumScreenUp = window.innerWidth >= 1024;
+  }
   const isOpen = useHamburgerStore((state) => state.isOpen);
   return (
     <div tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}>

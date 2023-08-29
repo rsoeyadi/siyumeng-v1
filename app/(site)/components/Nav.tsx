@@ -10,8 +10,10 @@ export default function Nav() {
   const pathname = usePathname();
   const isOpen = useHamburgerStore((state) => state.isOpen);
   const toggleMenu = useHamburgerStore((state) => state.toggleMenu);
-  const isMediumScreenUp = window.innerWidth >= 1024;
-
+  let isMediumScreenUp = false;
+  if (typeof window !== "undefined") {
+    isMediumScreenUp = window.innerWidth >= 1024;
+  }
   useEffect(() => {
     if (isOpen) {
       document.documentElement.classList.add(
@@ -85,7 +87,7 @@ export default function Nav() {
                   tabIndex={isOpen || isMediumScreenUp ? 0 : -1}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
-                      closeMenu()
+                      closeMenu();
                     }
                   }}
                 >

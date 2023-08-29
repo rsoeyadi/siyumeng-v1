@@ -6,7 +6,10 @@ import YouTube from "@/public/svgs/youtube.svg";
 import Link from "next/link";
 import useHamburgerStore from "../store";
 export default function Footer() {
-  const isMediumScreenUp = window.innerWidth >= 1024;
+  let isMediumScreenUp = false;
+  if (typeof window !== "undefined") {
+    isMediumScreenUp = window.innerWidth >= 1024;
+  }
   const isOpen = useHamburgerStore((state) => state.isOpen);
   return (
     <div className=" grid lg:grid-cols-3 gap-4 bg-black py-7 bottom-0 left-0">

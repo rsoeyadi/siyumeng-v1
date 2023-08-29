@@ -6,7 +6,10 @@ import Link from "next/link";
 import useHamburgerStore from "../store";
 
 export default function SocialLinks() {
-  const isMediumScreenUp = window.innerWidth >= 1024;
+  let isMediumScreenUp = false;
+  if (typeof window !== "undefined") {
+    isMediumScreenUp = window.innerWidth >= 1024;
+  }
   const isOpen = useHamburgerStore((state) => state.isOpen);
 
   return (
