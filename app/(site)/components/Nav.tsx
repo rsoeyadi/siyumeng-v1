@@ -97,7 +97,7 @@ export default function Nav() {
                       : "text-white"
                   }  ease-in-out duration-300 hover:text-slate-400`}
                   href={page.route}
-                  tabIndex={isOpen ? 0 : -1}
+                  tabIndex={isOpen || isMediumScreenUp ? 0 : -1}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       closeMenu();
