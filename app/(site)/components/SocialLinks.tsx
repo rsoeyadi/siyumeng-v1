@@ -4,16 +4,12 @@ import Image from "next/image";
 import YouTube from "@/public/svgs/youtube.svg";
 import Link from "next/link";
 import useHamburgerStore from "../store";
+import { useWindowSize } from "./Nav";
 
 export default function SocialLinks() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
-  let isMediumScreenUp = true;
-  if (typeof window !== "undefined") {
-    const handleResize = () => {
-      isMediumScreenUp = window.innerWidth >= 1024;
-    };
-    window.onresize = handleResize;
-  }
+  const [width, height] = useWindowSize();
+  const isMediumScreenUp = width >= 1024;
 
   return (
     <div className="flex gap-3 justify-end">
@@ -43,8 +39,6 @@ export default function SocialLinks() {
           alt="Xiaohongshu Link"
         />
       </Link>
-      
-      
     </div>
   );
 }
