@@ -57,7 +57,10 @@ export default function Nav() {
     <div className="relative lg:absolute">
       {/* Top bar */}
       <div className="lg:z-50 block w-screen top-0 left-0 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 lg:skew-x-[0.0001deg] lg:skew-y-[0.0001deg]  lg:hidden">
-        <div className="absolute top-3 right-4 lg:right-auto lg:left-3  z-40 cursor-pointer">
+        <div
+          className={`        z-[1000]
+absolute top-3 right-4 lg:right-auto lg:left-3  cursor-pointer`}
+        >
           <Hamburger
             toggled={isOpen}
             toggle={toggleMenu}
@@ -79,9 +82,11 @@ export default function Nav() {
       <div
         className={`
       overflow-y-scroll overflow-x-hidden top-0 bottom-0 w-[100vw]  p-10 pl-20 z-30 ease-in-out duration-300 fixed lg:relative
-        ${isOpen && !isMediumScreenUp ? "bg-black bg-opacity-[70%]" : "z-[-50]"}  ${
+        ${isOpen && !isMediumScreenUp ? "bg-black bg-opacity-[70%]" : ""}  ${
           isOpen || isMediumScreenUp ? "opacity-90" : "opacity-0"
         } 
+        ${isMediumScreenUp ? "z-[50]" : "z-[-50]"}
+        ${isOpen ? "z-[50]" : "z-[-50]"}
     `}
       >
         <ul
@@ -92,9 +97,7 @@ export default function Nav() {
               <div className={`text-2xl`}>
                 <Link
                   className={`relative z-10  ${
-                    pathname === page.route
-                      ? "text-slate-400"
-                      : "text-white"
+                    pathname === page.route ? "text-slate-400" : "text-white"
                   }  ease-in-out duration-300 hover:text-slate-400`}
                   href={page.route}
                   tabIndex={isOpen || isMediumScreenUp ? 0 : -1}
