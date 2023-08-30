@@ -85,7 +85,7 @@ export default function Nav() {
     `}
       >
         <ul
-          className={`relative text-right mt-14 lg:mt-0 lg:flex lg:justify-end md:space-x-3 lg:space-x-6`}
+          className={`relative text-right mt-14 lg:mt-0 lg:flex lg:justify-end md:space-x-6 lg:space-x-7 xl:space-x-9`}
         >
           {pages.map((page) => (
             <li key={page.route} className="pb-5 relative group">
