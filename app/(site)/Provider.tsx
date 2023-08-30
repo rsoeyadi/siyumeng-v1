@@ -14,17 +14,23 @@ const crimsonText = Crimson_Text({
 
 export default function Provider({ children }: { children: React.ReactNode }) {
   const setClose = useHamburgerStore((state) => state.setClose);
+  const toggleMenu = useHamburgerStore((state) => state.toggleMenu);
 
   const handleCloseMenu = () => {
     setClose();
   };
-
+  const closeMenu = () => {
+    toggleMenu();
+  };
   const pathname = usePathname();
 
   return (
     <html lang="en">
       <body className={`${crimsonText.className} mx-auto my-0 overscroll-none`}>
-        <p className="absolute top-0 left-0 text-2xl lg:text-4xl pt-5 pl-5 font-bold lg:ml-5 lg:mt-4 text-white ease-in-out duration-300 hover:text-slate-400 z-[10000] uppercase">
+        <p
+          onClick={toggleMenu}
+          className="absolute top-0 left-0 text-2xl lg:text-4xl pt-5 pl-5 font-bold lg:ml-5 lg:mt-4 text-white ease-in-out duration-300 hover:text-slate-400 z-[10000] uppercase"
+        >
           <Link href="/">Siyumeng Wang</Link>
         </p>
         <div className="flex flex-col min-h-screen">
