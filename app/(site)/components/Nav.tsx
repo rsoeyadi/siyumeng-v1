@@ -94,11 +94,13 @@ absolute top-3 right-4 lg:right-auto lg:left-3  cursor-pointer`}
         >
           {pages.map((page) => (
             <li key={page.route} className="pb-5 relative group">
-              <div className={`text-2xl`}>
+              <div
+                className={`text-2xl ease-in-out duration-300 hover:scale-[1.18]`}
+              >
                 <Link
                   className={`relative z-10  ${
                     pathname === page.route ? "text-slate-400" : "text-white"
-                  }  ease-in-out duration-300 hover:text-slate-400`}
+                  } `}
                   href={page.route}
                   tabIndex={isOpen || isMediumScreenUp ? 0 : -1}
                   onKeyDown={(e) => {
