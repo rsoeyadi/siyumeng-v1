@@ -79,7 +79,7 @@ export default function Nav() {
       <div
         className={`
       overflow-y-scroll overflow-x-hidden top-0 bottom-0 w-[100vw]  p-10 pl-20 z-30 ease-in-out duration-500 fixed lg:relative
-        ${isOpen && !isMediumScreenUp ? "bg-black bg-opacity-[70%]" : ""}  ${
+        ${isOpen && !isMediumScreenUp ? "bg-black bg-opacity-[70%]" : "-z-50"}  ${
           isOpen || isMediumScreenUp ? "opacity-90" : "opacity-0"
         } 
     `}
