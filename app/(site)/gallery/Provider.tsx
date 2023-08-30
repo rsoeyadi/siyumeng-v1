@@ -95,12 +95,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="mt-20 mx-auto flex justify-center">
-        <div
-          className={`${
-            isOpen && !isMediumScreenUp ? "blur-sm" : ""
-          } w-full lg:w-10/12 pb-10`}
-        >
+      <div
+        className={`mt-20 mx-auto flex justify-center ${
+          isOpen && !isMediumScreenUp ? "blur-sm" : ""
+        }`}
+      >
+        <div className={` w-full lg:w-10/12 pb-10`}>
           <Gallery
             photos={galleryPhotos as any}
             onClick={(e, obj) => openLightbox(obj.index)}
