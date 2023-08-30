@@ -24,11 +24,11 @@ export default function Provider({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${crimsonText.className} mx-auto my-0 overscroll-none`}>
-        <p className="absolute top-0 left-0 z-50 text-2xl lg:text-4xl pt-5 pl-5 font-bold lg:ml-5 lg:mt-4 text-white ease-in-out duration-300 hover:text-slate-400">
+        <p className="absolute top-0 left-0 text-2xl lg:text-4xl pt-5 pl-5 font-bold lg:ml-5 lg:mt-4 text-white ease-in-out duration-300 hover:text-slate-400 z-[10000] uppercase">
           <Link href="/">Siyumeng Wang</Link>
         </p>
         <div className="flex flex-col min-h-screen">
-          <div className="">
+          <div>
             <Nav></Nav>
             <div
               onClick={handleCloseMenu}
