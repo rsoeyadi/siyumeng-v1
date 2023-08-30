@@ -8,25 +8,20 @@ import Loading from "../loading";
 import { useState } from "react";
 import Image from "next/image";
 import useHamburgerStore from "../store";
+import { useWindowSize } from "../components/Nav";
 
 export default function Home() {
+  const isOpen = useHamburgerStore((state) => state.isOpen);
+  const [width, height] = useWindowSize();
+  const isMediumScreenUp = width >= 1024;
   const itemsToShowIncrement = 5;
   const [itemsToShow, setItemsToShow] = useState(itemsToShowIncrement);
   const { data: events, error, isLoading } = useSWR("events", getEvents);
-  const isOpen = useHamburgerStore((state) => state.isOpen);
   const {
     data: coverPhotos,
     error: coverPhotosError,
     isLoading: coverPhotosIsLoading,
   } = useSWR("coverPhotos", getCoverPhotos);
-  let isMediumScreenUp =
-    typeof window !== "undefined" && window.innerWidth >= 1024;
-  if (typeof window !== "undefined") {
-    const handleResize = () => {
-      isMediumScreenUp = window.innerWidth >= 1024;
-    };
-    window.onresize = handleResize;
-  }
   if (error || coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
   if (isLoading || coverPhotosIsLoading) return <Loading />;
@@ -65,11 +60,16 @@ export default function Home() {
           priority
           objectPosition="top"
           alt="Siyumeng Wang's Headshot"
-          className="transition-opacity opacity-0 duration-100"
-          onLoadingComplete={(image) => image.classList.remove("opacity-0")}
+          className={`ease-in-out duration-500 ${
+            isOpen && !isMediumScreenUp ? "blur-sm" : ""
+          }`}
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
-          <div className="text-white text-4xl font-bold uppercase">
+          <div
+            className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
+              isOpen && !isMediumScreenUp ? "blur-sm" : ""
+            }`}
+          >
             Performances
           </div>
         </div>

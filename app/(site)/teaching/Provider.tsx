@@ -9,19 +9,13 @@ import Link from "next/link";
 import useSWR from "swr";
 import Loading from "../loading";
 import Image from "next/image";
-import { useState } from "react";
 import useHamburgerStore from "../store";
+import { useWindowSize } from "../components/Nav";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
-  let isMediumScreenUp =
-    typeof window !== "undefined" && window.innerWidth >= 1024;
-  if (typeof window !== "undefined") {
-    const handleResize = () => {
-      isMediumScreenUp = window.innerWidth >= 1024;
-    };
-    window.onresize = handleResize;
-  }
+  const [width, height] = useWindowSize();
+  const isMediumScreenUp = width >= 1024;
   const { data: jobs, error, isLoading } = useSWR("jobs", getJobs);
   const {
     data: teachingPhilosophy,
@@ -56,18 +50,23 @@ export default function Home() {
           objectPosition="18%"
           priority
           alt="Musart Group Photo at Carnegie Hall"
-          className="transition-opacity opacity-0 duration-100"
-          onLoadingComplete={(image) => image.classList.remove("opacity-0")}
+          className={`ease-in-out duration-500 ${
+            isOpen && !isMediumScreenUp ? "blur-sm" : ""
+          }`}
         />
 
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-          <div className="text-white text-4xl font-bold uppercase">
+          <div
+            className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
+              isOpen && !isMediumScreenUp ? "blur-sm" : ""
+            }`}
+          >
             Teaching
           </div>
         </div>
       </div>
       {/* Teaching Philosophy Section */}
-      <div className="px-3 max-w-5xl mx-auto my-10 text-center justify-center">
+      <div className={`px-3 max-w-5xl mx-auto my-10 text-center justify-center ${isOpen && !isMediumScreenUp ? "blur-sm" : ""}`}>
         <h2 className="text-left lg:text-center text-2xl font-bold mb-3">
           Teaching Philosophy
         </h2>

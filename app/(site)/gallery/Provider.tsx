@@ -9,9 +9,15 @@ import Image from "next/image"; //
 import { getCoverPhotos, getGalleryImages } from "@/sanity/sanity-utils";
 import useSWR from "swr";
 import Loading from "../loading";
+import useHamburgerStore from "../store";
+import { useWindowSize } from "../components/Nav";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("gallery", getGalleryImages);
+  const isOpen = useHamburgerStore((state) => state.isOpen);
+  const [width, height] = useWindowSize();
+  const isMediumScreenUp = width >= 1024;
+
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -74,16 +80,27 @@ export default function Home() {
           priority
           alt="Photo of Siyumeng Wang at the piano in China"
           objectPosition="60% center"
-          className="transition-opacity opacity-0 duration-100"
-          onLoadingComplete={(image) => image.classList.remove("opacity-0")}
+          className={`ease-in-out duration-500 ${
+            isOpen && !isMediumScreenUp ? "blur-sm" : ""
+          }`}
         />
 
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-          <div className="text-white text-4xl font-bold uppercase">Gallery</div>
+          <div
+            className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
+              isOpen && !isMediumScreenUp ? "blur-sm" : ""
+            }`}
+          >
+            Gallery
+          </div>
         </div>
       </div>
       <div className="mt-20 mx-auto flex justify-center">
-        <div className="w-full lg:w-10/12 pb-10">
+        <div
+          className={`${
+            isOpen && !isMediumScreenUp ? "blur-sm" : ""
+          } w-full lg:w-10/12 pb-10`}
+        >
           <Gallery
             photos={galleryPhotos as any}
             onClick={(e, obj) => openLightbox(obj.index)}

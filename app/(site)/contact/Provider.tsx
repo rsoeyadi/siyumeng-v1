@@ -4,6 +4,8 @@ import { ContactForm } from "../components/Form";
 import { getCoverPhotos } from "@/sanity/sanity-utils";
 import Loading from "../loading";
 import Image from "next/image"; // Import the Image component from Next.js
+import useHamburgerStore from "../store";
+import { useWindowSize } from "../components/Nav";
 
 export default function Home() {
   const {
@@ -11,6 +13,9 @@ export default function Home() {
     error: coverPhotosError,
     isLoading: coverPhotosIsLoading,
   } = useSWR("coverPhotos", getCoverPhotos);
+  const isOpen = useHamburgerStore((state) => state.isOpen);
+  const [width, height] = useWindowSize();
+  const isMediumScreenUp = width >= 1024;
 
   if (coverPhotosError)
     return <div className="text-red-500">failed to load</div>;
@@ -36,19 +41,24 @@ export default function Home() {
               objectFit="cover"
               objectPosition="left"
               alt="Contact Image 1"
-              className="transition-opacity opacity-0 duration-100"
-              onLoadingComplete={(image) => image.classList.remove("opacity-0")}
+              className={`ease-in-out duration-500 ${
+                isOpen && !isMediumScreenUp ? "blur-sm" : ""
+              }`}
             />
           )}
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-            <div className="text-white text-4xl font-bold uppercase">
+            <div
+              className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
+                isOpen && !isMediumScreenUp ? "blur-sm" : ""
+              }`}
+            >
               Contact
             </div>
           </div>
         </div>
       </div>
       <div className="pt-10 pb-20">
-        <p className="text-4xl px-5 mx-2 lg:mx-auto lg:max-w-6xl">
+        <p className={`text-4xl px-5 mx-2 lg:mx-auto lg:max-w-6xl ${isOpen && !isMediumScreenUp ? "blur-sm" : ""}`}>
           Contact Form
         </p>
         <ContactForm />

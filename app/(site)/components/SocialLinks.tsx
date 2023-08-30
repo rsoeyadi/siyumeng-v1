@@ -11,7 +11,6 @@ export default function SocialLinks() {
   if (typeof window !== "undefined") {
     const handleResize = () => {
       isMediumScreenUp = window.innerWidth >= 1024;
-      console.log(isMediumScreenUp);
     };
     window.onresize = handleResize;
   }

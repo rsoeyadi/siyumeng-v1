@@ -5,9 +5,15 @@ import useSWR from "swr";
 import styles from "./page.module.css";
 import Loading from "../loading";
 import Image from "next/image";
+import useHamburgerStore from "../store";
+import { useWindowSize } from "../components/Nav";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("biography", getBiography);
+  const [width, height] = useWindowSize();
+  const isMediumScreenUp = width >= 1024;
+  const isOpen = useHamburgerStore((state) => state.isOpen);
+ 
   const {
     data: coverPhotos,
     error: coverPhotosError,
@@ -22,7 +28,7 @@ export default function Home() {
     <div className="pb-10">
       <div>
         {isLoading || coverPhotosIsLoading ? (
-          <Loading /> 
+          <Loading />
         ) : (
           <div
             className={`h-[90vh] md:h-[95vh] relative ${styles.backgroundImage}`}
@@ -37,11 +43,16 @@ export default function Home() {
               objectPosition="90% 0%"
               priority
               alt="Biography Background"
-              className="transition-opacity opacity-0 duration-100"
-              onLoadingComplete={(image) => image.classList.remove("opacity-0")}
+              className={`ease-in-out duration-500 ${
+                isOpen && !isMediumScreenUp ? "blur-sm" : ""
+              }`}
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-              <div className="text-white text-4xl font-bold uppercase">
+              <div
+                className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
+                  isOpen && !isMediumScreenUp ? "blur-sm" : ""
+                }`}
+              >
                 Biography
               </div>
             </div>
@@ -51,7 +62,11 @@ export default function Home() {
       <div className="relative mx-auto my-0">
         {data?.biographyHalf1 && (
           <div
-            className={`${styles.biographyText} mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-4xl font-light leading-relaxed text-inherit antialiased`}
+            className={`${
+              styles.biographyText
+            } mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-4xl font-light leading-relaxed text-inherit antialiased ${
+              isOpen && !isMediumScreenUp ? "blur-sm" : ""
+            }`}
           >
             <PortableText value={data.biographyHalf1}></PortableText>
           </div>
