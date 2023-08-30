@@ -26,7 +26,7 @@ export default function Provider({ children }: { children: React.ReactNode }) {
       <body className={`${nunito.className} mx-auto my-0 overscroll-none`}>
         <p
           onClick={handleCloseMenu}
-          className="absolute top-0 left-0 text-2xl lg:text-4xl pt-5 pl-5 font-bold lg:ml-5 lg:mt-4 text-white ease-in-out duration-300 hover:text-slate-400 z-[10000] uppercase"
+          className="absolute top-0 left-0 text-3xl xl:text-4xl pt-5 pl-3 font-bold lg:ml-5 lg:mt-4 text-white ease-in-out duration-300 hover:text-slate-400 z-[10000] uppercase"
         >
           <Link href="/">Siyumeng Wang</Link>
         </p>

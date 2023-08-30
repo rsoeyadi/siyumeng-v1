@@ -90,7 +90,7 @@ absolute top-3 right-4 lg:right-auto lg:left-3  cursor-pointer`}
     `}
       >
         <ul
-          className={`relative text-right mt-14 lg:mt-0 lg:flex lg:justify-end lg:space-x-5 xl:space-x-9`}
+          className={`relative text-right mt-14 lg:mt-0 lg:flex lg:justify-end lg:space-x-4 xl:space-x-9`}
         >
           {pages.map((page) => (
             <li key={page.route} className="pb-5 relative group">
