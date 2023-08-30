@@ -59,7 +59,7 @@ export default function Nav() {
       <div className="lg:z-50 block w-screen top-0 left-0 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-20 lg:skew-x-[0.0001deg] lg:skew-y-[0.0001deg]  lg:hidden">
         <div
           className={`        z-[1000]
-absolute top-3 right-4 lg:right-auto lg:left-3  cursor-pointer`}
+absolute top-3 right-2 lg:right-auto lg:left-3  cursor-pointer`}
         >
           <Hamburger
             toggled={isOpen}
