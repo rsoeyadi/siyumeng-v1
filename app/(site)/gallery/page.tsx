@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ProviderWrapper from "./ProviderWrapper";
+import Provider from "./Provider";
 
 export const metadata: Metadata = {
   title: "Siyumeng Wang | Gallery",
@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <ProviderWrapper />;
+  return <Provider />;
 }
