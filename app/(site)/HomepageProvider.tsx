@@ -5,6 +5,7 @@ import Loading from "./loading";
 import Image from "next/image";
 import useHamburgerStore from "./store";
 import { useWindowSize } from "./components/Nav";
+import cover from "@/public/images/cover-home.jpg";
 
 export default function HomepageProvider() {
   const { data, error, isLoading } = useSWR("coverPhotos", getCoverPhotos);
@@ -21,11 +22,13 @@ export default function HomepageProvider() {
         ) : (
           <Image
             priority
-            src={data?.entryImage as any}
+            // src={data?.entryImage as any}
+            src={cover}
             layout="fill"
             objectFit="cover"
             objectPosition="left 38% top 24%"
             alt="Background Image"
+            placeholder="blur"
             className={`ease-in-out duration-500 ${
               isOpen && !isMediumScreenUp ? "blur-sm" : ""
             }`}

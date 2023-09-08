@@ -11,6 +11,7 @@ import Loading from "../loading";
 import Image from "next/image";
 import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
+import cover from "@/public/images/cover-teaching.jpg";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
@@ -44,12 +45,14 @@ export default function Home() {
         }}
       >
         <Image
-          src={coverPhotos?.teachingImage as any}
+          // src={coverPhotos?.teachingImage as any}
+          src={cover}
           layout="fill"
           objectFit="cover"
           objectPosition="18%"
           priority
           alt="Musart Group Photo at Carnegie Hall"
+          placeholder="blur"
           className={`ease-in-out duration-500 ${
             isOpen && !isMediumScreenUp ? "blur-sm" : ""
           }`}
@@ -66,7 +69,11 @@ export default function Home() {
         </div>
       </div>
       {/* Teaching Philosophy Section */}
-      <div className={`px-3 max-w-5xl mx-auto my-10 text-center justify-center ${isOpen && !isMediumScreenUp ? "blur-sm" : ""}`}>
+      <div
+        className={`px-3 max-w-5xl mx-auto my-10 text-center justify-center ${
+          isOpen && !isMediumScreenUp ? "blur-sm" : ""
+        }`}
+      >
         <h2 className="text-left lg:text-center text-2xl font-bold mb-3">
           Teaching Philosophy
         </h2>

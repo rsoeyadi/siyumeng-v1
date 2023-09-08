@@ -9,6 +9,7 @@ import { useState } from "react";
 import Image from "next/image";
 import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
+import cover from "@/public/images/cover-events.jpg";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
@@ -54,12 +55,14 @@ export default function Home() {
         }}
       >
         <Image
-          src={coverPhotos?.eventsImage as any}
+          // src={coverPhotos?.eventsImage as any}
+          src={cover}
           layout="fill"
           objectFit="cover"
           priority
           objectPosition="top"
           alt="Siyumeng Wang's Headshot"
+          placeholder="blur"
           className={`ease-in-out duration-500 ${
             isOpen && !isMediumScreenUp ? "blur-sm" : ""
           }`}

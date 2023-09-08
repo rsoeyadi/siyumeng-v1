@@ -6,6 +6,8 @@ import Loading from "../loading";
 import Image from "next/image"; // Import the Image component from Next.js
 import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
+import coverTop from "@/public/images/cover-contact-top.jpg";
+import coverBottom from "@/public/images/cover-contact-bottom.png";
 
 export default function Home() {
   const {
@@ -36,11 +38,13 @@ export default function Home() {
           ) : (
             <Image
               priority
-              src={coverPhotos?.contactImage1 as any}
+              // src={coverPhotos?.contactImage1 as any}
+              src={coverTop}
               layout="fill"
               objectFit="cover"
               objectPosition="left"
               alt="Contact Image 1"
+              placeholder="blur"
               className={`ease-in-out duration-500 ${
                 isOpen && !isMediumScreenUp ? "blur-sm" : ""
               }`}
@@ -58,7 +62,11 @@ export default function Home() {
         </div>
       </div>
       <div className="pt-10 pb-20">
-        <p className={`text-4xl px-5 mx-2 lg:mx-auto lg:max-w-6xl ${isOpen && !isMediumScreenUp ? "blur-sm" : ""}`}>
+        <p
+          className={`text-4xl px-5 mx-2 lg:mx-auto lg:max-w-6xl ${
+            isOpen && !isMediumScreenUp ? "blur-sm" : ""
+          }`}
+        >
           Contact Form
         </p>
         <ContactForm />
@@ -75,11 +83,13 @@ export default function Home() {
             <Loading />
           ) : (
             <Image
-              src={coverPhotos?.contactImage2 as any}
+              // src={coverPhotos?.contactImage2 as any}
+              src={coverBottom}
               layout="fill"
               objectFit="cover"
               objectPosition="right"
               alt="Contact Image 2"
+              placeholder="blur"
             />
           )}
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70"></div>

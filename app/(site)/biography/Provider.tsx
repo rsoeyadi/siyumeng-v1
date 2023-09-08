@@ -7,6 +7,7 @@ import Loading from "../loading";
 import Image from "next/image";
 import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
+import cover from "@/public/images/cover-biography.jpg"
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("biography", getBiography);
@@ -37,7 +38,9 @@ export default function Home() {
             }}
           >
             <Image
-              src={coverPhotos?.biographyImage as any}
+              // src={coverPhotos?.biographyImage as any}
+              src={cover}
+              placeholder="blur"
               layout="fill"
               objectFit="cover"
               objectPosition="90% 0%"

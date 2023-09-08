@@ -6,6 +6,8 @@ import Loading from "../loading";
 import Image from "next/image";
 import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
+import cover from "@/public/images/cover-videos.png";
+
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
   const [width, height] = useWindowSize();
@@ -35,12 +37,14 @@ export default function Home() {
           <Loading />
         ) : (
           <Image
-            src={coverPhotos?.videosImage as any}
+            // src={coverPhotos?.videosImage as any}
+            src={cover}
             layout="fill"
             objectFit="cover"
             objectPosition="center right"
             priority
             alt="Videos Background"
+            placeholder="blur"
             className={`ease-in-out duration-500 ${
               isOpen && !isMediumScreenUp ? "blur-sm" : ""
             }`}
