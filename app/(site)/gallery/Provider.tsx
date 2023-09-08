@@ -32,14 +32,9 @@ export default function Home() {
     setCurrentSlide(0);
   };
 
-  const {
-    data: coverPhotos,
-    error: coverPhotosError,
-    isLoading: coverPhotosIsLoading,
-  } = useSWR("coverPhotos", getCoverPhotos);
-  if (error || coverPhotosError)
+  if (error)
     return <div className="text-red-500">failed to load</div>;
-  if (isLoading || coverPhotosIsLoading) return <Loading />;
+  if (isLoading) return <Loading />;
 
   const galleryPhotos = data?.map((item) => {
     const url = item.image;
