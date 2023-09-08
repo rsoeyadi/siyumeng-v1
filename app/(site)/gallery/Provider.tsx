@@ -6,15 +6,19 @@ import "yet-another-react-lightbox/styles.css";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/captions.css";
 import Image from "next/image"; //
-import { getCoverPhotos, getGalleryImages } from "@/sanity/sanity-utils";
-import useSWR from "swr";
-import Loading from "../loading";
 import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
 import cover from "@/public/images/cover-gallery.jpg";
 
-export default function Home() {
-  const { data, error, isLoading } = useSWR("gallery", getGalleryImages);
+interface providerProps {
+  galleryPhotos: {
+    src: string;
+    width: number;
+    height: number;
+  }[];
+}
+
+export default function Home({ galleryPhotos }: providerProps) {
   const isOpen = useHamburgerStore((state) => state.isOpen);
   const [width, height] = useWindowSize();
   const isMediumScreenUp = width >= 1024;
@@ -32,28 +36,7 @@ export default function Home() {
     setCurrentSlide(0);
   };
 
-  if (error)
-    return <div className="text-red-500">failed to load</div>;
-  if (isLoading) return <Loading />;
-
-  const galleryPhotos = data?.map((item) => {
-    const url = item.image;
-    const dimensionsMatch = url.match(/-(\d+)x(\d+)\./);
-    if (dimensionsMatch) {
-      const width = parseInt(dimensionsMatch[1]);
-      const height = parseInt(dimensionsMatch[2]);
-      return {
-        src: url,
-        width: width,
-        height: height,
-        description: item.description,
-        class: "hover:brightness-125 transition ease-in-out duration-150",
-      };
-    }
-    return { src: url, width: 4, height: 3 };
-  });
-
-  const lightboxPhotos = galleryPhotos?.map((photo) => ({
+  const lightboxPhotos = galleryPhotos?.map((photo: any) => ({
     src: photo.src,
     width: photo.width,
     height: photo.height,
