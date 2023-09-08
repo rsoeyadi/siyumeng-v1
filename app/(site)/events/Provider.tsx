@@ -59,7 +59,7 @@ export default function Home() {
           src={cover}
           layout="fill"
           objectFit="cover"
-          priority
+          priority={true}
           objectPosition="top"
           alt="Siyumeng Wang's Headshot"
           placeholder="blur"

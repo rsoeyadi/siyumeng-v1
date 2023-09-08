@@ -21,7 +21,7 @@ export default function HomepageProvider() {
           <Loading />
         ) : (
           <Image
-            priority
+            priority={true}
             // src={data?.entryImage as any}
             src={cover}
             layout="fill"

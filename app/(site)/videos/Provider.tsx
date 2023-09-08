@@ -42,7 +42,7 @@ export default function Home() {
             layout="fill"
             objectFit="cover"
             objectPosition="center right"
-            priority
+            priority={true}
             alt="Videos Background"
             placeholder="blur"
             className={`ease-in-out duration-500 ${

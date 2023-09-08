@@ -44,7 +44,7 @@ export default function Home() {
               layout="fill"
               objectFit="cover"
               objectPosition="90% 0%"
-              priority
+              priority={true}
               alt="Biography Background"
               className={`ease-in-out duration-500 ${
                 isOpen && !isMediumScreenUp ? "blur-sm" : ""

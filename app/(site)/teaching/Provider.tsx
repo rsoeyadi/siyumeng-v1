@@ -50,7 +50,7 @@ export default function Home() {
           layout="fill"
           objectFit="cover"
           objectPosition="18%"
-          priority
+          priority={true}
           alt="Musart Group Photo at Carnegie Hall"
           placeholder="blur"
           className={`ease-in-out duration-500 ${
@@ -95,7 +95,7 @@ export default function Home() {
                 src={job.image}
                 width="0"
                 height="0"
-                priority
+                priority={true}
                 sizes="100vw"
                 style={{ width: "100%", height: "auto" }}
                 alt="Siyumeng Wang Teaching Experience, company logo"

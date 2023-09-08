@@ -79,7 +79,7 @@ export default function Home() {
           src={cover}
           layout="fill"
           objectFit="cover"
-          priority
+          priority={true}
           alt="Photo of Siyumeng Wang at the piano in China"
           placeholder="blur"
           objectPosition="60% center"
