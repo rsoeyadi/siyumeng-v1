@@ -5,14 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import useHamburgerStore from "../store";
 export default function Footer() {
-  let isMediumScreenUp =
-    typeof window !== "undefined" && window.innerWidth >= 1024;
-  if (typeof window !== "undefined") {
-    const handleResize = () => {
-      isMediumScreenUp = window.innerWidth >= 1024;
-    };
-    window.onresize = handleResize;
-  }
   const isOpen = useHamburgerStore((state) => state.isOpen);
   return (
     <div className=" grid lg:grid-cols-3 gap-4 bg-black py-7 bottom-0 left-0">
@@ -26,14 +18,14 @@ export default function Footer() {
           <Link
             href="https://www.youtube.com/@SiyumengWang"
             target="_blank"
-            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            tabIndex={isOpen ? -1 : 0}
           >
             <Image src={YouTube} height={30} width={30} alt="YouTube Link" />
           </Link>
           <Link
             href="https://www.instagram.com/siyumengwangpianist/?hl=en"
             target="_blank"
-            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            tabIndex={isOpen ? -1 : 0}
           >
             <Image
               src={Instagram}
@@ -45,7 +37,7 @@ export default function Footer() {
           <Link
             href="https://www.xiaohongshu.com/user/profile/598490586a6a691f0b0525bd"
             target="_blank"
-            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            tabIndex={isOpen ? -1 : 0}
           >
             <Image
               src={Xiaohongshu}

@@ -4,14 +4,6 @@ import useHamburgerStore from "../store";
 
 export function ContactForm() {
   const [state, handleSubmit] = useForm("mgejapgq");
-  let isMediumScreenUp =
-    typeof window !== "undefined" && window.innerWidth >= 1024;
-  if (typeof window !== "undefined") {
-    const handleResize = () => {
-      isMediumScreenUp = window.innerWidth >= 1024;
-    };
-    window.onresize = handleResize;
-  }
   const isOpen = useHamburgerStore((state) => state.isOpen);
 
   if (state.succeeded) {
@@ -26,7 +18,7 @@ export function ContactForm() {
     <div>
       <form
         className={`bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded px-5 pt-6 pb-8 my-5 mx-2 lg:mx-auto lg:max-w-6xl ${
-          isOpen && !isMediumScreenUp ? "blur-sm" : ""
+          isOpen ? "blur-sm md:blur-0" : ""
         }`}
         onSubmit={handleSubmit}
       >
@@ -45,7 +37,7 @@ export function ContactForm() {
             placeholder="Name"
             required
             autoComplete="name"
-            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            tabIndex={isOpen ? -1 : 0}
           />
           <ValidationError
             prefix="Name"
@@ -67,12 +59,9 @@ export function ContactForm() {
             required
             onKeyDown={(e) => {
               if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-                // Prevent default behavior of arrow keys
                 e.preventDefault();
-                // Cast the target to HTMLSelectElement
                 const select = e.target as HTMLSelectElement;
                 const selectedIndex = select.selectedIndex;
-
                 if (
                   e.key === "ArrowDown" &&
                   selectedIndex < select.options.length - 1
@@ -85,33 +74,21 @@ export function ContactForm() {
                 }
               }
             }}
-            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            tabIndex={isOpen ? -1 : 0}
           >
-            <option value="" tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}>
+            <option value="" tabIndex={isOpen ? -1 : 0}>
               Click to select a subject
             </option>
-            <option
-              value="Lessons"
-              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
-            >
+            <option value="Lessons" tabIndex={isOpen ? -1 : 0}>
               Lessons
             </option>
-            <option
-              value="Performance Booking"
-              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
-            >
+            <option value="Performance Booking" tabIndex={isOpen ? -1 : 0}>
               Performance Booking
             </option>
-            <option
-              value="Collaboration"
-              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
-            >
+            <option value="Collaboration" tabIndex={isOpen ? -1 : 0}>
               Collaboration
             </option>
-            <option
-              value="Inquiry"
-              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
-            >
+            <option value="Inquiry" tabIndex={isOpen ? -1 : 0}>
               Inquiry
             </option>
           </select>
@@ -137,7 +114,7 @@ export function ContactForm() {
               placeholder="Email Address"
               required
               autoComplete="email"
-              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+              tabIndex={isOpen ? -1 : 0}
             />
             <ValidationError
               prefix="Email"
@@ -160,7 +137,7 @@ export function ContactForm() {
               placeholder="Phone Number"
               required
               autoComplete="tel"
-              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+              tabIndex={isOpen ? -1 : 0}
             />
             <ValidationError
               prefix="Email"
@@ -183,7 +160,7 @@ export function ContactForm() {
             rows={6}
             placeholder="Enter your message here..."
             required
-            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            tabIndex={isOpen ? -1 : 0}
           />
           <ValidationError
             prefix="Message"
@@ -196,7 +173,7 @@ export function ContactForm() {
             className="cursor-pointer bg-black hover:bg-gray-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-300"
             type="submit"
             disabled={state.submitting}
-            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            tabIndex={isOpen ? -1 : 0}
           >
             Submit
           </button>

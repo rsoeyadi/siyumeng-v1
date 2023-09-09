@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { useWindowSize } from "../components/Nav";
 import useHamburgerStore from "../store";
 
 interface coverPhotoProps {
@@ -12,8 +11,6 @@ export default function CoverPhoto({
   objectPosition,
 }: coverPhotoProps) {
   const isOpen = useHamburgerStore((state) => state.isOpen);
-  const [width, height] = useWindowSize();
-  const isMediumScreenUp = width >= 1024;
 
   return (
     <Image
@@ -25,9 +22,7 @@ export default function CoverPhoto({
       placeholder="blur"
       blurDataURL={coverPhoto.blurDataURL}
       objectPosition={objectPosition}
-      className={`ease-in-out duration-500 ${
-        isOpen && !isMediumScreenUp ? "blur-sm" : ""
-      }`}
+      className={`ease-in-out duration-500 ${isOpen ? "blur-sm md:blur-0" : ""}`}
     />
   );
 }

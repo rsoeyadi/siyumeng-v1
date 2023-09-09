@@ -9,19 +9,12 @@ interface eventProps {
 }
 
 export function Event({ sortedEvent }: eventProps) {
-  let isMediumScreenUp =
-    typeof window !== "undefined" && window.innerWidth >= 1024;
-  if (typeof window !== "undefined") {
-    const handleResize = () => {
-      isMediumScreenUp = window.innerWidth >= 1024;
-    };
-    window.onresize = handleResize;
-  }
+ 
   const isOpen = useHamburgerStore((state) => state.isOpen);
   return (
     <div
-      tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
-      className={`${isOpen && !isMediumScreenUp ? "blur-sm" : ""}
+      tabIndex={isOpen ? -1 : 0}
+      className={`${isOpen ? "blur-sm md:blur-0" : ""}
 `}
     >
       <hr className="hidden lg:block lg:max-w-3xl lg:mx-auto lg:my-9 h-px my-4 bg-gray-400 border-0" />
@@ -55,7 +48,7 @@ export function Event({ sortedEvent }: eventProps) {
               className="hover:text-slate-500 duration-300 ease-in-out"
               href={sortedEvent.link}
               target="_blank"
-              tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+              tabIndex={isOpen ? -1 : 0}
             >
               Event Information
             </Link>

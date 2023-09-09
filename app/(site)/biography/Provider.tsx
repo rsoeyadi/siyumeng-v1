@@ -12,8 +12,6 @@ import styles from "./page.module.css";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("biography", getBiography);
-  const [width, height] = useWindowSize();
-  const isMediumScreenUp = width >= 1024;
   const isOpen = useHamburgerStore((state) => state.isOpen);
 
   if (error) return <div className="text-red-500">failed to load</div>;
@@ -34,7 +32,7 @@ export default function Home() {
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
               <div
                 className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
-                  isOpen && !isMediumScreenUp ? "blur-sm" : ""
+                  isOpen ? "blur-sm md:blur-0" : ""
                 }`}
               >
                 Biography
@@ -49,7 +47,7 @@ export default function Home() {
             className={`${
               styles.biographyText
             } mt-10 px-6 text-lg bg-slate mx-auto my-0 max-w-4xl font-light leading-relaxed text-inherit antialiased ${
-              isOpen && !isMediumScreenUp ? "blur-sm" : ""
+              isOpen ? "blur-sm md:blur-0" : ""
             }`}
           >
             <PortableText value={data.biographyHalf1}></PortableText>

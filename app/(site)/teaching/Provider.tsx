@@ -6,14 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 import CoverPhoto from "../components/CoverPhoto";
-import { useWindowSize } from "../components/Nav";
 import Loading from "../loading";
 import useHamburgerStore from "../store";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
-  const [width, height] = useWindowSize();
-  const isMediumScreenUp = width >= 1024;
   const { data: jobs, error, isLoading } = useSWR("jobs", getJobs);
   const {
     data: teachingPhilosophy,
@@ -39,7 +36,7 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
           <div
             className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
-              isOpen && !isMediumScreenUp ? "blur-sm" : ""
+              isOpen ? "blur-sm md:blur-0" : ""
             }`}
           >
             Teaching
@@ -49,7 +46,7 @@ export default function Home() {
       {/* Teaching Philosophy Section */}
       <div
         className={`px-3 max-w-5xl mx-auto my-10 text-center justify-center ${
-          isOpen && !isMediumScreenUp ? "blur-sm" : ""
+          isOpen ? "blur-sm md:blur-0" : ""
         }`}
       >
         <h2 className="text-left lg:text-center text-2xl font-bold mb-3">
@@ -66,7 +63,7 @@ export default function Home() {
           <div
             key={job.company + job.image}
             className="mt-20 max-w-3xl w-full relative flex mx-auto flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
-            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            tabIndex={isOpen ? -1 : 0}
           >
             <div className="relative mx-4 -mt-6 mb-5 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white ">
               <Image
@@ -92,7 +89,7 @@ export default function Home() {
                 <Link
                   href={job.link}
                   target="_blank"
-                  tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+                  tabIndex={isOpen ? -1 : 0}
                 >
                   <div
                     className="cursor-pointer max-w-fit bg-black hover:bg-gray-500 transition duration-150 ease-in-out text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

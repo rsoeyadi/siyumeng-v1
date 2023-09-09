@@ -13,8 +13,6 @@ interface galleryPhotosProps {
 }
 export default function GalleryProvider({ galleryImages }: galleryPhotosProps) {
   const isOpen = useHamburgerStore((state) => state.isOpen);
-  const [width, height] = useWindowSize();
-  const isMediumScreenUp = width >= 1024;
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -57,7 +55,7 @@ export default function GalleryProvider({ galleryImages }: galleryPhotosProps) {
     <div>
       <div
         className={`mt-20 mx-auto flex justify-center ${
-          isOpen && !isMediumScreenUp ? "blur-sm" : ""
+          isOpen ? "blur-sm md:blur-0" : ""
         }`}
       >
         <div className={`w-full lg:w-10/12 pb-10`}>
