@@ -3,6 +3,7 @@ import { getGalleryImages } from "@/sanity/sanity-utils";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/styles.css";
 import CoverPhoto from "../components/CoverPhoto";
+import CoverPhotoTitle from "../components/CoverPhotoTitle";
 import GalleryProvider from "./GalleryProvider";
 
 export default async function Home() {
@@ -17,12 +18,7 @@ export default async function Home() {
         }}
       >
         <CoverPhoto coverPhoto={cover} objectPosition="60% center" />
-
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-          <div className="text-white text-4xl font-bold uppercase ease-in-out duration-500">
-            Gallery
-          </div>
-        </div>
+        <CoverPhotoTitle title="Gallery" />
       </div>
       <GalleryProvider galleryImages={data} />
 
