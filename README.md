@@ -2,7 +2,7 @@
 
 [Click here to view the website](https://www.siyumeng.com)
 
-This is a website for pianist Siyumeng Wang both designed and developed by me. This site is built with Next.js 13, which comes with a range of modern features and improvements:
+This is a website for pianist Siyumeng Wang both designed and developed by me. This site is built with Next.js 13, which comes with a range of modern features and improvements listed below.
 
 ## Features
 
