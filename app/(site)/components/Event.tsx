@@ -1,8 +1,7 @@
-import { getEvents } from "@/sanity/sanity-utils";
 import { Event } from "@/types/Event";
 import { PortableText } from "@portabletext/react";
+import { compareDesc, parseISO } from "date-fns";
 import Link from "next/link";
-import { compareDesc, parseISO, format } from "date-fns";
 import useHamburgerStore from "../store";
 
 interface eventProps {

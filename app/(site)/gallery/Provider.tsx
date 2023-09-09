@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import "yet-another-react-lightbox/styles.css";
-import "yet-another-react-lightbox/plugins/captions.css";
+import cover from "@/public/images/cover-gallery.jpg";
 import { getGalleryImages } from "@/sanity/sanity-utils";
+import "yet-another-react-lightbox/plugins/captions.css";
+import "yet-another-react-lightbox/styles.css";
 import CoverPhoto from "../components/CoverPhoto";
 import GalleryProvider from "./GalleryProvider";
-import cover from "@/public/images/cover-gallery.jpg";
 
 export default async function Home() {
   const data = await getGalleryImages();

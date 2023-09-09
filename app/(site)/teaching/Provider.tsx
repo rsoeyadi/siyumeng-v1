@@ -1,18 +1,14 @@
 "use client";
-import {
-  getCoverPhotos,
-  getJobs,
-  getTeachingPhilosophy,
-} from "@/sanity/sanity-utils";
+import cover from "@/public/images/cover-teaching.jpg";
+import { getJobs, getTeachingPhilosophy } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
+import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
-import Loading from "../loading";
-import Image from "next/image";
-import useHamburgerStore from "../store";
-import { useWindowSize } from "../components/Nav";
-import cover from "@/public/images/cover-teaching.jpg";
 import CoverPhoto from "../components/CoverPhoto";
+import { useWindowSize } from "../components/Nav";
+import Loading from "../loading";
+import useHamburgerStore from "../store";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);

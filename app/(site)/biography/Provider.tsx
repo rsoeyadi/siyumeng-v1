@@ -1,14 +1,14 @@
 "use client";
-import { getBiography, getCoverPhotos } from "@/sanity/sanity-utils";
-import { PortableText } from "@portabletext/react";
-import useSWR from "swr";
-import styles from "./page.module.css";
-import Loading from "../loading";
-import Image from "next/image";
-import useHamburgerStore from "../store";
-import { useWindowSize } from "../components/Nav";
 import cover from "@/public/images/cover-biography.jpg";
+import { getBiography } from "@/sanity/sanity-utils";
+import { PortableText } from "@portabletext/react";
+import Image from "next/image";
+import useSWR from "swr";
 import CoverPhoto from "../components/CoverPhoto";
+import { useWindowSize } from "../components/Nav";
+import Loading from "../loading";
+import useHamburgerStore from "../store";
+import styles from "./page.module.css";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("biography", getBiography);

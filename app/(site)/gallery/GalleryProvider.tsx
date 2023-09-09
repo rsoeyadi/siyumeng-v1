@@ -1,12 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Gallery from "react-photo-gallery";
 import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/captions.css";
-import useHamburgerStore from "../store";
+import "yet-another-react-lightbox/styles.css";
 import { useWindowSize } from "../components/Nav";
+import useHamburgerStore from "../store";
 
 interface galleryPhotosProps {
   galleryImages: { description: string; image: string }[];

@@ -1,7 +1,7 @@
 import Instagram from "@/public/svgs/instagram.svg";
 import Xiaohongshu from "@/public/svgs/xiaohongshu.svg";
-import Image from "next/image";
 import YouTube from "@/public/svgs/youtube.svg";
+import Image from "next/image";
 import Link from "next/link";
 import useHamburgerStore from "../store";
 export default function Footer() {

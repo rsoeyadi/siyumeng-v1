@@ -1,14 +1,10 @@
 "use client";
-import useSWR from "swr";
-import { ContactForm } from "../components/Form";
-import { getCoverPhotos } from "@/sanity/sanity-utils";
-import Loading from "../loading";
-import Image from "next/image"; // Import the Image component from Next.js
-import useHamburgerStore from "../store";
-import { useWindowSize } from "../components/Nav";
-import coverTop from "@/public/images/cover-contact-top.jpg";
 import coverBottom from "@/public/images/cover-contact-bottom.png";
+import coverTop from "@/public/images/cover-contact-top.jpg";
 import CoverPhoto from "../components/CoverPhoto";
+import { ContactForm } from "../components/Form";
+import { useWindowSize } from "../components/Nav";
+import useHamburgerStore from "../store";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);

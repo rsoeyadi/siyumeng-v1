@@ -1,13 +1,12 @@
 "use client";
+import cover from "@/public/images/cover-videos.png";
 import { getCoverPhotos, getVideos } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import useSWR from "swr";
-import Loading from "../loading";
-import Image from "next/image";
-import useHamburgerStore from "../store";
-import { useWindowSize } from "../components/Nav";
-import cover from "@/public/images/cover-videos.png";
 import CoverPhoto from "../components/CoverPhoto";
+import { useWindowSize } from "../components/Nav";
+import Loading from "../loading";
+import useHamburgerStore from "../store";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);

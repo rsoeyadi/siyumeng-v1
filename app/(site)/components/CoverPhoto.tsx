@@ -1,8 +1,7 @@
 "use client";
-import React from "react";
 import Image from "next/image";
-import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
+import useHamburgerStore from "../store";
 
 interface coverPhotoProps {
   coverPhoto: any;
