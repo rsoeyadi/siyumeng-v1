@@ -5,10 +5,12 @@ import useHamburgerStore from "../store";
 interface coverPhotoProps {
   coverPhoto: any;
   objectPosition: string;
+  brightnessClass?: string;
 }
 export default function CoverPhoto({
   coverPhoto,
   objectPosition,
+  brightnessClass,
 }: coverPhotoProps) {
   const isOpen = useHamburgerStore((state) => state.isOpen);
 
@@ -22,9 +24,9 @@ export default function CoverPhoto({
       placeholder="blur"
       blurDataURL={coverPhoto.blurDataURL}
       objectPosition={objectPosition}
-      className={`ease-in-out duration-500 ${
-        isOpen ? "blur-sm lg:blur-0" : ""
-      }`}
+      className={`${
+        brightnessClass ? brightnessClass : "brightness-50"
+      } ease-in-out duration-500 ${isOpen ? "blur-sm lg:blur-0" : ""}`}
     />
   );
 }

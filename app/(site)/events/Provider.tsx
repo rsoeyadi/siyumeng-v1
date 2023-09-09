@@ -16,7 +16,11 @@ export default async function Home() {
           clipPath: "polygon(0 0, 100% 0, 100% 97%, 0  90.5%)",
         }}
       >
-        <CoverPhoto coverPhoto={cover} objectPosition="top" />
+        <CoverPhoto
+          coverPhoto={cover}
+          objectPosition="top"
+          brightnessClass="brightness-50"
+        />
         <CoverPhotoTitle title="Performances" />
       </div>
       <EventsProvider data={data} />
