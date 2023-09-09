@@ -17,7 +17,7 @@ export default function Provider({ children }: { children: React.ReactNode }) {
     <>
       <p
         onClick={handleCloseMenu}
-        className="absolute top-0 left-0 text-[1.5em] xl:text-4xl pt-5 pl-3 font-bold lg:ml-5 lg:mt-4 text-white ease-in-out duration-300 hover:scale-105 z-[10000] uppercase"
+        className="absolute top-0 left-0 text-[1.5em] xl:text-4xl pt-5 pl-3 font-bold lg:ml-5 lg:mt-4 text-white ease-in-out duration-300 hover:scale-105 z-[100] uppercase"
       >
         <Link href="/">Siyumeng Wang</Link>
       </p>
