@@ -18,3 +18,4 @@ This is a website for pianist Siyumeng Wang both designed and developed by me. T
 
 - **Improved next/link:** Simplified API with automatic `<a>` tags.
 
+Additionally, the website is hooked up to Sanity.io, which allows for seamless content updates via an admin dashboard (no code!). The website was designed with a mobile-first approach and modern SEO practices.
