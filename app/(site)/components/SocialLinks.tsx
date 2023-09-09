@@ -4,7 +4,6 @@ import YouTube from "@/public/svgs/youtube.svg";
 import Image from "next/image";
 import Link from "next/link";
 import useHamburgerStore from "../store";
-import { useWindowSize } from "./Nav";
 
 export default function SocialLinks() {
   const isOpen = useHamburgerStore((state) => state.isOpen);

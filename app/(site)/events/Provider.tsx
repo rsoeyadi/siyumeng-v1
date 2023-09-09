@@ -6,14 +6,12 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { useState } from "react";
 import useSWR from "swr";
 import CoverPhoto from "../components/CoverPhoto";
-import { useWindowSize } from "../components/Nav";
 import Loading from "../loading";
 import useHamburgerStore from "../store";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
-  const [width, height] = useWindowSize();
-  const isMediumScreenUp = width >= 1024;
+
   const itemsToShowIncrement = 5;
   const [itemsToShow, setItemsToShow] = useState(itemsToShowIncrement);
   const { data: events, error, isLoading } = useSWR("events", getEvents);
@@ -51,7 +49,7 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
           <div
             className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
-              isOpen && !isMediumScreenUp ? "blur-sm" : ""
+              isOpen ? "blur-sm md:blur-0" : ""
             }`}
           >
             Performances
@@ -69,7 +67,7 @@ export default function Home() {
           <button
             className="cursor-pointer bg-black hover:bg-gray-500 transition duration-150 ease-in-out text-white font-bold py-2 px-5 rounded focus:outline-none focus:ring focus:ring-blue-300"
             onClick={showMore}
-            tabIndex={isOpen && !isMediumScreenUp ? -1 : 0}
+            tabIndex={isOpen ? -1 : 0}
           >
             Show more
           </button>

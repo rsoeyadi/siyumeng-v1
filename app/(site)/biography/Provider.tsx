@@ -5,7 +5,6 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import useSWR from "swr";
 import CoverPhoto from "../components/CoverPhoto";
-import { useWindowSize } from "../components/Nav";
 import Loading from "../loading";
 import useHamburgerStore from "../store";
 import styles from "./page.module.css";

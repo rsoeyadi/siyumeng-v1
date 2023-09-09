@@ -3,13 +3,10 @@ import coverBottom from "@/public/images/cover-contact-bottom.png";
 import coverTop from "@/public/images/cover-contact-top.jpg";
 import CoverPhoto from "../components/CoverPhoto";
 import { ContactForm } from "../components/Form";
-import { useWindowSize } from "../components/Nav";
 import useHamburgerStore from "../store";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
-  const [width, height] = useWindowSize();
-  const isMediumScreenUp = width >= 1024;
 
   return (
     <>
@@ -26,7 +23,7 @@ export default function Home() {
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
             <div
               className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
-                isOpen && !isMediumScreenUp ? "blur-sm" : ""
+                isOpen ? "blur-sm md:blur-0" : ""
               }`}
             >
               Contact
@@ -37,7 +34,7 @@ export default function Home() {
       <div className="pt-10 pb-20">
         <p
           className={`text-4xl px-5 mx-2 lg:mx-auto lg:max-w-6xl ${
-            isOpen && !isMediumScreenUp ? "blur-sm" : ""
+            isOpen ? "blur-sm md:blur-0" : ""
           }`}
         >
           Contact Form
