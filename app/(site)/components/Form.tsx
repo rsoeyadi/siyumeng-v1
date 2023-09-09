@@ -18,7 +18,7 @@ export function ContactForm() {
     <div>
       <form
         className={`bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded px-5 pt-6 pb-8 my-5 mx-2 lg:mx-auto lg:max-w-6xl ${
-          isOpen ? "blur-sm md:blur-0" : ""
+          isOpen ? "blur-sm lg:blur-0" : ""
         }`}
         onSubmit={handleSubmit}
       >

@@ -23,7 +23,7 @@ export default function Home() {
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
             <div
               className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
-                isOpen ? "blur-sm md:blur-0" : ""
+                isOpen ? "blur-sm lg:blur-0" : ""
               }`}
             >
               Contact
@@ -34,7 +34,7 @@ export default function Home() {
       <div className="pt-10 pb-20">
         <p
           className={`text-4xl px-5 mx-2 lg:mx-auto lg:max-w-6xl ${
-            isOpen ? "blur-sm md:blur-0" : ""
+            isOpen ? "blur-sm lg:blur-0" : ""
           }`}
         >
           Contact Form

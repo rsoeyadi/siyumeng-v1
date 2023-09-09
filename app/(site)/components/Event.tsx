@@ -9,12 +9,11 @@ interface eventProps {
 }
 
 export function Event({ sortedEvent }: eventProps) {
- 
   const isOpen = useHamburgerStore((state) => state.isOpen);
   return (
     <div
       tabIndex={isOpen ? -1 : 0}
-      className={`${isOpen ? "blur-sm md:blur-0" : ""}
+      className={`${isOpen ? "blur-sm lg:blur-0" : ""}
 `}
     >
       <hr className="hidden lg:block lg:max-w-3xl lg:mx-auto lg:my-9 h-px my-4 bg-gray-400 border-0" />

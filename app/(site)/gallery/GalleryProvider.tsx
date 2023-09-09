@@ -5,7 +5,6 @@ import Lightbox from "yet-another-react-lightbox";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/styles.css";
-import { useWindowSize } from "../components/Nav";
 import useHamburgerStore from "../store";
 
 interface galleryPhotosProps {
@@ -55,7 +54,7 @@ export default function GalleryProvider({ galleryImages }: galleryPhotosProps) {
     <div>
       <div
         className={`mt-20 mx-auto flex justify-center ${
-          isOpen ? "blur-sm md:blur-0" : ""
+          isOpen ? "blur-sm lg:blur-0" : ""
         }`}
       >
         <div className={`w-full lg:w-10/12 pb-10`}>

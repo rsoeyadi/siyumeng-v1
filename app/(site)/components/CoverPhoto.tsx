@@ -22,7 +22,9 @@ export default function CoverPhoto({
       placeholder="blur"
       blurDataURL={coverPhoto.blurDataURL}
       objectPosition={objectPosition}
-      className={`ease-in-out duration-500 ${isOpen ? "blur-sm md:blur-0" : ""}`}
+      className={`ease-in-out duration-500 ${
+        isOpen ? "blur-sm lg:blur-0" : ""
+      }`}
     />
   );
 }
