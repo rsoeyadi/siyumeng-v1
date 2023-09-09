@@ -1,70 +1,13 @@
-"use client";
 import React, { useState } from "react";
-import Gallery from "react-photo-gallery";
-import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/plugins/captions.css";
-import Image from "next/image"; //
-import { getCoverPhotos, getGalleryImages } from "@/sanity/sanity-utils";
-import useSWR from "swr";
-import Loading from "../loading";
-import useHamburgerStore from "../store";
-import { useWindowSize } from "../components/Nav";
+import { getGalleryImages } from "@/sanity/sanity-utils";
+import CoverPhoto from "../components/CoverPhoto";
+import GalleryProvider from "./GalleryProvider";
 import cover from "@/public/images/cover-gallery.jpg";
 
-export default function Home() {
-  const { data, error, isLoading } = useSWR("gallery", getGalleryImages);
-  const isOpen = useHamburgerStore((state) => state.isOpen);
-  const [width, height] = useWindowSize();
-  const isMediumScreenUp = width >= 1024;
-
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const openLightbox = (index: number) => {
-    setCurrentSlide(index);
-    setLightboxOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-    setCurrentSlide(0);
-  };
-
-  const {
-    data: coverPhotos,
-    error: coverPhotosError,
-    isLoading: coverPhotosIsLoading,
-  } = useSWR("coverPhotos", getCoverPhotos);
-  if (error || coverPhotosError)
-    return <div className="text-red-500">failed to load</div>;
-  if (isLoading || coverPhotosIsLoading) return <Loading />;
-
-  const galleryPhotos = data?.map((item) => {
-    const url = item.image;
-    const dimensionsMatch = url.match(/-(\d+)x(\d+)\./);
-    if (dimensionsMatch) {
-      const width = parseInt(dimensionsMatch[1]);
-      const height = parseInt(dimensionsMatch[2]);
-      return {
-        src: url,
-        width: width,
-        height: height,
-        description: item.description,
-        class: "hover:brightness-125 transition ease-in-out duration-150",
-      };
-    }
-    return { src: url, width: 4, height: 3 };
-  });
-
-  const lightboxPhotos = galleryPhotos?.map((photo) => ({
-    src: photo.src,
-    width: photo.width,
-    height: photo.height,
-    description: photo.description,
-  }));
-
+export default async function Home() {
+  const data = await getGalleryImages();
   return (
     <div className="relative">
       <div
@@ -74,54 +17,15 @@ export default function Home() {
           clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 95.5%)",
         }}
       >
-        <Image
-          // src={coverPhotos?.galleryImage as any}
-          src={cover}
-          layout="fill"
-          objectFit="cover"
-          priority={true}
-          alt="Photo of Siyumeng Wang at the piano in China"
-          placeholder="blur"
-          objectPosition="60% center"
-          className={`ease-in-out duration-500 ${
-            isOpen && !isMediumScreenUp ? "blur-sm" : ""
-          }`}
-        />
+        <CoverPhoto coverPhoto={cover} objectPosition="60% center" />
 
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-          <div
-            className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${
-              isOpen && !isMediumScreenUp ? "blur-sm" : ""
-            }`}
-          >
+          <div className="text-white text-4xl font-bold uppercase ease-in-out duration-500">
             Gallery
           </div>
         </div>
       </div>
-      <div
-        className={`mt-20 mx-auto flex justify-center ${
-          isOpen && !isMediumScreenUp ? "blur-sm" : ""
-        }`}
-      >
-        <div className={` w-full lg:w-10/12 pb-10`}>
-          <Gallery
-            photos={galleryPhotos as any}
-            onClick={(e, obj) => openLightbox(obj.index)}
-          />
-        </div>
-      </div>
-      <Lightbox
-        open={lightboxOpen}
-        close={closeLightbox}
-        index={currentSlide}
-        slides={lightboxPhotos}
-        plugins={[Captions]}
-        controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
-        captions={{
-          descriptionTextAlign: "center",
-          descriptionMaxLines: 3,
-        }}
-      />
+      <GalleryProvider galleryImages={data} />
 
       <div
         className="-z-10 h-[60vh] md:h-[50vh] absolute bottom-0 left-0 bg-black"

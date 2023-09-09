@@ -1,15 +1,14 @@
 "use client";
-"use client";
 import { getCoverPhotos, getEvents } from "@/sanity/sanity-utils";
 import useSWR from "swr";
 import { compareDesc, parseISO, format } from "date-fns";
 import { Event as Performance } from "@/app/(site)/components/Event";
 import Loading from "../loading";
 import { useState } from "react";
-import Image from "next/image";
 import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
 import cover from "@/public/images/cover-events.jpg";
+import CoverPhoto from "../components/CoverPhoto";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
@@ -18,14 +17,8 @@ export default function Home() {
   const itemsToShowIncrement = 5;
   const [itemsToShow, setItemsToShow] = useState(itemsToShowIncrement);
   const { data: events, error, isLoading } = useSWR("events", getEvents);
-  const {
-    data: coverPhotos,
-    error: coverPhotosError,
-    isLoading: coverPhotosIsLoading,
-  } = useSWR("coverPhotos", getCoverPhotos);
-  if (error || coverPhotosError)
-    return <div className="text-red-500">failed to load</div>;
-  if (isLoading || coverPhotosIsLoading) return <Loading />;
+  if (error) return <div className="text-red-500">failed to load</div>;
+  if (isLoading) return <Loading />;
   const sortedEvents = events
     ? events
         .slice()
@@ -54,19 +47,7 @@ export default function Home() {
           clipPath: "polygon(0 0, 100% 0, 100% 97%, 0  90.5%)",
         }}
       >
-        <Image
-          // src={coverPhotos?.eventsImage as any}
-          src={cover}
-          layout="fill"
-          objectFit="cover"
-          priority={true}
-          objectPosition="top"
-          alt="Siyumeng Wang's Headshot"
-          placeholder="blur"
-          className={`ease-in-out duration-500 ${
-            isOpen && !isMediumScreenUp ? "blur-sm" : ""
-          }`}
-        />
+        <CoverPhoto coverPhoto={cover} objectPosition="top" />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
           <div
             className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${

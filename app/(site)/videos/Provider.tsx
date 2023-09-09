@@ -7,6 +7,7 @@ import Image from "next/image";
 import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
 import cover from "@/public/images/cover-videos.png";
+import CoverPhoto from "../components/CoverPhoto";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
@@ -36,19 +37,7 @@ export default function Home() {
         {isLoading || coverPhotosIsLoading ? (
           <Loading />
         ) : (
-          <Image
-            // src={coverPhotos?.videosImage as any}
-            src={cover}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center right"
-            priority={true}
-            alt="Videos Background"
-            placeholder="blur"
-            className={`ease-in-out duration-500 ${
-              isOpen && !isMediumScreenUp ? "blur-sm" : ""
-            }`}
-          />
+          <CoverPhoto coverPhoto={cover} objectPosition="center right" />
         )}
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 lg:bg-opacity-50">
           <div

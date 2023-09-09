@@ -7,28 +7,21 @@ import Loading from "../loading";
 import Image from "next/image";
 import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
-import cover from "@/public/images/cover-biography.jpg"
+import cover from "@/public/images/cover-biography.jpg";
+import CoverPhoto from "../components/CoverPhoto";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("biography", getBiography);
   const [width, height] = useWindowSize();
   const isMediumScreenUp = width >= 1024;
   const isOpen = useHamburgerStore((state) => state.isOpen);
- 
-  const {
-    data: coverPhotos,
-    error: coverPhotosError,
-    isLoading: coverPhotosIsLoading,
-  } = useSWR("coverPhotos", getCoverPhotos);
 
-  if (error || coverPhotosError)
-    return <div className="text-red-500">failed to load</div>;
-  if (coverPhotosIsLoading) return <Loading />; // Use your custom loading component here
+  if (error) return <div className="text-red-500">failed to load</div>;
 
   return (
     <div className="pb-10">
       <div>
-        {isLoading || coverPhotosIsLoading ? (
+        {isLoading ? (
           <Loading />
         ) : (
           <div
@@ -37,19 +30,7 @@ export default function Home() {
               clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 93.5%)",
             }}
           >
-            <Image
-              // src={coverPhotos?.biographyImage as any}
-              src={cover}
-              placeholder="blur"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="90% 0%"
-              priority={true}
-              alt="Biography Background"
-              className={`ease-in-out duration-500 ${
-                isOpen && !isMediumScreenUp ? "blur-sm" : ""
-              }`}
-            />
+            <CoverPhoto coverPhoto={cover} objectPosition="90% 0%" />
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
               <div
                 className={`text-white text-4xl font-bold uppercase ease-in-out duration-500 ${

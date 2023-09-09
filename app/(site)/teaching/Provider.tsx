@@ -12,6 +12,7 @@ import Image from "next/image";
 import useHamburgerStore from "../store";
 import { useWindowSize } from "../components/Nav";
 import cover from "@/public/images/cover-teaching.jpg";
+import CoverPhoto from "../components/CoverPhoto";
 
 export default function Home() {
   const isOpen = useHamburgerStore((state) => state.isOpen);
@@ -24,16 +25,9 @@ export default function Home() {
     isLoading: teachingPhilosophyIsLoading,
   } = useSWR("teachingPhilosophy", getTeachingPhilosophy);
 
-  const {
-    data: coverPhotos,
-    error: coverPhotosError,
-    isLoading: coverPhotosIsLoading,
-  } = useSWR("coverPhotos", getCoverPhotos);
-
-  if (error || teachingPhilosophyError || coverPhotosError)
+  if (error || teachingPhilosophyError)
     return <div className="text-red-500">failed to load</div>;
-  if (isLoading || teachingPhilosophyIsLoading || coverPhotosIsLoading)
-    return <Loading />;
+  if (isLoading || teachingPhilosophyIsLoading) return <Loading />;
 
   return (
     <div className="relative">
@@ -44,19 +38,7 @@ export default function Home() {
           clipPath: "polygon(0 0, 100% 0, 100% 97%, 0 100%)",
         }}
       >
-        <Image
-          // src={coverPhotos?.teachingImage as any}
-          src={cover}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="18%"
-          priority={true}
-          alt="Musart Group Photo at Carnegie Hall"
-          placeholder="blur"
-          className={`ease-in-out duration-500 ${
-            isOpen && !isMediumScreenUp ? "blur-sm" : ""
-          }`}
-        />
+        <CoverPhoto coverPhoto={cover} objectPosition="18%" />
 
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
           <div
