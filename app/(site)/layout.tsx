@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Provider from "./Provider";
+import { Nunito } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Siyumeng Wang | Pianist",
   description: "Siyumeng Wang's Website",
   generator: "Next.js",
   applicationName: "Siyumeng Wang | Pianist",
-  referrer: "origin-when-cross-origin", 
+  referrer: "origin-when-cross-origin",
   category: "music",
   keywords: [
     "Siyumeng Wang",
@@ -70,6 +71,11 @@ export const metadata: Metadata = {
   },
 };
 
+const nunito = Nunito({
+  subsets: ["cyrillic"],
+  weight: ["400", "500", "600", "700"], // Add "bold" to the array
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -77,7 +83,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${nunito.className} mx-auto my-0 overscroll-none`}>
         <Provider>{children}</Provider>
       </body>
     </html>
