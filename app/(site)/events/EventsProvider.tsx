@@ -2,6 +2,7 @@
 import { Event as Performance } from "@/app/(site)/components/Event";
 import { compareDesc, format, parseISO } from "date-fns";
 import { useState } from "react";
+import AnimatedDiv from "../components/AnimatedDiv";
 import useHamburgerStore from "../store";
 
 interface eventsProviderProps {
@@ -40,10 +41,9 @@ export default function EventsProvider({ data }: eventsProviderProps) {
   return (
     <div>
       {sortedEvents?.slice(0, itemsToShow).map((sortedEvent: any) => (
-        <Performance
-          sortedEvent={sortedEvent}
-          key={sortedEvent.name + sortedEvent.date}
-        />
+        <AnimatedDiv key={sortedEvent.name + sortedEvent.date}>
+          <Performance sortedEvent={sortedEvent} />
+        </AnimatedDiv>
       ))}
       {itemsToShow < sortedEvents.length && (
         <div className="text-center mt-5">

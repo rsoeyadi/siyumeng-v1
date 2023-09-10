@@ -1,6 +1,7 @@
 "use client";
 import coverBottom from "@/public/images/cover-contact-bottom.png";
 import coverTop from "@/public/images/cover-contact-top.jpg";
+import AnimatedDiv from "../components/AnimatedDiv";
 import CoverPhoto from "../components/CoverPhoto";
 import { ContactForm } from "../components/Form";
 import useHamburgerStore from "../store";
@@ -32,14 +33,18 @@ export default function Home() {
         </div>
       </div>
       <div className="pt-10 pb-20">
-        <p
-          className={`text-4xl px-5 mx-2 lg:mx-auto lg:max-w-6xl ${
-            isOpen ? "blur-sm lg:blur-0" : ""
-          }`}
-        >
-          Contact Form
-        </p>
-        <ContactForm />
+        <AnimatedDiv>
+          <p
+            className={`text-4xl px-5 mx-2 lg:mx-auto lg:max-w-6xl ${
+              isOpen ? "blur-sm lg:blur-0" : ""
+            }`}
+          >
+            Contact Form
+          </p>
+        </AnimatedDiv>
+        <AnimatedDiv>
+          <ContactForm />
+        </AnimatedDiv>
       </div>
       <div>
         <div

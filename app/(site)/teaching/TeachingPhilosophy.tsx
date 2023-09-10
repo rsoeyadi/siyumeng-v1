@@ -1,5 +1,6 @@
 "use client";
 import { PortableText } from "@portabletext/react";
+import AnimatedDiv from "../components/AnimatedDiv";
 import useHamburgerStore from "../store";
 
 interface teachingPhilosophyProps {
@@ -17,14 +18,18 @@ export default function TeachingPhilosophy({
         isOpen ? "blur-sm lg:blur-0" : ""
       }`}
     >
-      <h2 className="text-left lg:text-center text-2xl font-bold mb-3">
-        Teaching Philosophy
-      </h2>
-      <div className="text-left lg:text-center text-base font-light leading-relaxed text-inherit antialiased">
-        <PortableText
-          value={teachingPhilosophy?.description as unknown as any}
-        />
-      </div>
+      <AnimatedDiv>
+        <h2 className="text-left lg:text-center text-2xl font-bold mb-3">
+          Teaching Philosophy
+        </h2>
+      </AnimatedDiv>
+      <AnimatedDiv>
+        <div className="text-left lg:text-center text-base font-light leading-relaxed text-inherit antialiased">
+          <PortableText
+            value={teachingPhilosophy?.description as unknown as any}
+          />
+        </div>
+      </AnimatedDiv>
     </div>
   );
 }
