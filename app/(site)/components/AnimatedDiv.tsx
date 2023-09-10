@@ -4,8 +4,8 @@ import { InView } from "react-intersection-observer";
 
 function AnimatedDiv({ children }: any) {
   const animation = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   };
 
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -29,7 +29,7 @@ function AnimatedDiv({ children }: any) {
           initial={{ opacity: hasScrolled ? 0 : 1, y: hasScrolled ? 20 : 0 }}
           animate={inView ? "visible" : "hidden"}
           variants={animation}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: 0.6 }}
           style={{
             visibility: hasScrolled || inView ? "visible" : "hidden",
           }}
